@@ -1,0 +1,25 @@
+{
+    "name": "upmind/domain-name-api-sdk",
+    "description": "Package generated from http://api.domainnameapi.com/domainapi.svc?singlewsdl using wsdltophp/packagegenerator",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Upmind\\DomainNameApiSdk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Harry Lewis",
+            "email": "harry@upmind.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "ext-soap": "*",
+        "ext-xml": "*"
+    },
+    "require-dev": {
+        "wsdltophp/packagegenerator": "^4.1"
+    }
+}
