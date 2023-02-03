@@ -15,8 +15,8 @@ class ClientFactory
     public const ENV_LIVE = 'live';
     public const ENV_TEST = 'test';
 
-    public const LIVE_WSDL_URL = 'http://api.domainnameapi.com/DomainApi.svc?singleWsdl';
-    public const TEST_WSDL_URL = 'http://api-ote.domainnameapi.com/DomainApi.svc?singleWsdl';
+    public const LIVE_WSDL_URL = 'http://api.domainnameapi.com/DomainApi.svc?wsdl';
+    public const TEST_WSDL_URL = 'http://api-ote.domainnameapi.com/DomainApi.svc?wsdl';
 
     public function create(
         string $username,

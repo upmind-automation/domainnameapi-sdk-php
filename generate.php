@@ -17,7 +17,7 @@ use WsdlToPhp\PackageGenerator\Generator\Generator;
 $options = GeneratorOptions::instance(/* '/path/file.yml' */);
 /** @var GeneratorOptions $options */
 $options
-    ->setOrigin('http://api.domainnameapi.com/DomainApi.svc?singleWsdl')
+    ->setOrigin('http://api.domainnameapi.com/DomainApi.svc?wsdl')
     ->setDestination('./')
     ->setSrcDirname('SDK')
     ->setNamespace('Upmind\\DomainNameApiSdk\\SDK')
