@@ -24,7 +24,8 @@ $options
     ->setNamespaceDictatesDirectories(false)
     ->setGatherMethods(GeneratorOptions::VALUE_NONE)
     ->setServicesFolder('')
-    ->setStandalone(false);
+    ->setStandalone(false)
+    ->setGenerateTutorialFile(false);
 
 // Generator instantiation
 $generator = new Generator($options);
