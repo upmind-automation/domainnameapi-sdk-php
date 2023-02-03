@@ -17,14 +17,6 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
 class RejectTransferResponse extends BaseMethodResponse
 {
     /**
-     * The RejectTransferResult
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse|null
-     */
-    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse $RejectTransferResult = null;
-    /**
      * The CreatedDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -56,54 +48,34 @@ class RejectTransferResponse extends BaseMethodResponse
      */
     protected ?string $TransferStatus = null;
     /**
+     * The RejectTransferResult
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse|null
+     */
+    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse $RejectTransferResult = null;
+    /**
      * Constructor method for RejectTransferResponse
-     * @uses RejectTransferResponse::setRejectTransferResult()
      * @uses RejectTransferResponse::setCreatedDate()
      * @uses RejectTransferResponse::setDomainName()
      * @uses RejectTransferResponse::setTransferLog()
      * @uses RejectTransferResponse::setTransferStatus()
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse $rejectTransferResult
+     * @uses RejectTransferResponse::setRejectTransferResult()
      * @param string $createdDate
      * @param string $domainName
      * @param string $transferLog
      * @param string $transferStatus
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse $rejectTransferResult
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse $rejectTransferResult = null, ?string $createdDate = null, ?string $domainName = null, ?string $transferLog = null, ?string $transferStatus = null)
+    public function __construct(?string $createdDate = null, ?string $domainName = null, ?string $transferLog = null, ?string $transferStatus = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse $rejectTransferResult = null)
     {
         $this
-            ->setRejectTransferResult($rejectTransferResult)
             ->setCreatedDate($createdDate)
             ->setDomainName($domainName)
             ->setTransferLog($transferLog)
-            ->setTransferStatus($transferStatus);
-    }
-    /**
-     * Get RejectTransferResult value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse|null
-     */
-    public function getRejectTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse
-    {
-        return isset($this->RejectTransferResult) ? $this->RejectTransferResult : null;
-    }
-    /**
-     * Set RejectTransferResult value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse $rejectTransferResult
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse
-     */
-    public function setRejectTransferResult(?\Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse $rejectTransferResult = null): self
-    {
-        if (is_null($rejectTransferResult) || (is_array($rejectTransferResult) && empty($rejectTransferResult))) {
-            unset($this->RejectTransferResult);
-        } else {
-            $this->RejectTransferResult = $rejectTransferResult;
-        }
-        
-        return $this;
+            ->setTransferStatus($transferStatus)
+            ->setRejectTransferResult($rejectTransferResult);
     }
     /**
      * Get CreatedDate value
@@ -220,6 +192,34 @@ class RejectTransferResponse extends BaseMethodResponse
             unset($this->TransferStatus);
         } else {
             $this->TransferStatus = $transferStatus;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get RejectTransferResult value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse|null
+     */
+    public function getRejectTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse
+    {
+        return isset($this->RejectTransferResult) ? $this->RejectTransferResult : null;
+    }
+    /**
+     * Set RejectTransferResult value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse $rejectTransferResult
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse
+     */
+    public function setRejectTransferResult(?\Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse $rejectTransferResult = null): self
+    {
+        if (is_null($rejectTransferResult) || (is_array($rejectTransferResult) && empty($rejectTransferResult))) {
+            unset($this->RejectTransferResult);
+        } else {
+            $this->RejectTransferResult = $rejectTransferResult;
         }
         
         return $this;

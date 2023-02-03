@@ -17,14 +17,6 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
 class DENIC_CreateAuthInfo1Response extends BaseMethodResponse
 {
     /**
-     * The DENIC_CreateAuthInfo1Result
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response|null
-     */
-    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response $DENIC_CreateAuthInfo1Result = null;
-    /**
      * The AuthCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -48,51 +40,31 @@ class DENIC_CreateAuthInfo1Response extends BaseMethodResponse
      */
     protected ?string $DomainStatus = null;
     /**
+     * The DENIC_CreateAuthInfo1Result
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response|null
+     */
+    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response $DENIC_CreateAuthInfo1Result = null;
+    /**
      * Constructor method for DENIC_CreateAuthInfo1Response
-     * @uses DENIC_CreateAuthInfo1Response::setDENIC_CreateAuthInfo1Result()
      * @uses DENIC_CreateAuthInfo1Response::setAuthCode()
      * @uses DENIC_CreateAuthInfo1Response::setAuthInfo1ExpirationDate()
      * @uses DENIC_CreateAuthInfo1Response::setDomainStatus()
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response $dENIC_CreateAuthInfo1Result
+     * @uses DENIC_CreateAuthInfo1Response::setDENIC_CreateAuthInfo1Result()
      * @param string $authCode
      * @param string $authInfo1ExpirationDate
      * @param string $domainStatus
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response $dENIC_CreateAuthInfo1Result
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response $dENIC_CreateAuthInfo1Result = null, ?string $authCode = null, ?string $authInfo1ExpirationDate = null, ?string $domainStatus = null)
+    public function __construct(?string $authCode = null, ?string $authInfo1ExpirationDate = null, ?string $domainStatus = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response $dENIC_CreateAuthInfo1Result = null)
     {
         $this
-            ->setDENIC_CreateAuthInfo1Result($dENIC_CreateAuthInfo1Result)
             ->setAuthCode($authCode)
             ->setAuthInfo1ExpirationDate($authInfo1ExpirationDate)
-            ->setDomainStatus($domainStatus);
-    }
-    /**
-     * Get DENIC_CreateAuthInfo1Result value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response|null
-     */
-    public function getDENIC_CreateAuthInfo1Result(): ?\Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response
-    {
-        return isset($this->DENIC_CreateAuthInfo1Result) ? $this->DENIC_CreateAuthInfo1Result : null;
-    }
-    /**
-     * Set DENIC_CreateAuthInfo1Result value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response $dENIC_CreateAuthInfo1Result
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response
-     */
-    public function setDENIC_CreateAuthInfo1Result(?\Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response $dENIC_CreateAuthInfo1Result = null): self
-    {
-        if (is_null($dENIC_CreateAuthInfo1Result) || (is_array($dENIC_CreateAuthInfo1Result) && empty($dENIC_CreateAuthInfo1Result))) {
-            unset($this->DENIC_CreateAuthInfo1Result);
-        } else {
-            $this->DENIC_CreateAuthInfo1Result = $dENIC_CreateAuthInfo1Result;
-        }
-        
-        return $this;
+            ->setDomainStatus($domainStatus)
+            ->setDENIC_CreateAuthInfo1Result($dENIC_CreateAuthInfo1Result);
     }
     /**
      * Get AuthCode value
@@ -177,6 +149,34 @@ class DENIC_CreateAuthInfo1Response extends BaseMethodResponse
             unset($this->DomainStatus);
         } else {
             $this->DomainStatus = $domainStatus;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get DENIC_CreateAuthInfo1Result value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response|null
+     */
+    public function getDENIC_CreateAuthInfo1Result(): ?\Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response
+    {
+        return isset($this->DENIC_CreateAuthInfo1Result) ? $this->DENIC_CreateAuthInfo1Result : null;
+    }
+    /**
+     * Set DENIC_CreateAuthInfo1Result value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response $dENIC_CreateAuthInfo1Result
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response
+     */
+    public function setDENIC_CreateAuthInfo1Result(?\Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Response $dENIC_CreateAuthInfo1Result = null): self
+    {
+        if (is_null($dENIC_CreateAuthInfo1Result) || (is_array($dENIC_CreateAuthInfo1Result) && empty($dENIC_CreateAuthInfo1Result))) {
+            unset($this->DENIC_CreateAuthInfo1Result);
+        } else {
+            $this->DENIC_CreateAuthInfo1Result = $dENIC_CreateAuthInfo1Result;
         }
         
         return $this;

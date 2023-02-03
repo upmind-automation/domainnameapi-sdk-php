@@ -17,14 +17,6 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
 class GetContactsResponse extends BaseMethodResponse
 {
     /**
-     * The GetContactsResult
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse|null
-     */
-    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse $GetContactsResult = null;
-    /**
      * The AdministrativeContact
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -57,54 +49,34 @@ class GetContactsResponse extends BaseMethodResponse
      */
     protected ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $TechnicalContact = null;
     /**
+     * The GetContactsResult
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse|null
+     */
+    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse $GetContactsResult = null;
+    /**
      * Constructor method for GetContactsResponse
-     * @uses GetContactsResponse::setGetContactsResult()
      * @uses GetContactsResponse::setAdministrativeContact()
      * @uses GetContactsResponse::setBillingContact()
      * @uses GetContactsResponse::setRegistrantContact()
      * @uses GetContactsResponse::setTechnicalContact()
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse $getContactsResult
+     * @uses GetContactsResponse::setGetContactsResult()
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $administrativeContact
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $billingContact
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $registrantContact
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $technicalContact
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse $getContactsResult
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse $getContactsResult = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $administrativeContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $billingContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $registrantContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $technicalContact = null)
+    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $administrativeContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $billingContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $registrantContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $technicalContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse $getContactsResult = null)
     {
         $this
-            ->setGetContactsResult($getContactsResult)
             ->setAdministrativeContact($administrativeContact)
             ->setBillingContact($billingContact)
             ->setRegistrantContact($registrantContact)
-            ->setTechnicalContact($technicalContact);
-    }
-    /**
-     * Get GetContactsResult value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse|null
-     */
-    public function getGetContactsResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse
-    {
-        return isset($this->GetContactsResult) ? $this->GetContactsResult : null;
-    }
-    /**
-     * Set GetContactsResult value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse $getContactsResult
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse
-     */
-    public function setGetContactsResult(?\Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse $getContactsResult = null): self
-    {
-        if (is_null($getContactsResult) || (is_array($getContactsResult) && empty($getContactsResult))) {
-            unset($this->GetContactsResult);
-        } else {
-            $this->GetContactsResult = $getContactsResult;
-        }
-        
-        return $this;
+            ->setTechnicalContact($technicalContact)
+            ->setGetContactsResult($getContactsResult);
     }
     /**
      * Get AdministrativeContact value
@@ -214,6 +186,34 @@ class GetContactsResponse extends BaseMethodResponse
             unset($this->TechnicalContact);
         } else {
             $this->TechnicalContact = $technicalContact;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get GetContactsResult value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse|null
+     */
+    public function getGetContactsResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse
+    {
+        return isset($this->GetContactsResult) ? $this->GetContactsResult : null;
+    }
+    /**
+     * Set GetContactsResult value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse $getContactsResult
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse
+     */
+    public function setGetContactsResult(?\Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse $getContactsResult = null): self
+    {
+        if (is_null($getContactsResult) || (is_array($getContactsResult) && empty($getContactsResult))) {
+            unset($this->GetContactsResult);
+        } else {
+            $this->GetContactsResult = $getContactsResult;
         }
         
         return $this;

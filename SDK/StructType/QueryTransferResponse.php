@@ -17,14 +17,6 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
 class QueryTransferResponse extends BaseMethodResponse
 {
     /**
-     * The QueryTransferResult
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse|null
-     */
-    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse $QueryTransferResult = null;
-    /**
      * The CreatedDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -63,57 +55,37 @@ class QueryTransferResponse extends BaseMethodResponse
      */
     protected ?string $TransferStatus = null;
     /**
+     * The QueryTransferResult
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse|null
+     */
+    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse $QueryTransferResult = null;
+    /**
      * Constructor method for QueryTransferResponse
-     * @uses QueryTransferResponse::setQueryTransferResult()
      * @uses QueryTransferResponse::setCreatedDate()
      * @uses QueryTransferResponse::setDomainName()
      * @uses QueryTransferResponse::setExpirationDate()
      * @uses QueryTransferResponse::setTransferLog()
      * @uses QueryTransferResponse::setTransferStatus()
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse $queryTransferResult
+     * @uses QueryTransferResponse::setQueryTransferResult()
      * @param string $createdDate
      * @param string $domainName
      * @param string $expirationDate
      * @param string $transferLog
      * @param string $transferStatus
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse $queryTransferResult
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse $queryTransferResult = null, ?string $createdDate = null, ?string $domainName = null, ?string $expirationDate = null, ?string $transferLog = null, ?string $transferStatus = null)
+    public function __construct(?string $createdDate = null, ?string $domainName = null, ?string $expirationDate = null, ?string $transferLog = null, ?string $transferStatus = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse $queryTransferResult = null)
     {
         $this
-            ->setQueryTransferResult($queryTransferResult)
             ->setCreatedDate($createdDate)
             ->setDomainName($domainName)
             ->setExpirationDate($expirationDate)
             ->setTransferLog($transferLog)
-            ->setTransferStatus($transferStatus);
-    }
-    /**
-     * Get QueryTransferResult value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse|null
-     */
-    public function getQueryTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse
-    {
-        return isset($this->QueryTransferResult) ? $this->QueryTransferResult : null;
-    }
-    /**
-     * Set QueryTransferResult value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse $queryTransferResult
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse
-     */
-    public function setQueryTransferResult(?\Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse $queryTransferResult = null): self
-    {
-        if (is_null($queryTransferResult) || (is_array($queryTransferResult) && empty($queryTransferResult))) {
-            unset($this->QueryTransferResult);
-        } else {
-            $this->QueryTransferResult = $queryTransferResult;
-        }
-        
-        return $this;
+            ->setTransferStatus($transferStatus)
+            ->setQueryTransferResult($queryTransferResult);
     }
     /**
      * Get CreatedDate value
@@ -253,6 +225,34 @@ class QueryTransferResponse extends BaseMethodResponse
             unset($this->TransferStatus);
         } else {
             $this->TransferStatus = $transferStatus;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get QueryTransferResult value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse|null
+     */
+    public function getQueryTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse
+    {
+        return isset($this->QueryTransferResult) ? $this->QueryTransferResult : null;
+    }
+    /**
+     * Set QueryTransferResult value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse $queryTransferResult
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse
+     */
+    public function setQueryTransferResult(?\Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse $queryTransferResult = null): self
+    {
+        if (is_null($queryTransferResult) || (is_array($queryTransferResult) && empty($queryTransferResult))) {
+            unset($this->QueryTransferResult);
+        } else {
+            $this->QueryTransferResult = $queryTransferResult;
         }
         
         return $this;

@@ -17,14 +17,6 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
 class TransferResponse extends BaseMethodResponse
 {
     /**
-     * The TransferResult
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse|null
-     */
-    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse $TransferResult = null;
-    /**
      * The DomainInfo
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -33,45 +25,25 @@ class TransferResponse extends BaseMethodResponse
      */
     protected ?\Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo $DomainInfo = null;
     /**
-     * Constructor method for TransferResponse
-     * @uses TransferResponse::setTransferResult()
-     * @uses TransferResponse::setDomainInfo()
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse $transferResult
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo $domainInfo
+     * The TransferResult
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse|null
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse $transferResult = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo $domainInfo = null)
+    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse $TransferResult = null;
+    /**
+     * Constructor method for TransferResponse
+     * @uses TransferResponse::setDomainInfo()
+     * @uses TransferResponse::setTransferResult()
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo $domainInfo
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse $transferResult
+     */
+    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo $domainInfo = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse $transferResult = null)
     {
         $this
-            ->setTransferResult($transferResult)
-            ->setDomainInfo($domainInfo);
-    }
-    /**
-     * Get TransferResult value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse|null
-     */
-    public function getTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse
-    {
-        return isset($this->TransferResult) ? $this->TransferResult : null;
-    }
-    /**
-     * Set TransferResult value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse $transferResult
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse
-     */
-    public function setTransferResult(?\Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse $transferResult = null): self
-    {
-        if (is_null($transferResult) || (is_array($transferResult) && empty($transferResult))) {
-            unset($this->TransferResult);
-        } else {
-            $this->TransferResult = $transferResult;
-        }
-        
-        return $this;
+            ->setDomainInfo($domainInfo)
+            ->setTransferResult($transferResult);
     }
     /**
      * Get DomainInfo value
@@ -97,6 +69,34 @@ class TransferResponse extends BaseMethodResponse
             unset($this->DomainInfo);
         } else {
             $this->DomainInfo = $domainInfo;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get TransferResult value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse|null
+     */
+    public function getTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse
+    {
+        return isset($this->TransferResult) ? $this->TransferResult : null;
+    }
+    /**
+     * Set TransferResult value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse $transferResult
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse
+     */
+    public function setTransferResult(?\Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse $transferResult = null): self
+    {
+        if (is_null($transferResult) || (is_array($transferResult) && empty($transferResult))) {
+            unset($this->TransferResult);
+        } else {
+            $this->TransferResult = $transferResult;
         }
         
         return $this;

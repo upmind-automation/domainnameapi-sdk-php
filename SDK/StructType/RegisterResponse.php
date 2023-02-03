@@ -17,14 +17,6 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
 class RegisterResponse extends BaseMethodResponse
 {
     /**
-     * The RegisterResult
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse|null
-     */
-    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse $RegisterResult = null;
-    /**
      * The DomainInfo
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -33,45 +25,25 @@ class RegisterResponse extends BaseMethodResponse
      */
     protected ?\Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo $DomainInfo = null;
     /**
-     * Constructor method for RegisterResponse
-     * @uses RegisterResponse::setRegisterResult()
-     * @uses RegisterResponse::setDomainInfo()
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse $registerResult
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo $domainInfo
+     * The RegisterResult
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse|null
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse $registerResult = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo $domainInfo = null)
+    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse $RegisterResult = null;
+    /**
+     * Constructor method for RegisterResponse
+     * @uses RegisterResponse::setDomainInfo()
+     * @uses RegisterResponse::setRegisterResult()
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo $domainInfo
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse $registerResult
+     */
+    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo $domainInfo = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse $registerResult = null)
     {
         $this
-            ->setRegisterResult($registerResult)
-            ->setDomainInfo($domainInfo);
-    }
-    /**
-     * Get RegisterResult value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse|null
-     */
-    public function getRegisterResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse
-    {
-        return isset($this->RegisterResult) ? $this->RegisterResult : null;
-    }
-    /**
-     * Set RegisterResult value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse $registerResult
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse
-     */
-    public function setRegisterResult(?\Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse $registerResult = null): self
-    {
-        if (is_null($registerResult) || (is_array($registerResult) && empty($registerResult))) {
-            unset($this->RegisterResult);
-        } else {
-            $this->RegisterResult = $registerResult;
-        }
-        
-        return $this;
+            ->setDomainInfo($domainInfo)
+            ->setRegisterResult($registerResult);
     }
     /**
      * Get DomainInfo value
@@ -97,6 +69,34 @@ class RegisterResponse extends BaseMethodResponse
             unset($this->DomainInfo);
         } else {
             $this->DomainInfo = $domainInfo;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get RegisterResult value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse|null
+     */
+    public function getRegisterResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse
+    {
+        return isset($this->RegisterResult) ? $this->RegisterResult : null;
+    }
+    /**
+     * Set RegisterResult value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse $registerResult
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse
+     */
+    public function setRegisterResult(?\Upmind\DomainNameApiSdk\SDK\StructType\RegisterResponse $registerResult = null): self
+    {
+        if (is_null($registerResult) || (is_array($registerResult) && empty($registerResult))) {
+            unset($this->RegisterResult);
+        } else {
+            $this->RegisterResult = $registerResult;
         }
         
         return $this;

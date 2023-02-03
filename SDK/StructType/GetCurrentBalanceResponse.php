@@ -17,14 +17,6 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
 class GetCurrentBalanceResponse extends BaseMethodResponse
 {
     /**
-     * The GetCurrentBalanceResult
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse|null
-     */
-    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse $GetCurrentBalanceResult = null;
-    /**
      * The Balance
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -63,57 +55,37 @@ class GetCurrentBalanceResponse extends BaseMethodResponse
      */
     protected ?string $CurrencySymbol = null;
     /**
+     * The GetCurrentBalanceResult
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse|null
+     */
+    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse $GetCurrentBalanceResult = null;
+    /**
      * Constructor method for GetCurrentBalanceResponse
-     * @uses GetCurrentBalanceResponse::setGetCurrentBalanceResult()
      * @uses GetCurrentBalanceResponse::setBalance()
      * @uses GetCurrentBalanceResponse::setCurrencyId()
      * @uses GetCurrentBalanceResponse::setCurrencyInfo()
      * @uses GetCurrentBalanceResponse::setCurrencyName()
      * @uses GetCurrentBalanceResponse::setCurrencySymbol()
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse $getCurrentBalanceResult
+     * @uses GetCurrentBalanceResponse::setGetCurrentBalanceResult()
      * @param float $balance
      * @param int $currencyId
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\CurrencyWithExchangeInfo $currencyInfo
      * @param string $currencyName
      * @param string $currencySymbol
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse $getCurrentBalanceResult
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse $getCurrentBalanceResult = null, ?float $balance = null, ?int $currencyId = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\CurrencyWithExchangeInfo $currencyInfo = null, ?string $currencyName = null, ?string $currencySymbol = null)
+    public function __construct(?float $balance = null, ?int $currencyId = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\CurrencyWithExchangeInfo $currencyInfo = null, ?string $currencyName = null, ?string $currencySymbol = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse $getCurrentBalanceResult = null)
     {
         $this
-            ->setGetCurrentBalanceResult($getCurrentBalanceResult)
             ->setBalance($balance)
             ->setCurrencyId($currencyId)
             ->setCurrencyInfo($currencyInfo)
             ->setCurrencyName($currencyName)
-            ->setCurrencySymbol($currencySymbol);
-    }
-    /**
-     * Get GetCurrentBalanceResult value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse|null
-     */
-    public function getGetCurrentBalanceResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse
-    {
-        return isset($this->GetCurrentBalanceResult) ? $this->GetCurrentBalanceResult : null;
-    }
-    /**
-     * Set GetCurrentBalanceResult value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse $getCurrentBalanceResult
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse
-     */
-    public function setGetCurrentBalanceResult(?\Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse $getCurrentBalanceResult = null): self
-    {
-        if (is_null($getCurrentBalanceResult) || (is_array($getCurrentBalanceResult) && empty($getCurrentBalanceResult))) {
-            unset($this->GetCurrentBalanceResult);
-        } else {
-            $this->GetCurrentBalanceResult = $getCurrentBalanceResult;
-        }
-        
-        return $this;
+            ->setCurrencySymbol($currencySymbol)
+            ->setGetCurrentBalanceResult($getCurrentBalanceResult);
     }
     /**
      * Get Balance value
@@ -249,6 +221,34 @@ class GetCurrentBalanceResponse extends BaseMethodResponse
             unset($this->CurrencySymbol);
         } else {
             $this->CurrencySymbol = $currencySymbol;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get GetCurrentBalanceResult value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse|null
+     */
+    public function getGetCurrentBalanceResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse
+    {
+        return isset($this->GetCurrentBalanceResult) ? $this->GetCurrentBalanceResult : null;
+    }
+    /**
+     * Set GetCurrentBalanceResult value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse $getCurrentBalanceResult
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse
+     */
+    public function setGetCurrentBalanceResult(?\Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse $getCurrentBalanceResult = null): self
+    {
+        if (is_null($getCurrentBalanceResult) || (is_array($getCurrentBalanceResult) && empty($getCurrentBalanceResult))) {
+            unset($this->GetCurrentBalanceResult);
+        } else {
+            $this->GetCurrentBalanceResult = $getCurrentBalanceResult;
         }
         
         return $this;

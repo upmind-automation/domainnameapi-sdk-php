@@ -17,6 +17,13 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
 class RenewResponse extends BaseMethodResponse
 {
     /**
+     * The ExpirationDate
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var string|null
+     */
+    protected ?string $ExpirationDate = null;
+    /**
      * The RenewResult
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -25,24 +32,40 @@ class RenewResponse extends BaseMethodResponse
      */
     protected ?\Upmind\DomainNameApiSdk\SDK\StructType\RenewResponse $RenewResult = null;
     /**
-     * The ExpirationDate
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var string|null
-     */
-    protected ?string $ExpirationDate = null;
-    /**
      * Constructor method for RenewResponse
-     * @uses RenewResponse::setRenewResult()
      * @uses RenewResponse::setExpirationDate()
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\RenewResponse $renewResult
+     * @uses RenewResponse::setRenewResult()
      * @param string $expirationDate
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\RenewResponse $renewResult
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\RenewResponse $renewResult = null, ?string $expirationDate = null)
+    public function __construct(?string $expirationDate = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\RenewResponse $renewResult = null)
     {
         $this
-            ->setRenewResult($renewResult)
-            ->setExpirationDate($expirationDate);
+            ->setExpirationDate($expirationDate)
+            ->setRenewResult($renewResult);
+    }
+    /**
+     * Get ExpirationDate value
+     * @return string|null
+     */
+    public function getExpirationDate(): ?string
+    {
+        return $this->ExpirationDate;
+    }
+    /**
+     * Set ExpirationDate value
+     * @param string $expirationDate
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RenewResponse
+     */
+    public function setExpirationDate(?string $expirationDate = null): self
+    {
+        // validation for constraint: string
+        if (!is_null($expirationDate) && !is_string($expirationDate)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($expirationDate, true), gettype($expirationDate)), __LINE__);
+        }
+        $this->ExpirationDate = $expirationDate;
+        
+        return $this;
     }
     /**
      * Get RenewResult value
@@ -69,29 +92,6 @@ class RenewResponse extends BaseMethodResponse
         } else {
             $this->RenewResult = $renewResult;
         }
-        
-        return $this;
-    }
-    /**
-     * Get ExpirationDate value
-     * @return string|null
-     */
-    public function getExpirationDate(): ?string
-    {
-        return $this->ExpirationDate;
-    }
-    /**
-     * Set ExpirationDate value
-     * @param string $expirationDate
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RenewResponse
-     */
-    public function setExpirationDate(?string $expirationDate = null): self
-    {
-        // validation for constraint: string
-        if (!is_null($expirationDate) && !is_string($expirationDate)) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($expirationDate, true), gettype($expirationDate)), __LINE__);
-        }
-        $this->ExpirationDate = $expirationDate;
         
         return $this;
     }

@@ -17,14 +17,6 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
 class CancelTransferResponse extends BaseMethodResponse
 {
     /**
-     * The CancelTransferResult
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse|null
-     */
-    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse $CancelTransferResult = null;
-    /**
      * The CreatedDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -48,51 +40,31 @@ class CancelTransferResponse extends BaseMethodResponse
      */
     protected ?string $TransferStatus = null;
     /**
+     * The CancelTransferResult
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse|null
+     */
+    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse $CancelTransferResult = null;
+    /**
      * Constructor method for CancelTransferResponse
-     * @uses CancelTransferResponse::setCancelTransferResult()
      * @uses CancelTransferResponse::setCreatedDate()
      * @uses CancelTransferResponse::setDomainName()
      * @uses CancelTransferResponse::setTransferStatus()
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse $cancelTransferResult
+     * @uses CancelTransferResponse::setCancelTransferResult()
      * @param string $createdDate
      * @param string $domainName
      * @param string $transferStatus
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse $cancelTransferResult
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse $cancelTransferResult = null, ?string $createdDate = null, ?string $domainName = null, ?string $transferStatus = null)
+    public function __construct(?string $createdDate = null, ?string $domainName = null, ?string $transferStatus = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse $cancelTransferResult = null)
     {
         $this
-            ->setCancelTransferResult($cancelTransferResult)
             ->setCreatedDate($createdDate)
             ->setDomainName($domainName)
-            ->setTransferStatus($transferStatus);
-    }
-    /**
-     * Get CancelTransferResult value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse|null
-     */
-    public function getCancelTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse
-    {
-        return isset($this->CancelTransferResult) ? $this->CancelTransferResult : null;
-    }
-    /**
-     * Set CancelTransferResult value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse $cancelTransferResult
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse
-     */
-    public function setCancelTransferResult(?\Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse $cancelTransferResult = null): self
-    {
-        if (is_null($cancelTransferResult) || (is_array($cancelTransferResult) && empty($cancelTransferResult))) {
-            unset($this->CancelTransferResult);
-        } else {
-            $this->CancelTransferResult = $cancelTransferResult;
-        }
-        
-        return $this;
+            ->setTransferStatus($transferStatus)
+            ->setCancelTransferResult($cancelTransferResult);
     }
     /**
      * Get CreatedDate value
@@ -177,6 +149,34 @@ class CancelTransferResponse extends BaseMethodResponse
             unset($this->TransferStatus);
         } else {
             $this->TransferStatus = $transferStatus;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get CancelTransferResult value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse|null
+     */
+    public function getCancelTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse
+    {
+        return isset($this->CancelTransferResult) ? $this->CancelTransferResult : null;
+    }
+    /**
+     * Set CancelTransferResult value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse $cancelTransferResult
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse
+     */
+    public function setCancelTransferResult(?\Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse $cancelTransferResult = null): self
+    {
+        if (is_null($cancelTransferResult) || (is_array($cancelTransferResult) && empty($cancelTransferResult))) {
+            unset($this->CancelTransferResult);
+        } else {
+            $this->CancelTransferResult = $cancelTransferResult;
         }
         
         return $this;

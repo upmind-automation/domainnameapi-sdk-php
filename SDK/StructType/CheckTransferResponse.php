@@ -17,14 +17,6 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
 class CheckTransferResponse extends BaseMethodResponse
 {
     /**
-     * The CheckTransferResult
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse|null
-     */
-    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse $CheckTransferResult = null;
-    /**
      * The AdditionalAttributes
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -69,60 +61,40 @@ class CheckTransferResponse extends BaseMethodResponse
      */
     protected ?bool $UserTransferRequired = null;
     /**
+     * The CheckTransferResult
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse|null
+     */
+    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse $CheckTransferResult = null;
+    /**
      * Constructor method for CheckTransferResponse
-     * @uses CheckTransferResponse::setCheckTransferResult()
      * @uses CheckTransferResponse::setAdditionalAttributes()
      * @uses CheckTransferResponse::setAuthCodeIsRequired()
      * @uses CheckTransferResponse::setAuthCodeIsValid()
      * @uses CheckTransferResponse::setTransferAvailabilityStatus()
      * @uses CheckTransferResponse::setTransferLock()
      * @uses CheckTransferResponse::setUserTransferRequired()
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse $checkTransferResult
+     * @uses CheckTransferResponse::setCheckTransferResult()
      * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
      * @param bool $authCodeIsRequired
      * @param string $authCodeIsValid
      * @param bool $transferAvailabilityStatus
      * @param bool $transferLock
      * @param bool $userTransferRequired
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse $checkTransferResult
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse $checkTransferResult = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null, ?bool $authCodeIsRequired = null, ?string $authCodeIsValid = null, ?bool $transferAvailabilityStatus = null, ?bool $transferLock = null, ?bool $userTransferRequired = null)
+    public function __construct(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null, ?bool $authCodeIsRequired = null, ?string $authCodeIsValid = null, ?bool $transferAvailabilityStatus = null, ?bool $transferLock = null, ?bool $userTransferRequired = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse $checkTransferResult = null)
     {
         $this
-            ->setCheckTransferResult($checkTransferResult)
             ->setAdditionalAttributes($additionalAttributes)
             ->setAuthCodeIsRequired($authCodeIsRequired)
             ->setAuthCodeIsValid($authCodeIsValid)
             ->setTransferAvailabilityStatus($transferAvailabilityStatus)
             ->setTransferLock($transferLock)
-            ->setUserTransferRequired($userTransferRequired);
-    }
-    /**
-     * Get CheckTransferResult value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse|null
-     */
-    public function getCheckTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse
-    {
-        return isset($this->CheckTransferResult) ? $this->CheckTransferResult : null;
-    }
-    /**
-     * Set CheckTransferResult value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse $checkTransferResult
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse
-     */
-    public function setCheckTransferResult(?\Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse $checkTransferResult = null): self
-    {
-        if (is_null($checkTransferResult) || (is_array($checkTransferResult) && empty($checkTransferResult))) {
-            unset($this->CheckTransferResult);
-        } else {
-            $this->CheckTransferResult = $checkTransferResult;
-        }
-        
-        return $this;
+            ->setUserTransferRequired($userTransferRequired)
+            ->setCheckTransferResult($checkTransferResult);
     }
     /**
      * Get AdditionalAttributes value
@@ -273,6 +245,34 @@ class CheckTransferResponse extends BaseMethodResponse
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($userTransferRequired, true), gettype($userTransferRequired)), __LINE__);
         }
         $this->UserTransferRequired = $userTransferRequired;
+        
+        return $this;
+    }
+    /**
+     * Get CheckTransferResult value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse|null
+     */
+    public function getCheckTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse
+    {
+        return isset($this->CheckTransferResult) ? $this->CheckTransferResult : null;
+    }
+    /**
+     * Set CheckTransferResult value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse $checkTransferResult
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse
+     */
+    public function setCheckTransferResult(?\Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse $checkTransferResult = null): self
+    {
+        if (is_null($checkTransferResult) || (is_array($checkTransferResult) && empty($checkTransferResult))) {
+            unset($this->CheckTransferResult);
+        } else {
+            $this->CheckTransferResult = $checkTransferResult;
+        }
         
         return $this;
     }

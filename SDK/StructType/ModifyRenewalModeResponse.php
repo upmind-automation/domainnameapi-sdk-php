@@ -17,14 +17,6 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
 class ModifyRenewalModeResponse extends BaseMethodResponse
 {
     /**
-     * The ModifyRenewalModeResult
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse|null
-     */
-    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse $ModifyRenewalModeResult = null;
-    /**
      * The DomainName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -48,51 +40,31 @@ class ModifyRenewalModeResponse extends BaseMethodResponse
      */
     protected ?string $RenewalMode = null;
     /**
+     * The ModifyRenewalModeResult
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse|null
+     */
+    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse $ModifyRenewalModeResult = null;
+    /**
      * Constructor method for ModifyRenewalModeResponse
-     * @uses ModifyRenewalModeResponse::setModifyRenewalModeResult()
      * @uses ModifyRenewalModeResponse::setDomainName()
      * @uses ModifyRenewalModeResponse::setId()
      * @uses ModifyRenewalModeResponse::setRenewalMode()
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse $modifyRenewalModeResult
+     * @uses ModifyRenewalModeResponse::setModifyRenewalModeResult()
      * @param string $domainName
      * @param int $id
      * @param string $renewalMode
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse $modifyRenewalModeResult
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse $modifyRenewalModeResult = null, ?string $domainName = null, ?int $id = null, ?string $renewalMode = null)
+    public function __construct(?string $domainName = null, ?int $id = null, ?string $renewalMode = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse $modifyRenewalModeResult = null)
     {
         $this
-            ->setModifyRenewalModeResult($modifyRenewalModeResult)
             ->setDomainName($domainName)
             ->setId($id)
-            ->setRenewalMode($renewalMode);
-    }
-    /**
-     * Get ModifyRenewalModeResult value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse|null
-     */
-    public function getModifyRenewalModeResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse
-    {
-        return isset($this->ModifyRenewalModeResult) ? $this->ModifyRenewalModeResult : null;
-    }
-    /**
-     * Set ModifyRenewalModeResult value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse $modifyRenewalModeResult
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse
-     */
-    public function setModifyRenewalModeResult(?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse $modifyRenewalModeResult = null): self
-    {
-        if (is_null($modifyRenewalModeResult) || (is_array($modifyRenewalModeResult) && empty($modifyRenewalModeResult))) {
-            unset($this->ModifyRenewalModeResult);
-        } else {
-            $this->ModifyRenewalModeResult = $modifyRenewalModeResult;
-        }
-        
-        return $this;
+            ->setRenewalMode($renewalMode)
+            ->setModifyRenewalModeResult($modifyRenewalModeResult);
     }
     /**
      * Get DomainName value
@@ -177,6 +149,34 @@ class ModifyRenewalModeResponse extends BaseMethodResponse
             unset($this->RenewalMode);
         } else {
             $this->RenewalMode = $renewalMode;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get ModifyRenewalModeResult value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse|null
+     */
+    public function getModifyRenewalModeResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse
+    {
+        return isset($this->ModifyRenewalModeResult) ? $this->ModifyRenewalModeResult : null;
+    }
+    /**
+     * Set ModifyRenewalModeResult value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse $modifyRenewalModeResult
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse
+     */
+    public function setModifyRenewalModeResult(?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse $modifyRenewalModeResult = null): self
+    {
+        if (is_null($modifyRenewalModeResult) || (is_array($modifyRenewalModeResult) && empty($modifyRenewalModeResult))) {
+            unset($this->ModifyRenewalModeResult);
+        } else {
+            $this->ModifyRenewalModeResult = $modifyRenewalModeResult;
         }
         
         return $this;

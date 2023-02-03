@@ -17,14 +17,6 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
 class GetTldListResponse extends BaseMethodResponse
 {
     /**
-     * The GetTldListResult
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse|null
-     */
-    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse $GetTldListResult = null;
-    /**
      * The PageSize
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -47,51 +39,31 @@ class GetTldListResponse extends BaseMethodResponse
      */
     protected ?int $TotalCount = null;
     /**
+     * The GetTldListResult
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse|null
+     */
+    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse $GetTldListResult = null;
+    /**
      * Constructor method for GetTldListResponse
-     * @uses GetTldListResponse::setGetTldListResult()
      * @uses GetTldListResponse::setPageSize()
      * @uses GetTldListResponse::setTldInfoList()
      * @uses GetTldListResponse::setTotalCount()
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse $getTldListResult
+     * @uses GetTldListResponse::setGetTldListResult()
      * @param int $pageSize
      * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo $tldInfoList
      * @param int $totalCount
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse $getTldListResult
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse $getTldListResult = null, ?int $pageSize = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo $tldInfoList = null, ?int $totalCount = null)
+    public function __construct(?int $pageSize = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo $tldInfoList = null, ?int $totalCount = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse $getTldListResult = null)
     {
         $this
-            ->setGetTldListResult($getTldListResult)
             ->setPageSize($pageSize)
             ->setTldInfoList($tldInfoList)
-            ->setTotalCount($totalCount);
-    }
-    /**
-     * Get GetTldListResult value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse|null
-     */
-    public function getGetTldListResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse
-    {
-        return isset($this->GetTldListResult) ? $this->GetTldListResult : null;
-    }
-    /**
-     * Set GetTldListResult value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse $getTldListResult
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse
-     */
-    public function setGetTldListResult(?\Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse $getTldListResult = null): self
-    {
-        if (is_null($getTldListResult) || (is_array($getTldListResult) && empty($getTldListResult))) {
-            unset($this->GetTldListResult);
-        } else {
-            $this->GetTldListResult = $getTldListResult;
-        }
-        
-        return $this;
+            ->setTotalCount($totalCount)
+            ->setGetTldListResult($getTldListResult);
     }
     /**
      * Get PageSize value
@@ -164,6 +136,34 @@ class GetTldListResponse extends BaseMethodResponse
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalCount, true), gettype($totalCount)), __LINE__);
         }
         $this->TotalCount = $totalCount;
+        
+        return $this;
+    }
+    /**
+     * Get GetTldListResult value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse|null
+     */
+    public function getGetTldListResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse
+    {
+        return isset($this->GetTldListResult) ? $this->GetTldListResult : null;
+    }
+    /**
+     * Set GetTldListResult value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse $getTldListResult
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse
+     */
+    public function setGetTldListResult(?\Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse $getTldListResult = null): self
+    {
+        if (is_null($getTldListResult) || (is_array($getTldListResult) && empty($getTldListResult))) {
+            unset($this->GetTldListResult);
+        } else {
+            $this->GetTldListResult = $getTldListResult;
+        }
         
         return $this;
     }

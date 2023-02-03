@@ -17,14 +17,6 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
 class ApproveTransferResponse extends BaseMethodResponse
 {
     /**
-     * The ApproveTransferResult
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse|null
-     */
-    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse $ApproveTransferResult = null;
-    /**
      * The CreatedDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -63,57 +55,37 @@ class ApproveTransferResponse extends BaseMethodResponse
      */
     protected ?string $TransferStatus = null;
     /**
+     * The ApproveTransferResult
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse|null
+     */
+    protected ?\Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse $ApproveTransferResult = null;
+    /**
      * Constructor method for ApproveTransferResponse
-     * @uses ApproveTransferResponse::setApproveTransferResult()
      * @uses ApproveTransferResponse::setCreatedDate()
      * @uses ApproveTransferResponse::setDomainName()
      * @uses ApproveTransferResponse::setExpirationDate()
      * @uses ApproveTransferResponse::setTransferLog()
      * @uses ApproveTransferResponse::setTransferStatus()
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse $approveTransferResult
+     * @uses ApproveTransferResponse::setApproveTransferResult()
      * @param string $createdDate
      * @param string $domainName
      * @param string $expirationDate
      * @param string $transferLog
      * @param string $transferStatus
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse $approveTransferResult
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse $approveTransferResult = null, ?string $createdDate = null, ?string $domainName = null, ?string $expirationDate = null, ?string $transferLog = null, ?string $transferStatus = null)
+    public function __construct(?string $createdDate = null, ?string $domainName = null, ?string $expirationDate = null, ?string $transferLog = null, ?string $transferStatus = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse $approveTransferResult = null)
     {
         $this
-            ->setApproveTransferResult($approveTransferResult)
             ->setCreatedDate($createdDate)
             ->setDomainName($domainName)
             ->setExpirationDate($expirationDate)
             ->setTransferLog($transferLog)
-            ->setTransferStatus($transferStatus);
-    }
-    /**
-     * Get ApproveTransferResult value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse|null
-     */
-    public function getApproveTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse
-    {
-        return isset($this->ApproveTransferResult) ? $this->ApproveTransferResult : null;
-    }
-    /**
-     * Set ApproveTransferResult value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse $approveTransferResult
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse
-     */
-    public function setApproveTransferResult(?\Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse $approveTransferResult = null): self
-    {
-        if (is_null($approveTransferResult) || (is_array($approveTransferResult) && empty($approveTransferResult))) {
-            unset($this->ApproveTransferResult);
-        } else {
-            $this->ApproveTransferResult = $approveTransferResult;
-        }
-        
-        return $this;
+            ->setTransferStatus($transferStatus)
+            ->setApproveTransferResult($approveTransferResult);
     }
     /**
      * Get CreatedDate value
@@ -253,6 +225,34 @@ class ApproveTransferResponse extends BaseMethodResponse
             unset($this->TransferStatus);
         } else {
             $this->TransferStatus = $transferStatus;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get ApproveTransferResult value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse|null
+     */
+    public function getApproveTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse
+    {
+        return isset($this->ApproveTransferResult) ? $this->ApproveTransferResult : null;
+    }
+    /**
+     * Set ApproveTransferResult value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse $approveTransferResult
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse
+     */
+    public function setApproveTransferResult(?\Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferResponse $approveTransferResult = null): self
+    {
+        if (is_null($approveTransferResult) || (is_array($approveTransferResult) && empty($approveTransferResult))) {
+            unset($this->ApproveTransferResult);
+        } else {
+            $this->ApproveTransferResult = $approveTransferResult;
         }
         
         return $this;
