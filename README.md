@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/upmind/domainnameapi-sdk.svg?style=flat-square)](https://packagist.org/packages/upmind/domainnameapi-sdk)
 
-[DomainNameApi](https://domainnameapi.com) PHP SDK automatically [generated](generate.php) from the [DomainNameApi WSDL](http://api.domainnameapi.com/DomainApi.svc?wsdl) using [WsdlToPhp/PackageGenerator](https://github.com/WsdlToPhp/PackageGenerator).
+[DomainNameApi](https://domainnameapi.com) PHP SDK automatically [generated](generate.php) from the [DomainNameApi WSDL](http://api.domainnameapi.com/DomainApi.svc?wsdl) using [WsdlToPhp / PackageGenerator](https://github.com/WsdlToPhp/PackageGenerator).
 
 ## Installation & Usage
 
