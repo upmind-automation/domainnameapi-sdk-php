@@ -24,6 +24,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
+
 require_once('/path/to/upmind/domainnameapi-sdk/vendor/autoload.php');
 ```
 
