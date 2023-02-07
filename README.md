@@ -44,10 +44,10 @@ $client = (new ClientFactory())->create($username, $password, ClientFactory::ENV
 
 $request = (new GetDetailsRequest())->setDomainName($domain);
 $response = $client->GetDetails(new GetDetails($request));
+$result = $response->getGetDetailsResult();
 
-$domainInfo = $response->getDomainInfo();
+$domainInfo = $result->getDomainInfo();
 if (!$domainInfo) {
-    $result = $response->getGetDetailsResult();
     throw new RuntimeException(sprintf('API Error (%s): %s', $result->getErrorCode(), $result->getOperationMessage()));
 }
 
