@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ModifyAuthCodeResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyAuthCodeResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class ModifyAuthCodeResponse extends BaseMethodResponse
      */
     public function getModifyAuthCodeResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyAuthCodeResponse
     {
-        return isset($this->ModifyAuthCodeResult) ? $this->ModifyAuthCodeResult : null;
+        return $this->ModifyAuthCodeResult ?? null;
     }
     /**
      * Set ModifyAuthCodeResult value

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetTldList StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetTldList extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class GetTldList extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\GetTldListRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

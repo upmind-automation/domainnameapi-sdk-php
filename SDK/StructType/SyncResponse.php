@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:SyncResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SyncResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class SyncResponse extends BaseMethodResponse
      */
     public function getSyncResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\SyncResponse
     {
-        return isset($this->SyncResult) ? $this->SyncResult : null;
+        return $this->SyncResult ?? null;
     }
     /**
      * Set SyncResult value

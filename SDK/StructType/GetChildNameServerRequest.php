@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:GetChildNameServerRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetChildNameServerRequest extends BaseMethodRequest
 {
     /**
@@ -43,7 +44,7 @@ class GetChildNameServerRequest extends BaseMethodRequest
      */
     public function getChildNameServer(): ?string
     {
-        return isset($this->ChildNameServer) ? $this->ChildNameServer : null;
+        return $this->ChildNameServer ?? null;
     }
     /**
      * Set ChildNameServer value

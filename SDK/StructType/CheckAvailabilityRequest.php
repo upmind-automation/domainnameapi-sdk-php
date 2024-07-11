@@ -14,8 +14,16 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:CheckAvailabilityRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CheckAvailabilityRequest extends BaseMethodRequest
 {
+    /**
+     * The Period
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var int|null
+     */
+    protected ?int $Period = null;
     /**
      * The Commad
      * Meta information extracted from the WSDL
@@ -33,13 +41,6 @@ class CheckAvailabilityRequest extends BaseMethodRequest
      */
     protected ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $DomainNameList = null;
     /**
-     * The Period
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var int|null
-     */
-    protected ?int $Period = null;
-    /**
      * The TldList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -49,22 +50,45 @@ class CheckAvailabilityRequest extends BaseMethodRequest
     protected ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $TldList = null;
     /**
      * Constructor method for CheckAvailabilityRequest
+     * @uses CheckAvailabilityRequest::setPeriod()
      * @uses CheckAvailabilityRequest::setCommad()
      * @uses CheckAvailabilityRequest::setDomainNameList()
-     * @uses CheckAvailabilityRequest::setPeriod()
      * @uses CheckAvailabilityRequest::setTldList()
+     * @param int $period
      * @param string $commad
      * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $domainNameList
-     * @param int $period
      * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $tldList
      */
-    public function __construct(?string $commad = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $domainNameList = null, ?int $period = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $tldList = null)
+    public function __construct(?int $period = null, ?string $commad = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $domainNameList = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $tldList = null)
     {
         $this
+            ->setPeriod($period)
             ->setCommad($commad)
             ->setDomainNameList($domainNameList)
-            ->setPeriod($period)
             ->setTldList($tldList);
+    }
+    /**
+     * Get Period value
+     * @return int|null
+     */
+    public function getPeriod(): ?int
+    {
+        return $this->Period;
+    }
+    /**
+     * Set Period value
+     * @param int $period
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\CheckAvailabilityRequest
+     */
+    public function setPeriod(?int $period = null): self
+    {
+        // validation for constraint: int
+        if (!is_null($period) && !(is_int($period) || ctype_digit($period))) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($period, true), gettype($period)), __LINE__);
+        }
+        $this->Period = $period;
+        
+        return $this;
     }
     /**
      * Get Commad value
@@ -75,7 +99,7 @@ class CheckAvailabilityRequest extends BaseMethodRequest
      */
     public function getCommad(): ?string
     {
-        return isset($this->Commad) ? $this->Commad : null;
+        return $this->Commad ?? null;
     }
     /**
      * Set Commad value
@@ -107,7 +131,7 @@ class CheckAvailabilityRequest extends BaseMethodRequest
      */
     public function getDomainNameList(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring
     {
-        return isset($this->DomainNameList) ? $this->DomainNameList : null;
+        return $this->DomainNameList ?? null;
     }
     /**
      * Set DomainNameList value
@@ -127,29 +151,6 @@ class CheckAvailabilityRequest extends BaseMethodRequest
         return $this;
     }
     /**
-     * Get Period value
-     * @return int|null
-     */
-    public function getPeriod(): ?int
-    {
-        return $this->Period;
-    }
-    /**
-     * Set Period value
-     * @param int $period
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\CheckAvailabilityRequest
-     */
-    public function setPeriod(?int $period = null): self
-    {
-        // validation for constraint: int
-        if (!is_null($period) && !(is_int($period) || ctype_digit($period))) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($period, true), gettype($period)), __LINE__);
-        }
-        $this->Period = $period;
-        
-        return $this;
-    }
-    /**
      * Get TldList value
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
@@ -158,7 +159,7 @@ class CheckAvailabilityRequest extends BaseMethodRequest
      */
     public function getTldList(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring
     {
-        return isset($this->TldList) ? $this->TldList : null;
+        return $this->TldList ?? null;
     }
     /**
      * Set TldList value

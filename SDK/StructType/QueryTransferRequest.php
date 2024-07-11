@@ -14,8 +14,16 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:QueryTransferRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class QueryTransferRequest extends BaseMethodRequest
 {
+    /**
+     * The Id
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var int|null
+     */
+    protected ?int $Id = null;
     /**
      * The AuthCode
      * Meta information extracted from the WSDL
@@ -33,27 +41,43 @@ class QueryTransferRequest extends BaseMethodRequest
      */
     protected ?string $DomainName = null;
     /**
-     * The Id
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var int|null
-     */
-    protected ?int $Id = null;
-    /**
      * Constructor method for QueryTransferRequest
+     * @uses QueryTransferRequest::setId()
      * @uses QueryTransferRequest::setAuthCode()
      * @uses QueryTransferRequest::setDomainName()
-     * @uses QueryTransferRequest::setId()
+     * @param int $id
      * @param string $authCode
      * @param string $domainName
-     * @param int $id
      */
-    public function __construct(?string $authCode = null, ?string $domainName = null, ?int $id = null)
+    public function __construct(?int $id = null, ?string $authCode = null, ?string $domainName = null)
     {
         $this
+            ->setId($id)
             ->setAuthCode($authCode)
-            ->setDomainName($domainName)
-            ->setId($id);
+            ->setDomainName($domainName);
+    }
+    /**
+     * Get Id value
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->Id;
+    }
+    /**
+     * Set Id value
+     * @param int $id
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferRequest
+     */
+    public function setId(?int $id = null): self
+    {
+        // validation for constraint: int
+        if (!is_null($id) && !(is_int($id) || ctype_digit($id))) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($id, true), gettype($id)), __LINE__);
+        }
+        $this->Id = $id;
+        
+        return $this;
     }
     /**
      * Get AuthCode value
@@ -64,7 +88,7 @@ class QueryTransferRequest extends BaseMethodRequest
      */
     public function getAuthCode(): ?string
     {
-        return isset($this->AuthCode) ? $this->AuthCode : null;
+        return $this->AuthCode ?? null;
     }
     /**
      * Set AuthCode value
@@ -96,7 +120,7 @@ class QueryTransferRequest extends BaseMethodRequest
      */
     public function getDomainName(): ?string
     {
-        return isset($this->DomainName) ? $this->DomainName : null;
+        return $this->DomainName ?? null;
     }
     /**
      * Set DomainName value
@@ -116,29 +140,6 @@ class QueryTransferRequest extends BaseMethodRequest
         } else {
             $this->DomainName = $domainName;
         }
-        
-        return $this;
-    }
-    /**
-     * Get Id value
-     * @return int|null
-     */
-    public function getId(): ?int
-    {
-        return $this->Id;
-    }
-    /**
-     * Set Id value
-     * @param int $id
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferRequest
-     */
-    public function setId(?int $id = null): self
-    {
-        // validation for constraint: int
-        if (!is_null($id) && !(is_int($id) || ctype_digit($id))) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($id, true), gettype($id)), __LINE__);
-        }
-        $this->Id = $id;
         
         return $this;
     }

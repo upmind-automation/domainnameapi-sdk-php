@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for CancelTransfer StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CancelTransfer extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class CancelTransfer extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

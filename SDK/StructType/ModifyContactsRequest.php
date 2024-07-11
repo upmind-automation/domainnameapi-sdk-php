@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ModifyContactsRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyContactsRequest extends BaseMethodRequest
 {
     /**
@@ -30,14 +31,6 @@ class ModifyContactsRequest extends BaseMethodRequest
      * @var int|null
      */
     protected ?int $BillingContactId = null;
-    /**
-     * The DomainName
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var string|null
-     */
-    protected ?string $DomainName = null;
     /**
      * The Id
      * Meta information extracted from the WSDL
@@ -60,29 +53,37 @@ class ModifyContactsRequest extends BaseMethodRequest
      */
     protected ?int $TechnicalContactId = null;
     /**
+     * The DomainName
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var string|null
+     */
+    protected ?string $DomainName = null;
+    /**
      * Constructor method for ModifyContactsRequest
      * @uses ModifyContactsRequest::setAdministrativeContactId()
      * @uses ModifyContactsRequest::setBillingContactId()
-     * @uses ModifyContactsRequest::setDomainName()
      * @uses ModifyContactsRequest::setId()
      * @uses ModifyContactsRequest::setRegistrantContactId()
      * @uses ModifyContactsRequest::setTechnicalContactId()
+     * @uses ModifyContactsRequest::setDomainName()
      * @param int $administrativeContactId
      * @param int $billingContactId
-     * @param string $domainName
      * @param int $id
      * @param int $registrantContactId
      * @param int $technicalContactId
+     * @param string $domainName
      */
-    public function __construct(?int $administrativeContactId = null, ?int $billingContactId = null, ?string $domainName = null, ?int $id = null, ?int $registrantContactId = null, ?int $technicalContactId = null)
+    public function __construct(?int $administrativeContactId = null, ?int $billingContactId = null, ?int $id = null, ?int $registrantContactId = null, ?int $technicalContactId = null, ?string $domainName = null)
     {
         $this
             ->setAdministrativeContactId($administrativeContactId)
             ->setBillingContactId($billingContactId)
-            ->setDomainName($domainName)
             ->setId($id)
             ->setRegistrantContactId($registrantContactId)
-            ->setTechnicalContactId($technicalContactId);
+            ->setTechnicalContactId($technicalContactId)
+            ->setDomainName($domainName);
     }
     /**
      * Get AdministrativeContactId value
@@ -127,38 +128,6 @@ class ModifyContactsRequest extends BaseMethodRequest
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($billingContactId, true), gettype($billingContactId)), __LINE__);
         }
         $this->BillingContactId = $billingContactId;
-        
-        return $this;
-    }
-    /**
-     * Get DomainName value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return string|null
-     */
-    public function getDomainName(): ?string
-    {
-        return isset($this->DomainName) ? $this->DomainName : null;
-    }
-    /**
-     * Set DomainName value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param string $domainName
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ModifyContactsRequest
-     */
-    public function setDomainName(?string $domainName = null): self
-    {
-        // validation for constraint: string
-        if (!is_null($domainName) && !is_string($domainName)) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainName, true), gettype($domainName)), __LINE__);
-        }
-        if (is_null($domainName) || (is_array($domainName) && empty($domainName))) {
-            unset($this->DomainName);
-        } else {
-            $this->DomainName = $domainName;
-        }
         
         return $this;
     }
@@ -228,6 +197,38 @@ class ModifyContactsRequest extends BaseMethodRequest
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($technicalContactId, true), gettype($technicalContactId)), __LINE__);
         }
         $this->TechnicalContactId = $technicalContactId;
+        
+        return $this;
+    }
+    /**
+     * Get DomainName value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return string|null
+     */
+    public function getDomainName(): ?string
+    {
+        return $this->DomainName ?? null;
+    }
+    /**
+     * Set DomainName value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param string $domainName
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ModifyContactsRequest
+     */
+    public function setDomainName(?string $domainName = null): self
+    {
+        // validation for constraint: string
+        if (!is_null($domainName) && !is_string($domainName)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainName, true), gettype($domainName)), __LINE__);
+        }
+        if (is_null($domainName) || (is_array($domainName) && empty($domainName))) {
+            unset($this->DomainName);
+        } else {
+            $this->DomainName = $domainName;
+        }
         
         return $this;
     }

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for PayRenewal StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class PayRenewal extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class PayRenewal extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\PayRenewalRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

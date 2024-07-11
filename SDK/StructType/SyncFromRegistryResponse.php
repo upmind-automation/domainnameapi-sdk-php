@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:SyncFromRegistryResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SyncFromRegistryResponse extends BaseMethodResponse
 {
     /**
@@ -54,7 +55,7 @@ class SyncFromRegistryResponse extends BaseMethodResponse
      */
     public function getDomainInfo(): ?\Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo
     {
-        return isset($this->DomainInfo) ? $this->DomainInfo : null;
+        return $this->DomainInfo ?? null;
     }
     /**
      * Set DomainInfo value
@@ -82,7 +83,7 @@ class SyncFromRegistryResponse extends BaseMethodResponse
      */
     public function getSyncFromRegistryResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\SyncFromRegistryResponse
     {
-        return isset($this->SyncFromRegistryResult) ? $this->SyncFromRegistryResult : null;
+        return $this->SyncFromRegistryResult ?? null;
     }
     /**
      * Set SyncFromRegistryResult value

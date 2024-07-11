@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:PayRenewalResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class PayRenewalResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class PayRenewalResponse extends BaseMethodResponse
      */
     public function getPayRenewalResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\PayRenewalResponse
     {
-        return isset($this->PayRenewalResult) ? $this->PayRenewalResult : null;
+        return $this->PayRenewalResult ?? null;
     }
     /**
      * Set PayRenewalResult value

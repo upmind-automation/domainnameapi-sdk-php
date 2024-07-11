@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for QueryTransfer StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class QueryTransfer extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class QueryTransfer extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

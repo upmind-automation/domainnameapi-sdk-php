@@ -14,8 +14,16 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:PreRegistirationRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class PreRegistirationRequest extends BaseMethodRequest
 {
+    /**
+     * The Period
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var int|null
+     */
+    protected ?int $Period = null;
     /**
      * The Contact
      * Meta information extracted from the WSDL
@@ -49,33 +57,49 @@ class PreRegistirationRequest extends BaseMethodRequest
      */
     protected ?string $NameServer2 = null;
     /**
-     * The Period
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var int|null
-     */
-    protected ?int $Period = null;
-    /**
      * Constructor method for PreRegistirationRequest
+     * @uses PreRegistirationRequest::setPeriod()
      * @uses PreRegistirationRequest::setContact()
      * @uses PreRegistirationRequest::setDomainName()
      * @uses PreRegistirationRequest::setNameServer1()
      * @uses PreRegistirationRequest::setNameServer2()
-     * @uses PreRegistirationRequest::setPeriod()
+     * @param int $period
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $contact
      * @param string $domainName
      * @param string $nameServer1
      * @param string $nameServer2
-     * @param int $period
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $contact = null, ?string $domainName = null, ?string $nameServer1 = null, ?string $nameServer2 = null, ?int $period = null)
+    public function __construct(?int $period = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $contact = null, ?string $domainName = null, ?string $nameServer1 = null, ?string $nameServer2 = null)
     {
         $this
+            ->setPeriod($period)
             ->setContact($contact)
             ->setDomainName($domainName)
             ->setNameServer1($nameServer1)
-            ->setNameServer2($nameServer2)
-            ->setPeriod($period);
+            ->setNameServer2($nameServer2);
+    }
+    /**
+     * Get Period value
+     * @return int|null
+     */
+    public function getPeriod(): ?int
+    {
+        return $this->Period;
+    }
+    /**
+     * Set Period value
+     * @param int $period
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\PreRegistirationRequest
+     */
+    public function setPeriod(?int $period = null): self
+    {
+        // validation for constraint: int
+        if (!is_null($period) && !(is_int($period) || ctype_digit($period))) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($period, true), gettype($period)), __LINE__);
+        }
+        $this->Period = $period;
+        
+        return $this;
     }
     /**
      * Get Contact value
@@ -86,7 +110,7 @@ class PreRegistirationRequest extends BaseMethodRequest
      */
     public function getContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
     {
-        return isset($this->Contact) ? $this->Contact : null;
+        return $this->Contact ?? null;
     }
     /**
      * Set Contact value
@@ -114,7 +138,7 @@ class PreRegistirationRequest extends BaseMethodRequest
      */
     public function getDomainName(): ?string
     {
-        return isset($this->DomainName) ? $this->DomainName : null;
+        return $this->DomainName ?? null;
     }
     /**
      * Set DomainName value
@@ -146,7 +170,7 @@ class PreRegistirationRequest extends BaseMethodRequest
      */
     public function getNameServer1(): ?string
     {
-        return isset($this->NameServer1) ? $this->NameServer1 : null;
+        return $this->NameServer1 ?? null;
     }
     /**
      * Set NameServer1 value
@@ -178,7 +202,7 @@ class PreRegistirationRequest extends BaseMethodRequest
      */
     public function getNameServer2(): ?string
     {
-        return isset($this->NameServer2) ? $this->NameServer2 : null;
+        return $this->NameServer2 ?? null;
     }
     /**
      * Set NameServer2 value
@@ -198,29 +222,6 @@ class PreRegistirationRequest extends BaseMethodRequest
         } else {
             $this->NameServer2 = $nameServer2;
         }
-        
-        return $this;
-    }
-    /**
-     * Get Period value
-     * @return int|null
-     */
-    public function getPeriod(): ?int
-    {
-        return $this->Period;
-    }
-    /**
-     * Set Period value
-     * @param int $period
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\PreRegistirationRequest
-     */
-    public function setPeriod(?int $period = null): self
-    {
-        // validation for constraint: int
-        if (!is_null($period) && !(is_int($period) || ctype_digit($period))) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($period, true), gettype($period)), __LINE__);
-        }
-        $this->Period = $period;
         
         return $this;
     }

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for EnableTheftProtectionLock StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class EnableTheftProtectionLock extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class EnableTheftProtectionLock extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\EnableTheftProtectionLockRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

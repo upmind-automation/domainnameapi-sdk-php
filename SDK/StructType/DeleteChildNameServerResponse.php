@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:DeleteChildNameServerResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteChildNameServerResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class DeleteChildNameServerResponse extends BaseMethodResponse
      */
     public function getDeleteChildNameServerResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\DeleteChildNameServerResponse
     {
-        return isset($this->DeleteChildNameServerResult) ? $this->DeleteChildNameServerResult : null;
+        return $this->DeleteChildNameServerResult ?? null;
     }
     /**
      * Set DeleteChildNameServerResult value

@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:RenewResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class RenewResponse extends BaseMethodResponse
 {
     /**
@@ -76,7 +77,7 @@ class RenewResponse extends BaseMethodResponse
      */
     public function getRenewResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\RenewResponse
     {
-        return isset($this->RenewResult) ? $this->RenewResult : null;
+        return $this->RenewResult ?? null;
     }
     /**
      * Set RenewResult value

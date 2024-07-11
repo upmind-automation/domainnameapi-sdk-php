@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:PushResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class PushResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class PushResponse extends BaseMethodResponse
      */
     public function getPushResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\PushResponse
     {
-        return isset($this->PushResult) ? $this->PushResult : null;
+        return $this->PushResult ?? null;
     }
     /**
      * Set PushResult value

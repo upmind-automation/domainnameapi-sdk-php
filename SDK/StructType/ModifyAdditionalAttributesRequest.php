@@ -14,8 +14,16 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ModifyAdditionalAttributesRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyAdditionalAttributesRequest extends BaseMethodRequest
 {
+    /**
+     * The Id
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var int|null
+     */
+    protected ?int $Id = null;
     /**
      * The AdditionalAttributes
      * Meta information extracted from the WSDL
@@ -25,52 +33,17 @@ class ModifyAdditionalAttributesRequest extends BaseMethodRequest
      */
     protected ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $AdditionalAttributes = null;
     /**
-     * The Id
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var int|null
-     */
-    protected ?int $Id = null;
-    /**
      * Constructor method for ModifyAdditionalAttributesRequest
-     * @uses ModifyAdditionalAttributesRequest::setAdditionalAttributes()
      * @uses ModifyAdditionalAttributesRequest::setId()
-     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
+     * @uses ModifyAdditionalAttributesRequest::setAdditionalAttributes()
      * @param int $id
+     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null, ?int $id = null)
+    public function __construct(?int $id = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null)
     {
         $this
-            ->setAdditionalAttributes($additionalAttributes)
-            ->setId($id);
-    }
-    /**
-     * Get AdditionalAttributes value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring|null
-     */
-    public function getAdditionalAttributes(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring
-    {
-        return isset($this->AdditionalAttributes) ? $this->AdditionalAttributes : null;
-    }
-    /**
-     * Set AdditionalAttributes value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ModifyAdditionalAttributesRequest
-     */
-    public function setAdditionalAttributes(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null): self
-    {
-        if (is_null($additionalAttributes) || (is_array($additionalAttributes) && empty($additionalAttributes))) {
-            unset($this->AdditionalAttributes);
-        } else {
-            $this->AdditionalAttributes = $additionalAttributes;
-        }
-        
-        return $this;
+            ->setId($id)
+            ->setAdditionalAttributes($additionalAttributes);
     }
     /**
      * Get Id value
@@ -92,6 +65,34 @@ class ModifyAdditionalAttributesRequest extends BaseMethodRequest
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
+        
+        return $this;
+    }
+    /**
+     * Get AdditionalAttributes value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring|null
+     */
+    public function getAdditionalAttributes(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring
+    {
+        return $this->AdditionalAttributes ?? null;
+    }
+    /**
+     * Set AdditionalAttributes value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ModifyAdditionalAttributesRequest
+     */
+    public function setAdditionalAttributes(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null): self
+    {
+        if (is_null($additionalAttributes) || (is_array($additionalAttributes) && empty($additionalAttributes))) {
+            unset($this->AdditionalAttributes);
+        } else {
+            $this->AdditionalAttributes = $additionalAttributes;
+        }
         
         return $this;
     }

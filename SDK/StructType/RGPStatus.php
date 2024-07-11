@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:RGPStatus
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class RGPStatus extends AbstractStructBase
 {
     /**
@@ -76,7 +77,7 @@ class RGPStatus extends AbstractStructBase
      */
     public function getName(): ?string
     {
-        return isset($this->Name) ? $this->Name : null;
+        return $this->Name ?? null;
     }
     /**
      * Set Name value

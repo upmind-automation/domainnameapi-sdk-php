@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:DeleteResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class DeleteResponse extends BaseMethodResponse
      */
     public function getDeleteResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\DeleteResponse
     {
-        return isset($this->DeleteResult) ? $this->DeleteResult : null;
+        return $this->DeleteResult ?? null;
     }
     /**
      * Set DeleteResult value

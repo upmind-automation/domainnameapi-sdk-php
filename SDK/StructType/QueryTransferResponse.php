@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:QueryTransferResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class QueryTransferResponse extends BaseMethodResponse
 {
     /**
@@ -24,6 +25,13 @@ class QueryTransferResponse extends BaseMethodResponse
      */
     protected ?string $CreatedDate = null;
     /**
+     * The ExpirationDate
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var string|null
+     */
+    protected ?string $ExpirationDate = null;
+    /**
      * The DomainName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -31,13 +39,6 @@ class QueryTransferResponse extends BaseMethodResponse
      * @var string|null
      */
     protected ?string $DomainName = null;
-    /**
-     * The ExpirationDate
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var string|null
-     */
-    protected ?string $ExpirationDate = null;
     /**
      * The TransferLog
      * Meta information extracted from the WSDL
@@ -65,24 +66,24 @@ class QueryTransferResponse extends BaseMethodResponse
     /**
      * Constructor method for QueryTransferResponse
      * @uses QueryTransferResponse::setCreatedDate()
-     * @uses QueryTransferResponse::setDomainName()
      * @uses QueryTransferResponse::setExpirationDate()
+     * @uses QueryTransferResponse::setDomainName()
      * @uses QueryTransferResponse::setTransferLog()
      * @uses QueryTransferResponse::setTransferStatus()
      * @uses QueryTransferResponse::setQueryTransferResult()
      * @param string $createdDate
-     * @param string $domainName
      * @param string $expirationDate
+     * @param string $domainName
      * @param string $transferLog
      * @param string $transferStatus
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse $queryTransferResult
      */
-    public function __construct(?string $createdDate = null, ?string $domainName = null, ?string $expirationDate = null, ?string $transferLog = null, ?string $transferStatus = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse $queryTransferResult = null)
+    public function __construct(?string $createdDate = null, ?string $expirationDate = null, ?string $domainName = null, ?string $transferLog = null, ?string $transferStatus = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse $queryTransferResult = null)
     {
         $this
             ->setCreatedDate($createdDate)
-            ->setDomainName($domainName)
             ->setExpirationDate($expirationDate)
+            ->setDomainName($domainName)
             ->setTransferLog($transferLog)
             ->setTransferStatus($transferStatus)
             ->setQueryTransferResult($queryTransferResult);
@@ -111,38 +112,6 @@ class QueryTransferResponse extends BaseMethodResponse
         return $this;
     }
     /**
-     * Get DomainName value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return string|null
-     */
-    public function getDomainName(): ?string
-    {
-        return isset($this->DomainName) ? $this->DomainName : null;
-    }
-    /**
-     * Set DomainName value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param string $domainName
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse
-     */
-    public function setDomainName(?string $domainName = null): self
-    {
-        // validation for constraint: string
-        if (!is_null($domainName) && !is_string($domainName)) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainName, true), gettype($domainName)), __LINE__);
-        }
-        if (is_null($domainName) || (is_array($domainName) && empty($domainName))) {
-            unset($this->DomainName);
-        } else {
-            $this->DomainName = $domainName;
-        }
-        
-        return $this;
-    }
-    /**
      * Get ExpirationDate value
      * @return string|null
      */
@@ -166,6 +135,38 @@ class QueryTransferResponse extends BaseMethodResponse
         return $this;
     }
     /**
+     * Get DomainName value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return string|null
+     */
+    public function getDomainName(): ?string
+    {
+        return $this->DomainName ?? null;
+    }
+    /**
+     * Set DomainName value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param string $domainName
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse
+     */
+    public function setDomainName(?string $domainName = null): self
+    {
+        // validation for constraint: string
+        if (!is_null($domainName) && !is_string($domainName)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainName, true), gettype($domainName)), __LINE__);
+        }
+        if (is_null($domainName) || (is_array($domainName) && empty($domainName))) {
+            unset($this->DomainName);
+        } else {
+            $this->DomainName = $domainName;
+        }
+        
+        return $this;
+    }
+    /**
      * Get TransferLog value
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
@@ -174,7 +175,7 @@ class QueryTransferResponse extends BaseMethodResponse
      */
     public function getTransferLog(): ?string
     {
-        return isset($this->TransferLog) ? $this->TransferLog : null;
+        return $this->TransferLog ?? null;
     }
     /**
      * Set TransferLog value
@@ -206,7 +207,7 @@ class QueryTransferResponse extends BaseMethodResponse
      */
     public function getTransferStatus(): ?string
     {
-        return isset($this->TransferStatus) ? $this->TransferStatus : null;
+        return $this->TransferStatus ?? null;
     }
     /**
      * Set TransferStatus value
@@ -238,7 +239,7 @@ class QueryTransferResponse extends BaseMethodResponse
      */
     public function getQueryTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\QueryTransferResponse
     {
-        return isset($this->QueryTransferResult) ? $this->QueryTransferResult : null;
+        return $this->QueryTransferResult ?? null;
     }
     /**
      * Set QueryTransferResult value

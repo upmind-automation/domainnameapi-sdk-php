@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:TransferResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class TransferResponse extends BaseMethodResponse
 {
     /**
@@ -54,7 +55,7 @@ class TransferResponse extends BaseMethodResponse
      */
     public function getDomainInfo(): ?\Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo
     {
-        return isset($this->DomainInfo) ? $this->DomainInfo : null;
+        return $this->DomainInfo ?? null;
     }
     /**
      * Set DomainInfo value
@@ -82,7 +83,7 @@ class TransferResponse extends BaseMethodResponse
      */
     public function getTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\TransferResponse
     {
-        return isset($this->TransferResult) ? $this->TransferResult : null;
+        return $this->TransferResult ?? null;
     }
     /**
      * Set TransferResult value

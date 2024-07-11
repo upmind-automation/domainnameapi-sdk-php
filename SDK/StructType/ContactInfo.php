@@ -14,8 +14,16 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ContactInfo
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ContactInfo extends BaseData
 {
+    /**
+     * The Type
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var string|null
+     */
+    protected ?string $Type = null;
     /**
      * The AdditionalAttributes
      * Meta information extracted from the WSDL
@@ -145,13 +153,6 @@ class ContactInfo extends BaseData
      */
     protected ?string $State = null;
     /**
-     * The Type
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var string|null
-     */
-    protected ?string $Type = null;
-    /**
      * The ZipCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -161,6 +162,7 @@ class ContactInfo extends BaseData
     protected ?string $ZipCode = null;
     /**
      * Constructor method for ContactInfo
+     * @uses ContactInfo::setType()
      * @uses ContactInfo::setAdditionalAttributes()
      * @uses ContactInfo::setAddressLine1()
      * @uses ContactInfo::setAddressLine2()
@@ -177,8 +179,8 @@ class ContactInfo extends BaseData
      * @uses ContactInfo::setPhone()
      * @uses ContactInfo::setPhoneCountryCode()
      * @uses ContactInfo::setState()
-     * @uses ContactInfo::setType()
      * @uses ContactInfo::setZipCode()
+     * @param string $type
      * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
      * @param string $addressLine1
      * @param string $addressLine2
@@ -195,12 +197,12 @@ class ContactInfo extends BaseData
      * @param string $phone
      * @param string $phoneCountryCode
      * @param string $state
-     * @param string $type
      * @param string $zipCode
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null, ?string $addressLine1 = null, ?string $addressLine2 = null, ?string $addressLine3 = null, ?string $auth = null, ?string $city = null, ?string $company = null, ?string $country = null, ?string $eMail = null, ?string $fax = null, ?string $faxCountryCode = null, ?string $firstName = null, ?string $lastName = null, ?string $phone = null, ?string $phoneCountryCode = null, ?string $state = null, ?string $type = null, ?string $zipCode = null)
+    public function __construct(?string $type = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null, ?string $addressLine1 = null, ?string $addressLine2 = null, ?string $addressLine3 = null, ?string $auth = null, ?string $city = null, ?string $company = null, ?string $country = null, ?string $eMail = null, ?string $fax = null, ?string $faxCountryCode = null, ?string $firstName = null, ?string $lastName = null, ?string $phone = null, ?string $phoneCountryCode = null, ?string $state = null, ?string $zipCode = null)
     {
         $this
+            ->setType($type)
             ->setAdditionalAttributes($additionalAttributes)
             ->setAddressLine1($addressLine1)
             ->setAddressLine2($addressLine2)
@@ -217,8 +219,33 @@ class ContactInfo extends BaseData
             ->setPhone($phone)
             ->setPhoneCountryCode($phoneCountryCode)
             ->setState($state)
-            ->setType($type)
             ->setZipCode($zipCode);
+    }
+    /**
+     * Get Type value
+     * @return string|null
+     */
+    public function getType(): ?string
+    {
+        return $this->Type;
+    }
+    /**
+     * Set Type value
+     * @uses \Upmind\DomainNameApiSdk\SDK\EnumType\ContactType::valueIsValid()
+     * @uses \Upmind\DomainNameApiSdk\SDK\EnumType\ContactType::getValidValues()
+     * @throws InvalidArgumentException
+     * @param string $type
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
+     */
+    public function setType(?string $type = null): self
+    {
+        // validation for constraint: enumeration
+        if (!\Upmind\DomainNameApiSdk\SDK\EnumType\ContactType::valueIsValid($type)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Upmind\DomainNameApiSdk\SDK\EnumType\ContactType', is_array($type) ? implode(', ', $type) : var_export($type, true), implode(', ', \Upmind\DomainNameApiSdk\SDK\EnumType\ContactType::getValidValues())), __LINE__);
+        }
+        $this->Type = $type;
+        
+        return $this;
     }
     /**
      * Get AdditionalAttributes value
@@ -229,7 +256,7 @@ class ContactInfo extends BaseData
      */
     public function getAdditionalAttributes(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring
     {
-        return isset($this->AdditionalAttributes) ? $this->AdditionalAttributes : null;
+        return $this->AdditionalAttributes ?? null;
     }
     /**
      * Set AdditionalAttributes value
@@ -257,7 +284,7 @@ class ContactInfo extends BaseData
      */
     public function getAddressLine1(): ?string
     {
-        return isset($this->AddressLine1) ? $this->AddressLine1 : null;
+        return $this->AddressLine1 ?? null;
     }
     /**
      * Set AddressLine1 value
@@ -289,7 +316,7 @@ class ContactInfo extends BaseData
      */
     public function getAddressLine2(): ?string
     {
-        return isset($this->AddressLine2) ? $this->AddressLine2 : null;
+        return $this->AddressLine2 ?? null;
     }
     /**
      * Set AddressLine2 value
@@ -321,7 +348,7 @@ class ContactInfo extends BaseData
      */
     public function getAddressLine3(): ?string
     {
-        return isset($this->AddressLine3) ? $this->AddressLine3 : null;
+        return $this->AddressLine3 ?? null;
     }
     /**
      * Set AddressLine3 value
@@ -353,7 +380,7 @@ class ContactInfo extends BaseData
      */
     public function getAuth(): ?string
     {
-        return isset($this->Auth) ? $this->Auth : null;
+        return $this->Auth ?? null;
     }
     /**
      * Set Auth value
@@ -385,7 +412,7 @@ class ContactInfo extends BaseData
      */
     public function getCity(): ?string
     {
-        return isset($this->City) ? $this->City : null;
+        return $this->City ?? null;
     }
     /**
      * Set City value
@@ -417,7 +444,7 @@ class ContactInfo extends BaseData
      */
     public function getCompany(): ?string
     {
-        return isset($this->Company) ? $this->Company : null;
+        return $this->Company ?? null;
     }
     /**
      * Set Company value
@@ -449,7 +476,7 @@ class ContactInfo extends BaseData
      */
     public function getCountry(): ?string
     {
-        return isset($this->Country) ? $this->Country : null;
+        return $this->Country ?? null;
     }
     /**
      * Set Country value
@@ -481,7 +508,7 @@ class ContactInfo extends BaseData
      */
     public function getEMail(): ?string
     {
-        return isset($this->EMail) ? $this->EMail : null;
+        return $this->EMail ?? null;
     }
     /**
      * Set EMail value
@@ -513,7 +540,7 @@ class ContactInfo extends BaseData
      */
     public function getFax(): ?string
     {
-        return isset($this->Fax) ? $this->Fax : null;
+        return $this->Fax ?? null;
     }
     /**
      * Set Fax value
@@ -545,7 +572,7 @@ class ContactInfo extends BaseData
      */
     public function getFaxCountryCode(): ?string
     {
-        return isset($this->FaxCountryCode) ? $this->FaxCountryCode : null;
+        return $this->FaxCountryCode ?? null;
     }
     /**
      * Set FaxCountryCode value
@@ -577,7 +604,7 @@ class ContactInfo extends BaseData
      */
     public function getFirstName(): ?string
     {
-        return isset($this->FirstName) ? $this->FirstName : null;
+        return $this->FirstName ?? null;
     }
     /**
      * Set FirstName value
@@ -609,7 +636,7 @@ class ContactInfo extends BaseData
      */
     public function getLastName(): ?string
     {
-        return isset($this->LastName) ? $this->LastName : null;
+        return $this->LastName ?? null;
     }
     /**
      * Set LastName value
@@ -641,7 +668,7 @@ class ContactInfo extends BaseData
      */
     public function getPhone(): ?string
     {
-        return isset($this->Phone) ? $this->Phone : null;
+        return $this->Phone ?? null;
     }
     /**
      * Set Phone value
@@ -673,7 +700,7 @@ class ContactInfo extends BaseData
      */
     public function getPhoneCountryCode(): ?string
     {
-        return isset($this->PhoneCountryCode) ? $this->PhoneCountryCode : null;
+        return $this->PhoneCountryCode ?? null;
     }
     /**
      * Set PhoneCountryCode value
@@ -705,7 +732,7 @@ class ContactInfo extends BaseData
      */
     public function getState(): ?string
     {
-        return isset($this->State) ? $this->State : null;
+        return $this->State ?? null;
     }
     /**
      * Set State value
@@ -729,32 +756,6 @@ class ContactInfo extends BaseData
         return $this;
     }
     /**
-     * Get Type value
-     * @return string|null
-     */
-    public function getType(): ?string
-    {
-        return $this->Type;
-    }
-    /**
-     * Set Type value
-     * @uses \Upmind\DomainNameApiSdk\SDK\EnumType\ContactType::valueIsValid()
-     * @uses \Upmind\DomainNameApiSdk\SDK\EnumType\ContactType::getValidValues()
-     * @throws InvalidArgumentException
-     * @param string $type
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
-     */
-    public function setType(?string $type = null): self
-    {
-        // validation for constraint: enumeration
-        if (!\Upmind\DomainNameApiSdk\SDK\EnumType\ContactType::valueIsValid($type)) {
-            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Upmind\DomainNameApiSdk\SDK\EnumType\ContactType', is_array($type) ? implode(', ', $type) : var_export($type, true), implode(', ', \Upmind\DomainNameApiSdk\SDK\EnumType\ContactType::getValidValues())), __LINE__);
-        }
-        $this->Type = $type;
-        
-        return $this;
-    }
-    /**
      * Get ZipCode value
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
@@ -763,7 +764,7 @@ class ContactInfo extends BaseData
      */
     public function getZipCode(): ?string
     {
-        return isset($this->ZipCode) ? $this->ZipCode : null;
+        return $this->ZipCode ?? null;
     }
     /**
      * Set ZipCode value

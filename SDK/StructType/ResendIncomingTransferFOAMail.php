@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ResendIncomingTransferFOAMail StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ResendIncomingTransferFOAMail extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class ResendIncomingTransferFOAMail extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ResendIncomingTransferFOAMailRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

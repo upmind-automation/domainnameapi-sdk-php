@@ -71,6 +71,16 @@ class ContactType extends AbstractStructEnumBase
      */
     const VALUE_SPONSOR = 'Sponsor';
     /**
+     * Constant for value 'Trabis2DefaultContact'
+     * @return string 'Trabis2DefaultContact'
+     */
+    const VALUE_TRABIS_2_DEFAULT_CONTACT = 'Trabis2DefaultContact';
+    /**
+     * Constant for value 'Trabis2OwnerContact'
+     * @return string 'Trabis2OwnerContact'
+     */
+    const VALUE_TRABIS_2_OWNER_CONTACT = 'Trabis2OwnerContact';
+    /**
      * Return allowed values
      * @uses self::VALUE_CONTACT
      * @uses self::VALUE_COOP_CONTACT
@@ -83,6 +93,8 @@ class ContactType extends AbstractStructEnumBase
      * @uses self::VALUE_ES_CONTACT
      * @uses self::VALUE_COOP_SPONSOR
      * @uses self::VALUE_SPONSOR
+     * @uses self::VALUE_TRABIS_2_DEFAULT_CONTACT
+     * @uses self::VALUE_TRABIS_2_OWNER_CONTACT
      * @return string[]
      */
     public static function getValidValues(): array
@@ -99,6 +111,8 @@ class ContactType extends AbstractStructEnumBase
             self::VALUE_ES_CONTACT,
             self::VALUE_COOP_SPONSOR,
             self::VALUE_SPONSOR,
+            self::VALUE_TRABIS_2_DEFAULT_CONTACT,
+            self::VALUE_TRABIS_2_OWNER_CONTACT,
         ];
     }
 }

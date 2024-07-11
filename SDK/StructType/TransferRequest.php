@@ -14,8 +14,17 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:TransferRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class TransferRequest extends BaseMethodRequest
 {
+    /**
+     * The AdditionalAttributes
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring|null
+     */
+    protected ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $AdditionalAttributes = null;
     /**
      * The AuthCode
      * Meta information extracted from the WSDL
@@ -58,25 +67,56 @@ class TransferRequest extends BaseMethodRequest
     protected ?bool $IsNewContact = null;
     /**
      * Constructor method for TransferRequest
+     * @uses TransferRequest::setAdditionalAttributes()
      * @uses TransferRequest::setAuthCode()
      * @uses TransferRequest::setCommand()
      * @uses TransferRequest::setContact()
      * @uses TransferRequest::setDomainName()
      * @uses TransferRequest::setIsNewContact()
+     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
      * @param string $authCode
      * @param string $command
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $contact
      * @param string $domainName
      * @param bool $isNewContact
      */
-    public function __construct(?string $authCode = null, ?string $command = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $contact = null, ?string $domainName = null, ?bool $isNewContact = null)
+    public function __construct(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null, ?string $authCode = null, ?string $command = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $contact = null, ?string $domainName = null, ?bool $isNewContact = null)
     {
         $this
+            ->setAdditionalAttributes($additionalAttributes)
             ->setAuthCode($authCode)
             ->setCommand($command)
             ->setContact($contact)
             ->setDomainName($domainName)
             ->setIsNewContact($isNewContact);
+    }
+    /**
+     * Get AdditionalAttributes value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring|null
+     */
+    public function getAdditionalAttributes(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring
+    {
+        return $this->AdditionalAttributes ?? null;
+    }
+    /**
+     * Set AdditionalAttributes value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\TransferRequest
+     */
+    public function setAdditionalAttributes(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null): self
+    {
+        if (is_null($additionalAttributes) || (is_array($additionalAttributes) && empty($additionalAttributes))) {
+            unset($this->AdditionalAttributes);
+        } else {
+            $this->AdditionalAttributes = $additionalAttributes;
+        }
+        
+        return $this;
     }
     /**
      * Get AuthCode value
@@ -87,7 +127,7 @@ class TransferRequest extends BaseMethodRequest
      */
     public function getAuthCode(): ?string
     {
-        return isset($this->AuthCode) ? $this->AuthCode : null;
+        return $this->AuthCode ?? null;
     }
     /**
      * Set AuthCode value
@@ -119,7 +159,7 @@ class TransferRequest extends BaseMethodRequest
      */
     public function getCommand(): ?string
     {
-        return isset($this->Command) ? $this->Command : null;
+        return $this->Command ?? null;
     }
     /**
      * Set Command value
@@ -151,7 +191,7 @@ class TransferRequest extends BaseMethodRequest
      */
     public function getContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
     {
-        return isset($this->Contact) ? $this->Contact : null;
+        return $this->Contact ?? null;
     }
     /**
      * Set Contact value
@@ -179,7 +219,7 @@ class TransferRequest extends BaseMethodRequest
      */
     public function getDomainName(): ?string
     {
-        return isset($this->DomainName) ? $this->DomainName : null;
+        return $this->DomainName ?? null;
     }
     /**
      * Set DomainName value
@@ -211,7 +251,7 @@ class TransferRequest extends BaseMethodRequest
      */
     public function getIsNewContact(): ?bool
     {
-        return isset($this->IsNewContact) ? $this->IsNewContact : null;
+        return $this->IsNewContact ?? null;
     }
     /**
      * Set IsNewContact value

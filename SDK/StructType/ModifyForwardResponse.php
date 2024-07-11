@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ModifyForwardResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyForwardResponse extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class ModifyForwardResponse extends AbstractStructBase
      */
     public function getModifyForwardResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ForwardResponse
     {
-        return isset($this->ModifyForwardResult) ? $this->ModifyForwardResult : null;
+        return $this->ModifyForwardResult ?? null;
     }
     /**
      * Set ModifyForwardResult value

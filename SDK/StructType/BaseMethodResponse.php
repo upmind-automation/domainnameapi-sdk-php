@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:BaseMethodResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class BaseMethodResponse extends AbstractStructBase
 {
     /**
@@ -24,6 +25,13 @@ class BaseMethodResponse extends AbstractStructBase
      */
     protected ?int $ErrorCode = null;
     /**
+     * The OperationResult
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var string|null
+     */
+    protected ?string $OperationResult = null;
+    /**
      * The OperationMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -32,27 +40,20 @@ class BaseMethodResponse extends AbstractStructBase
      */
     protected ?string $OperationMessage = null;
     /**
-     * The OperationResult
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var string|null
-     */
-    protected ?string $OperationResult = null;
-    /**
      * Constructor method for BaseMethodResponse
      * @uses BaseMethodResponse::setErrorCode()
-     * @uses BaseMethodResponse::setOperationMessage()
      * @uses BaseMethodResponse::setOperationResult()
+     * @uses BaseMethodResponse::setOperationMessage()
      * @param int $errorCode
-     * @param string $operationMessage
      * @param string $operationResult
+     * @param string $operationMessage
      */
-    public function __construct(?int $errorCode = null, ?string $operationMessage = null, ?string $operationResult = null)
+    public function __construct(?int $errorCode = null, ?string $operationResult = null, ?string $operationMessage = null)
     {
         $this
             ->setErrorCode($errorCode)
-            ->setOperationMessage($operationMessage)
-            ->setOperationResult($operationResult);
+            ->setOperationResult($operationResult)
+            ->setOperationMessage($operationMessage);
     }
     /**
      * Get ErrorCode value
@@ -74,38 +75,6 @@ class BaseMethodResponse extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($errorCode, true), gettype($errorCode)), __LINE__);
         }
         $this->ErrorCode = $errorCode;
-        
-        return $this;
-    }
-    /**
-     * Get OperationMessage value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return string|null
-     */
-    public function getOperationMessage(): ?string
-    {
-        return isset($this->OperationMessage) ? $this->OperationMessage : null;
-    }
-    /**
-     * Set OperationMessage value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param string $operationMessage
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\BaseMethodResponse
-     */
-    public function setOperationMessage(?string $operationMessage = null): self
-    {
-        // validation for constraint: string
-        if (!is_null($operationMessage) && !is_string($operationMessage)) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($operationMessage, true), gettype($operationMessage)), __LINE__);
-        }
-        if (is_null($operationMessage) || (is_array($operationMessage) && empty($operationMessage))) {
-            unset($this->OperationMessage);
-        } else {
-            $this->OperationMessage = $operationMessage;
-        }
         
         return $this;
     }
@@ -132,6 +101,38 @@ class BaseMethodResponse extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Upmind\DomainNameApiSdk\SDK\EnumType\ExecutionStatus', is_array($operationResult) ? implode(', ', $operationResult) : var_export($operationResult, true), implode(', ', \Upmind\DomainNameApiSdk\SDK\EnumType\ExecutionStatus::getValidValues())), __LINE__);
         }
         $this->OperationResult = $operationResult;
+        
+        return $this;
+    }
+    /**
+     * Get OperationMessage value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return string|null
+     */
+    public function getOperationMessage(): ?string
+    {
+        return $this->OperationMessage ?? null;
+    }
+    /**
+     * Set OperationMessage value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param string $operationMessage
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\BaseMethodResponse
+     */
+    public function setOperationMessage(?string $operationMessage = null): self
+    {
+        // validation for constraint: string
+        if (!is_null($operationMessage) && !is_string($operationMessage)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($operationMessage, true), gettype($operationMessage)), __LINE__);
+        }
+        if (is_null($operationMessage) || (is_array($operationMessage) && empty($operationMessage))) {
+            unset($this->OperationMessage);
+        } else {
+            $this->OperationMessage = $operationMessage;
+        }
         
         return $this;
     }

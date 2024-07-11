@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:RestoreResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class RestoreResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class RestoreResponse extends BaseMethodResponse
      */
     public function getRestoreResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\RestoreResponse
     {
-        return isset($this->RestoreResult) ? $this->RestoreResult : null;
+        return $this->RestoreResult ?? null;
     }
     /**
      * Set RestoreResult value

@@ -22,7 +22,7 @@ class ArrayOfstring extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
-     * @var string[]
+     * @var string[]|null
      */
     protected ?array $string = null;
     /**
@@ -40,19 +40,20 @@ class ArrayOfstring extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return string[]
+     * @return string[]|null
      */
     public function getString(): ?array
     {
-        return isset($this->string) ? $this->string : null;
+        return $this->string ?? null;
     }
     /**
-     * This method is responsible for validating the values passed to the setString method
+     * This method is responsible for validating the value(s) passed to the setString method
      * This method is willingly generated in order to preserve the one-line inline validation within the setString method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateStringForArrayConstraintsFromSetString(?array $values = []): string
+    public static function validateStringForArrayConstraintFromSetString(?array $values = []): string
     {
         if (!is_array($values)) {
             return '';
@@ -83,7 +84,7 @@ class ArrayOfstring extends AbstractStructArrayBase
     public function setString(?array $string = null): self
     {
         // validation for constraint: array
-        if ('' !== ($stringArrayErrorMessage = self::validateStringForArrayConstraintsFromSetString($string))) {
+        if ('' !== ($stringArrayErrorMessage = self::validateStringForArrayConstraintFromSetString($string))) {
             throw new InvalidArgumentException($stringArrayErrorMessage, __LINE__);
         }
         if (is_null($string) || (is_array($string) && empty($string))) {

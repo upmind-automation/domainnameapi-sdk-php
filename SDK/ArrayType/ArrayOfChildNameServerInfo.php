@@ -22,7 +22,7 @@ class ArrayOfChildNameServerInfo extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\ChildNameServerInfo[]
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\ChildNameServerInfo[]|null
      */
     protected ?array $ChildNameServerInfo = null;
     /**
@@ -40,19 +40,20 @@ class ArrayOfChildNameServerInfo extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ChildNameServerInfo[]
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ChildNameServerInfo[]|null
      */
     public function getChildNameServerInfo(): ?array
     {
-        return isset($this->ChildNameServerInfo) ? $this->ChildNameServerInfo : null;
+        return $this->ChildNameServerInfo ?? null;
     }
     /**
-     * This method is responsible for validating the values passed to the setChildNameServerInfo method
+     * This method is responsible for validating the value(s) passed to the setChildNameServerInfo method
      * This method is willingly generated in order to preserve the one-line inline validation within the setChildNameServerInfo method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateChildNameServerInfoForArrayConstraintsFromSetChildNameServerInfo(?array $values = []): string
+    public static function validateChildNameServerInfoForArrayConstraintFromSetChildNameServerInfo(?array $values = []): string
     {
         if (!is_array($values)) {
             return '';
@@ -83,7 +84,7 @@ class ArrayOfChildNameServerInfo extends AbstractStructArrayBase
     public function setChildNameServerInfo(?array $childNameServerInfo = null): self
     {
         // validation for constraint: array
-        if ('' !== ($childNameServerInfoArrayErrorMessage = self::validateChildNameServerInfoForArrayConstraintsFromSetChildNameServerInfo($childNameServerInfo))) {
+        if ('' !== ($childNameServerInfoArrayErrorMessage = self::validateChildNameServerInfoForArrayConstraintFromSetChildNameServerInfo($childNameServerInfo))) {
             throw new InvalidArgumentException($childNameServerInfoArrayErrorMessage, __LINE__);
         }
         if (is_null($childNameServerInfo) || (is_array($childNameServerInfo) && empty($childNameServerInfo))) {

@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:DENIC_DeleteAuthInfo1Request
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DENIC_DeleteAuthInfo1Request extends BaseMethodRequest
 {
     /**

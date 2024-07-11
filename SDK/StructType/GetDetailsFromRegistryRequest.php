@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:GetDetailsFromRegistryRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetDetailsFromRegistryRequest extends BaseMethodRequest
 {
     /**
@@ -54,7 +55,7 @@ class GetDetailsFromRegistryRequest extends BaseMethodRequest
      */
     public function getAuthCode(): ?string
     {
-        return isset($this->AuthCode) ? $this->AuthCode : null;
+        return $this->AuthCode ?? null;
     }
     /**
      * Set AuthCode value
@@ -86,7 +87,7 @@ class GetDetailsFromRegistryRequest extends BaseMethodRequest
      */
     public function getExternalId(): ?string
     {
-        return isset($this->ExternalId) ? $this->ExternalId : null;
+        return $this->ExternalId ?? null;
     }
     /**
      * Set ExternalId value

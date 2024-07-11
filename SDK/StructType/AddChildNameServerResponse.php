@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:AddChildNameServerResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class AddChildNameServerResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class AddChildNameServerResponse extends BaseMethodResponse
      */
     public function getAddChildNameServerResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\AddChildNameServerResponse
     {
-        return isset($this->AddChildNameServerResult) ? $this->AddChildNameServerResult : null;
+        return $this->AddChildNameServerResult ?? null;
     }
     /**
      * Set AddChildNameServerResult value

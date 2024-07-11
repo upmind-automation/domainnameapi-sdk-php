@@ -14,8 +14,16 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:AddChildNameServerRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class AddChildNameServerRequest extends BaseMethodRequest
 {
+    /**
+     * The Id
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var int|null
+     */
+    protected ?int $Id = null;
     /**
      * The ChildNameServer
      * Meta information extracted from the WSDL
@@ -24,13 +32,6 @@ class AddChildNameServerRequest extends BaseMethodRequest
      * @var string|null
      */
     protected ?string $ChildNameServer = null;
-    /**
-     * The Id
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var int|null
-     */
-    protected ?int $Id = null;
     /**
      * The IpAddressList
      * Meta information extracted from the WSDL
@@ -41,51 +42,19 @@ class AddChildNameServerRequest extends BaseMethodRequest
     protected ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $IpAddressList = null;
     /**
      * Constructor method for AddChildNameServerRequest
-     * @uses AddChildNameServerRequest::setChildNameServer()
      * @uses AddChildNameServerRequest::setId()
+     * @uses AddChildNameServerRequest::setChildNameServer()
      * @uses AddChildNameServerRequest::setIpAddressList()
-     * @param string $childNameServer
      * @param int $id
+     * @param string $childNameServer
      * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $ipAddressList
      */
-    public function __construct(?string $childNameServer = null, ?int $id = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $ipAddressList = null)
+    public function __construct(?int $id = null, ?string $childNameServer = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $ipAddressList = null)
     {
         $this
-            ->setChildNameServer($childNameServer)
             ->setId($id)
+            ->setChildNameServer($childNameServer)
             ->setIpAddressList($ipAddressList);
-    }
-    /**
-     * Get ChildNameServer value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return string|null
-     */
-    public function getChildNameServer(): ?string
-    {
-        return isset($this->ChildNameServer) ? $this->ChildNameServer : null;
-    }
-    /**
-     * Set ChildNameServer value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param string $childNameServer
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\AddChildNameServerRequest
-     */
-    public function setChildNameServer(?string $childNameServer = null): self
-    {
-        // validation for constraint: string
-        if (!is_null($childNameServer) && !is_string($childNameServer)) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($childNameServer, true), gettype($childNameServer)), __LINE__);
-        }
-        if (is_null($childNameServer) || (is_array($childNameServer) && empty($childNameServer))) {
-            unset($this->ChildNameServer);
-        } else {
-            $this->ChildNameServer = $childNameServer;
-        }
-        
-        return $this;
     }
     /**
      * Get Id value
@@ -111,6 +80,38 @@ class AddChildNameServerRequest extends BaseMethodRequest
         return $this;
     }
     /**
+     * Get ChildNameServer value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return string|null
+     */
+    public function getChildNameServer(): ?string
+    {
+        return $this->ChildNameServer ?? null;
+    }
+    /**
+     * Set ChildNameServer value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param string $childNameServer
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\AddChildNameServerRequest
+     */
+    public function setChildNameServer(?string $childNameServer = null): self
+    {
+        // validation for constraint: string
+        if (!is_null($childNameServer) && !is_string($childNameServer)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($childNameServer, true), gettype($childNameServer)), __LINE__);
+        }
+        if (is_null($childNameServer) || (is_array($childNameServer) && empty($childNameServer))) {
+            unset($this->ChildNameServer);
+        } else {
+            $this->ChildNameServer = $childNameServer;
+        }
+        
+        return $this;
+    }
+    /**
      * Get IpAddressList value
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
@@ -119,7 +120,7 @@ class AddChildNameServerRequest extends BaseMethodRequest
      */
     public function getIpAddressList(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring
     {
-        return isset($this->IpAddressList) ? $this->IpAddressList : null;
+        return $this->IpAddressList ?? null;
     }
     /**
      * Set IpAddressList value

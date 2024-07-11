@@ -14,8 +14,30 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:RegisterWithContactInfoRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class RegisterWithContactInfoRequest extends BaseMethodRequest
 {
+    /**
+     * The LockStatus
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var bool|null
+     */
+    protected ?bool $LockStatus = null;
+    /**
+     * The Period
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var int|null
+     */
+    protected ?int $Period = null;
+    /**
+     * The PrivacyProtectionStatus
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var bool|null
+     */
+    protected ?bool $PrivacyProtectionStatus = null;
     /**
      * The AdditionalAttributes
      * Meta information extracted from the WSDL
@@ -57,13 +79,6 @@ class RegisterWithContactInfoRequest extends BaseMethodRequest
      */
     protected ?string $IdnLanguage = null;
     /**
-     * The LockStatus
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var bool|null
-     */
-    protected ?bool $LockStatus = null;
-    /**
      * The NameServerList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -71,20 +86,6 @@ class RegisterWithContactInfoRequest extends BaseMethodRequest
      * @var \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring|null
      */
     protected ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $NameServerList = null;
-    /**
-     * The Period
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var int|null
-     */
-    protected ?int $Period = null;
-    /**
-     * The PrivacyProtectionStatus
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var bool|null
-     */
-    protected ?bool $PrivacyProtectionStatus = null;
     /**
      * The RegistrantContact
      * Meta information extracted from the WSDL
@@ -103,191 +104,43 @@ class RegisterWithContactInfoRequest extends BaseMethodRequest
     protected ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $TechnicalContact = null;
     /**
      * Constructor method for RegisterWithContactInfoRequest
+     * @uses RegisterWithContactInfoRequest::setLockStatus()
+     * @uses RegisterWithContactInfoRequest::setPeriod()
+     * @uses RegisterWithContactInfoRequest::setPrivacyProtectionStatus()
      * @uses RegisterWithContactInfoRequest::setAdditionalAttributes()
      * @uses RegisterWithContactInfoRequest::setAdministrativeContact()
      * @uses RegisterWithContactInfoRequest::setBillingContact()
      * @uses RegisterWithContactInfoRequest::setDomainName()
      * @uses RegisterWithContactInfoRequest::setIdnLanguage()
-     * @uses RegisterWithContactInfoRequest::setLockStatus()
      * @uses RegisterWithContactInfoRequest::setNameServerList()
-     * @uses RegisterWithContactInfoRequest::setPeriod()
-     * @uses RegisterWithContactInfoRequest::setPrivacyProtectionStatus()
      * @uses RegisterWithContactInfoRequest::setRegistrantContact()
      * @uses RegisterWithContactInfoRequest::setTechnicalContact()
+     * @param bool $lockStatus
+     * @param int $period
+     * @param bool $privacyProtectionStatus
      * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $administrativeContact
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $billingContact
      * @param string $domainName
      * @param string $idnLanguage
-     * @param bool $lockStatus
      * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $nameServerList
-     * @param int $period
-     * @param bool $privacyProtectionStatus
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $registrantContact
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $technicalContact
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $administrativeContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $billingContact = null, ?string $domainName = null, ?string $idnLanguage = null, ?bool $lockStatus = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $nameServerList = null, ?int $period = null, ?bool $privacyProtectionStatus = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $registrantContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $technicalContact = null)
+    public function __construct(?bool $lockStatus = null, ?int $period = null, ?bool $privacyProtectionStatus = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $administrativeContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $billingContact = null, ?string $domainName = null, ?string $idnLanguage = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $nameServerList = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $registrantContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $technicalContact = null)
     {
         $this
+            ->setLockStatus($lockStatus)
+            ->setPeriod($period)
+            ->setPrivacyProtectionStatus($privacyProtectionStatus)
             ->setAdditionalAttributes($additionalAttributes)
             ->setAdministrativeContact($administrativeContact)
             ->setBillingContact($billingContact)
             ->setDomainName($domainName)
             ->setIdnLanguage($idnLanguage)
-            ->setLockStatus($lockStatus)
             ->setNameServerList($nameServerList)
-            ->setPeriod($period)
-            ->setPrivacyProtectionStatus($privacyProtectionStatus)
             ->setRegistrantContact($registrantContact)
             ->setTechnicalContact($technicalContact);
-    }
-    /**
-     * Get AdditionalAttributes value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring|null
-     */
-    public function getAdditionalAttributes(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring
-    {
-        return isset($this->AdditionalAttributes) ? $this->AdditionalAttributes : null;
-    }
-    /**
-     * Set AdditionalAttributes value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterWithContactInfoRequest
-     */
-    public function setAdditionalAttributes(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null): self
-    {
-        if (is_null($additionalAttributes) || (is_array($additionalAttributes) && empty($additionalAttributes))) {
-            unset($this->AdditionalAttributes);
-        } else {
-            $this->AdditionalAttributes = $additionalAttributes;
-        }
-        
-        return $this;
-    }
-    /**
-     * Get AdministrativeContact value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo|null
-     */
-    public function getAdministrativeContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
-    {
-        return isset($this->AdministrativeContact) ? $this->AdministrativeContact : null;
-    }
-    /**
-     * Set AdministrativeContact value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $administrativeContact
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterWithContactInfoRequest
-     */
-    public function setAdministrativeContact(?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $administrativeContact = null): self
-    {
-        if (is_null($administrativeContact) || (is_array($administrativeContact) && empty($administrativeContact))) {
-            unset($this->AdministrativeContact);
-        } else {
-            $this->AdministrativeContact = $administrativeContact;
-        }
-        
-        return $this;
-    }
-    /**
-     * Get BillingContact value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo|null
-     */
-    public function getBillingContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
-    {
-        return isset($this->BillingContact) ? $this->BillingContact : null;
-    }
-    /**
-     * Set BillingContact value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $billingContact
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterWithContactInfoRequest
-     */
-    public function setBillingContact(?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $billingContact = null): self
-    {
-        if (is_null($billingContact) || (is_array($billingContact) && empty($billingContact))) {
-            unset($this->BillingContact);
-        } else {
-            $this->BillingContact = $billingContact;
-        }
-        
-        return $this;
-    }
-    /**
-     * Get DomainName value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return string|null
-     */
-    public function getDomainName(): ?string
-    {
-        return isset($this->DomainName) ? $this->DomainName : null;
-    }
-    /**
-     * Set DomainName value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param string $domainName
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterWithContactInfoRequest
-     */
-    public function setDomainName(?string $domainName = null): self
-    {
-        // validation for constraint: string
-        if (!is_null($domainName) && !is_string($domainName)) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainName, true), gettype($domainName)), __LINE__);
-        }
-        if (is_null($domainName) || (is_array($domainName) && empty($domainName))) {
-            unset($this->DomainName);
-        } else {
-            $this->DomainName = $domainName;
-        }
-        
-        return $this;
-    }
-    /**
-     * Get IdnLanguage value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return string|null
-     */
-    public function getIdnLanguage(): ?string
-    {
-        return isset($this->IdnLanguage) ? $this->IdnLanguage : null;
-    }
-    /**
-     * Set IdnLanguage value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param string $idnLanguage
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterWithContactInfoRequest
-     */
-    public function setIdnLanguage(?string $idnLanguage = null): self
-    {
-        // validation for constraint: string
-        if (!is_null($idnLanguage) && !is_string($idnLanguage)) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($idnLanguage, true), gettype($idnLanguage)), __LINE__);
-        }
-        if (is_null($idnLanguage) || (is_array($idnLanguage) && empty($idnLanguage))) {
-            unset($this->IdnLanguage);
-        } else {
-            $this->IdnLanguage = $idnLanguage;
-        }
-        
-        return $this;
     }
     /**
      * Get LockStatus value
@@ -309,34 +162,6 @@ class RegisterWithContactInfoRequest extends BaseMethodRequest
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($lockStatus, true), gettype($lockStatus)), __LINE__);
         }
         $this->LockStatus = $lockStatus;
-        
-        return $this;
-    }
-    /**
-     * Get NameServerList value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring|null
-     */
-    public function getNameServerList(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring
-    {
-        return isset($this->NameServerList) ? $this->NameServerList : null;
-    }
-    /**
-     * Set NameServerList value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $nameServerList
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterWithContactInfoRequest
-     */
-    public function setNameServerList(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $nameServerList = null): self
-    {
-        if (is_null($nameServerList) || (is_array($nameServerList) && empty($nameServerList))) {
-            unset($this->NameServerList);
-        } else {
-            $this->NameServerList = $nameServerList;
-        }
         
         return $this;
     }
@@ -387,6 +212,182 @@ class RegisterWithContactInfoRequest extends BaseMethodRequest
         return $this;
     }
     /**
+     * Get AdditionalAttributes value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring|null
+     */
+    public function getAdditionalAttributes(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring
+    {
+        return $this->AdditionalAttributes ?? null;
+    }
+    /**
+     * Set AdditionalAttributes value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterWithContactInfoRequest
+     */
+    public function setAdditionalAttributes(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null): self
+    {
+        if (is_null($additionalAttributes) || (is_array($additionalAttributes) && empty($additionalAttributes))) {
+            unset($this->AdditionalAttributes);
+        } else {
+            $this->AdditionalAttributes = $additionalAttributes;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get AdministrativeContact value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo|null
+     */
+    public function getAdministrativeContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
+    {
+        return $this->AdministrativeContact ?? null;
+    }
+    /**
+     * Set AdministrativeContact value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $administrativeContact
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterWithContactInfoRequest
+     */
+    public function setAdministrativeContact(?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $administrativeContact = null): self
+    {
+        if (is_null($administrativeContact) || (is_array($administrativeContact) && empty($administrativeContact))) {
+            unset($this->AdministrativeContact);
+        } else {
+            $this->AdministrativeContact = $administrativeContact;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get BillingContact value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo|null
+     */
+    public function getBillingContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
+    {
+        return $this->BillingContact ?? null;
+    }
+    /**
+     * Set BillingContact value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $billingContact
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterWithContactInfoRequest
+     */
+    public function setBillingContact(?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $billingContact = null): self
+    {
+        if (is_null($billingContact) || (is_array($billingContact) && empty($billingContact))) {
+            unset($this->BillingContact);
+        } else {
+            $this->BillingContact = $billingContact;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get DomainName value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return string|null
+     */
+    public function getDomainName(): ?string
+    {
+        return $this->DomainName ?? null;
+    }
+    /**
+     * Set DomainName value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param string $domainName
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterWithContactInfoRequest
+     */
+    public function setDomainName(?string $domainName = null): self
+    {
+        // validation for constraint: string
+        if (!is_null($domainName) && !is_string($domainName)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainName, true), gettype($domainName)), __LINE__);
+        }
+        if (is_null($domainName) || (is_array($domainName) && empty($domainName))) {
+            unset($this->DomainName);
+        } else {
+            $this->DomainName = $domainName;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get IdnLanguage value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return string|null
+     */
+    public function getIdnLanguage(): ?string
+    {
+        return $this->IdnLanguage ?? null;
+    }
+    /**
+     * Set IdnLanguage value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param string $idnLanguage
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterWithContactInfoRequest
+     */
+    public function setIdnLanguage(?string $idnLanguage = null): self
+    {
+        // validation for constraint: string
+        if (!is_null($idnLanguage) && !is_string($idnLanguage)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($idnLanguage, true), gettype($idnLanguage)), __LINE__);
+        }
+        if (is_null($idnLanguage) || (is_array($idnLanguage) && empty($idnLanguage))) {
+            unset($this->IdnLanguage);
+        } else {
+            $this->IdnLanguage = $idnLanguage;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get NameServerList value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring|null
+     */
+    public function getNameServerList(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring
+    {
+        return $this->NameServerList ?? null;
+    }
+    /**
+     * Set NameServerList value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $nameServerList
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RegisterWithContactInfoRequest
+     */
+    public function setNameServerList(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $nameServerList = null): self
+    {
+        if (is_null($nameServerList) || (is_array($nameServerList) && empty($nameServerList))) {
+            unset($this->NameServerList);
+        } else {
+            $this->NameServerList = $nameServerList;
+        }
+        
+        return $this;
+    }
+    /**
      * Get RegistrantContact value
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
@@ -395,7 +396,7 @@ class RegisterWithContactInfoRequest extends BaseMethodRequest
      */
     public function getRegistrantContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
     {
-        return isset($this->RegistrantContact) ? $this->RegistrantContact : null;
+        return $this->RegistrantContact ?? null;
     }
     /**
      * Set RegistrantContact value
@@ -423,7 +424,7 @@ class RegisterWithContactInfoRequest extends BaseMethodRequest
      */
     public function getTechnicalContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
     {
-        return isset($this->TechnicalContact) ? $this->TechnicalContact : null;
+        return $this->TechnicalContact ?? null;
     }
     /**
      * Set TechnicalContact value

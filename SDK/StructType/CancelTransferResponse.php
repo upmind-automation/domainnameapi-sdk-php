@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:CancelTransferResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CancelTransferResponse extends BaseMethodResponse
 {
     /**
@@ -98,7 +99,7 @@ class CancelTransferResponse extends BaseMethodResponse
      */
     public function getDomainName(): ?string
     {
-        return isset($this->DomainName) ? $this->DomainName : null;
+        return $this->DomainName ?? null;
     }
     /**
      * Set DomainName value
@@ -130,7 +131,7 @@ class CancelTransferResponse extends BaseMethodResponse
      */
     public function getTransferStatus(): ?string
     {
-        return isset($this->TransferStatus) ? $this->TransferStatus : null;
+        return $this->TransferStatus ?? null;
     }
     /**
      * Set TransferStatus value
@@ -162,7 +163,7 @@ class CancelTransferResponse extends BaseMethodResponse
      */
     public function getCancelTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\CancelTransferResponse
     {
-        return isset($this->CancelTransferResult) ? $this->CancelTransferResult : null;
+        return $this->CancelTransferResult ?? null;
     }
     /**
      * Set CancelTransferResult value

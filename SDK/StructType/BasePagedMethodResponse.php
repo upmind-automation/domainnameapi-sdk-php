@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:BasePagedMethodResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class BasePagedMethodResponse extends BaseMethodResponse
 {
     /**

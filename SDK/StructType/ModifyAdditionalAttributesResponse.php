@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ModifyAdditionalAttributesResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyAdditionalAttributesResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class ModifyAdditionalAttributesResponse extends BaseMethodResponse
      */
     public function getModifyAdditionalAttributesResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyAdditionalAttributesResponse
     {
-        return isset($this->ModifyAdditionalAttributesResult) ? $this->ModifyAdditionalAttributesResult : null;
+        return $this->ModifyAdditionalAttributesResult ?? null;
     }
     /**
      * Set ModifyAdditionalAttributesResult value

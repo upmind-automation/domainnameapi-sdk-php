@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:PayRenewalRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class PayRenewalRequest extends BaseMethodRequest
 {
     /**

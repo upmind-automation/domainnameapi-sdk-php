@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for RegisterWithContactInfo StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class RegisterWithContactInfo extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class RegisterWithContactInfo extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\RegisterWithContactInfoRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

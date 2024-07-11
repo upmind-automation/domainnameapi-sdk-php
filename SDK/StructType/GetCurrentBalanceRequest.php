@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:GetCurrentBalanceRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCurrentBalanceRequest extends BaseMethodRequest
 {
     /**

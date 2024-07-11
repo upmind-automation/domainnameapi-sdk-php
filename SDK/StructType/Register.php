@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for Register StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class Register extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class Register extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\RegisterRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

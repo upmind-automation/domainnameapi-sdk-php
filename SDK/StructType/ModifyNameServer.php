@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ModifyNameServer StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyNameServer extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class ModifyNameServer extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyNameServerRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

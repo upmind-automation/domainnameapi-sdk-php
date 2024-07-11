@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:CurrencyWithExchangeInfo
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CurrencyWithExchangeInfo extends CurrencyInfo
 {
     /**

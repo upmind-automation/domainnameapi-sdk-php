@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ForwardResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ForwardResponse extends BaseMethodResponse
 {
     /**
@@ -54,7 +55,7 @@ class ForwardResponse extends BaseMethodResponse
      */
     public function getMethod(): ?string
     {
-        return isset($this->Method) ? $this->Method : null;
+        return $this->Method ?? null;
     }
     /**
      * Set Method value
@@ -86,7 +87,7 @@ class ForwardResponse extends BaseMethodResponse
      */
     public function getUrlAction(): ?string
     {
-        return isset($this->UrlAction) ? $this->UrlAction : null;
+        return $this->UrlAction ?? null;
     }
     /**
      * Set UrlAction value

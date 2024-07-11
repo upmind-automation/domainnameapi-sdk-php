@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:BaseMethodRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class BaseMethodRequest extends AbstractStructBase
 {
     /**
@@ -54,7 +55,7 @@ class BaseMethodRequest extends AbstractStructBase
      */
     public function getPassword(): ?string
     {
-        return isset($this->Password) ? $this->Password : null;
+        return $this->Password ?? null;
     }
     /**
      * Set Password value
@@ -86,7 +87,7 @@ class BaseMethodRequest extends AbstractStructBase
      */
     public function getUserName(): ?string
     {
-        return isset($this->UserName) ? $this->UserName : null;
+        return $this->UserName ?? null;
     }
     /**
      * Set UserName value

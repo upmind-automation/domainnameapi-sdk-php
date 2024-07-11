@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ChildNameServerInfo
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ChildNameServerInfo extends AbstractStructBase
 {
     /**
@@ -54,7 +55,7 @@ class ChildNameServerInfo extends AbstractStructBase
      */
     public function getChildNameServer(): ?string
     {
-        return isset($this->ChildNameServer) ? $this->ChildNameServer : null;
+        return $this->ChildNameServer ?? null;
     }
     /**
      * Set ChildNameServer value
@@ -86,7 +87,7 @@ class ChildNameServerInfo extends AbstractStructBase
      */
     public function getIpAddress(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring
     {
-        return isset($this->IpAddress) ? $this->IpAddress : null;
+        return $this->IpAddress ?? null;
     }
     /**
      * Set IpAddress value

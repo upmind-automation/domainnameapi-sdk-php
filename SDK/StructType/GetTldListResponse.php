@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:GetTldListResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetTldListResponse extends BaseMethodResponse
 {
     /**
@@ -24,6 +25,13 @@ class GetTldListResponse extends BaseMethodResponse
      */
     protected ?int $PageSize = null;
     /**
+     * The TotalCount
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var int|null
+     */
+    protected ?int $TotalCount = null;
+    /**
      * The TldInfoList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -31,13 +39,6 @@ class GetTldListResponse extends BaseMethodResponse
      * @var \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo|null
      */
     protected ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo $TldInfoList = null;
-    /**
-     * The TotalCount
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var int|null
-     */
-    protected ?int $TotalCount = null;
     /**
      * The GetTldListResult
      * Meta information extracted from the WSDL
@@ -49,20 +50,20 @@ class GetTldListResponse extends BaseMethodResponse
     /**
      * Constructor method for GetTldListResponse
      * @uses GetTldListResponse::setPageSize()
-     * @uses GetTldListResponse::setTldInfoList()
      * @uses GetTldListResponse::setTotalCount()
+     * @uses GetTldListResponse::setTldInfoList()
      * @uses GetTldListResponse::setGetTldListResult()
      * @param int $pageSize
-     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo $tldInfoList
      * @param int $totalCount
+     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo $tldInfoList
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse $getTldListResult
      */
-    public function __construct(?int $pageSize = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo $tldInfoList = null, ?int $totalCount = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse $getTldListResult = null)
+    public function __construct(?int $pageSize = null, ?int $totalCount = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo $tldInfoList = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse $getTldListResult = null)
     {
         $this
             ->setPageSize($pageSize)
-            ->setTldInfoList($tldInfoList)
             ->setTotalCount($totalCount)
+            ->setTldInfoList($tldInfoList)
             ->setGetTldListResult($getTldListResult);
     }
     /**
@@ -85,34 +86,6 @@ class GetTldListResponse extends BaseMethodResponse
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageSize, true), gettype($pageSize)), __LINE__);
         }
         $this->PageSize = $pageSize;
-        
-        return $this;
-    }
-    /**
-     * Get TldInfoList value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo|null
-     */
-    public function getTldInfoList(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo
-    {
-        return isset($this->TldInfoList) ? $this->TldInfoList : null;
-    }
-    /**
-     * Set TldInfoList value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo $tldInfoList
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse
-     */
-    public function setTldInfoList(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo $tldInfoList = null): self
-    {
-        if (is_null($tldInfoList) || (is_array($tldInfoList) && empty($tldInfoList))) {
-            unset($this->TldInfoList);
-        } else {
-            $this->TldInfoList = $tldInfoList;
-        }
         
         return $this;
     }
@@ -140,6 +113,34 @@ class GetTldListResponse extends BaseMethodResponse
         return $this;
     }
     /**
+     * Get TldInfoList value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo|null
+     */
+    public function getTldInfoList(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo
+    {
+        return $this->TldInfoList ?? null;
+    }
+    /**
+     * Set TldInfoList value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo $tldInfoList
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse
+     */
+    public function setTldInfoList(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldInfo $tldInfoList = null): self
+    {
+        if (is_null($tldInfoList) || (is_array($tldInfoList) && empty($tldInfoList))) {
+            unset($this->TldInfoList);
+        } else {
+            $this->TldInfoList = $tldInfoList;
+        }
+        
+        return $this;
+    }
+    /**
      * Get GetTldListResult value
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
@@ -148,7 +149,7 @@ class GetTldListResponse extends BaseMethodResponse
      */
     public function getGetTldListResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\GetTldListResponse
     {
-        return isset($this->GetTldListResult) ? $this->GetTldListResult : null;
+        return $this->GetTldListResult ?? null;
     }
     /**
      * Set GetTldListResult value

@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:DENIC_CreateAuthInfo2Request
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DENIC_CreateAuthInfo2Request extends BaseMethodRequest
 {
     /**

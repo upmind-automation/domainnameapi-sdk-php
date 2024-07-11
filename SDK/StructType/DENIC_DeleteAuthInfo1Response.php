@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:DENIC_DeleteAuthInfo1Response
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DENIC_DeleteAuthInfo1Response extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class DENIC_DeleteAuthInfo1Response extends BaseMethodResponse
      */
     public function getDENIC_DeleteAuthInfo1Result(): ?\Upmind\DomainNameApiSdk\SDK\StructType\DENIC_DeleteAuthInfo1Response
     {
-        return isset($this->DENIC_DeleteAuthInfo1Result) ? $this->DENIC_DeleteAuthInfo1Result : null;
+        return $this->DENIC_DeleteAuthInfo1Result ?? null;
     }
     /**
      * Set DENIC_DeleteAuthInfo1Result value

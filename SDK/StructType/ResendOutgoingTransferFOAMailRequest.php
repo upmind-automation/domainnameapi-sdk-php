@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ResendOutgoingTransferFOAMailRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ResendOutgoingTransferFOAMailRequest extends BaseMethodRequest
 {
     /**
@@ -54,7 +55,7 @@ class ResendOutgoingTransferFOAMailRequest extends BaseMethodRequest
      */
     public function getDomainName(): ?string
     {
-        return isset($this->DomainName) ? $this->DomainName : null;
+        return $this->DomainName ?? null;
     }
     /**
      * Set DomainName value
@@ -86,7 +87,7 @@ class ResendOutgoingTransferFOAMailRequest extends BaseMethodRequest
      */
     public function getId(): ?int
     {
-        return isset($this->Id) ? $this->Id : null;
+        return $this->Id ?? null;
     }
     /**
      * Set Id value

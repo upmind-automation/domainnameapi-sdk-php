@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:CurrencyInfo
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CurrencyInfo extends BaseData
 {
     /**
@@ -76,7 +77,7 @@ class CurrencyInfo extends BaseData
      */
     public function getCode(): ?string
     {
-        return isset($this->Code) ? $this->Code : null;
+        return $this->Code ?? null;
     }
     /**
      * Set Code value
@@ -108,7 +109,7 @@ class CurrencyInfo extends BaseData
      */
     public function getName(): ?string
     {
-        return isset($this->Name) ? $this->Name : null;
+        return $this->Name ?? null;
     }
     /**
      * Set Name value
@@ -140,7 +141,7 @@ class CurrencyInfo extends BaseData
      */
     public function getOriginalName(): ?string
     {
-        return isset($this->OriginalName) ? $this->OriginalName : null;
+        return $this->OriginalName ?? null;
     }
     /**
      * Set OriginalName value
@@ -172,7 +173,7 @@ class CurrencyInfo extends BaseData
      */
     public function getSymbol(): ?string
     {
-        return isset($this->Symbol) ? $this->Symbol : null;
+        return $this->Symbol ?? null;
     }
     /**
      * Set Symbol value

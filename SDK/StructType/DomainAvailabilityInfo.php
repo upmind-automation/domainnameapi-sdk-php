@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:DomainAvailabilityInfo
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DomainAvailabilityInfo extends BaseData
 {
     /**
@@ -131,7 +132,7 @@ class DomainAvailabilityInfo extends BaseData
      */
     public function getClassKey(): ?string
     {
-        return isset($this->ClassKey) ? $this->ClassKey : null;
+        return $this->ClassKey ?? null;
     }
     /**
      * Set ClassKey value
@@ -163,7 +164,7 @@ class DomainAvailabilityInfo extends BaseData
      */
     public function getCommand(): ?string
     {
-        return isset($this->Command) ? $this->Command : null;
+        return $this->Command ?? null;
     }
     /**
      * Set Command value
@@ -195,7 +196,7 @@ class DomainAvailabilityInfo extends BaseData
      */
     public function getCurrency(): ?string
     {
-        return isset($this->Currency) ? $this->Currency : null;
+        return $this->Currency ?? null;
     }
     /**
      * Set Currency value
@@ -227,7 +228,7 @@ class DomainAvailabilityInfo extends BaseData
      */
     public function getDomainName(): ?string
     {
-        return isset($this->DomainName) ? $this->DomainName : null;
+        return $this->DomainName ?? null;
     }
     /**
      * Set DomainName value
@@ -259,7 +260,7 @@ class DomainAvailabilityInfo extends BaseData
      */
     public function getIsFee(): ?bool
     {
-        return isset($this->IsFee) ? $this->IsFee : null;
+        return $this->IsFee ?? null;
     }
     /**
      * Set IsFee value
@@ -291,7 +292,7 @@ class DomainAvailabilityInfo extends BaseData
      */
     public function getPeriod(): ?int
     {
-        return isset($this->Period) ? $this->Period : null;
+        return $this->Period ?? null;
     }
     /**
      * Set Period value
@@ -323,7 +324,7 @@ class DomainAvailabilityInfo extends BaseData
      */
     public function getPrice(): ?float
     {
-        return isset($this->Price) ? $this->Price : null;
+        return $this->Price ?? null;
     }
     /**
      * Set Price value
@@ -355,7 +356,7 @@ class DomainAvailabilityInfo extends BaseData
      */
     public function getReason(): ?string
     {
-        return isset($this->Reason) ? $this->Reason : null;
+        return $this->Reason ?? null;
     }
     /**
      * Set Reason value
@@ -387,7 +388,7 @@ class DomainAvailabilityInfo extends BaseData
      */
     public function getTld(): ?string
     {
-        return isset($this->Tld) ? $this->Tld : null;
+        return $this->Tld ?? null;
     }
     /**
      * Set Tld value

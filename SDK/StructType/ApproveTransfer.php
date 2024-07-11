@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ApproveTransfer StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ApproveTransfer extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class ApproveTransfer extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ApproveTransferRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

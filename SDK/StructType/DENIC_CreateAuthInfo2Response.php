@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:DENIC_CreateAuthInfo2Response
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DENIC_CreateAuthInfo2Response extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class DENIC_CreateAuthInfo2Response extends BaseMethodResponse
      */
     public function getDENIC_CreateAuthInfo2Result(): ?\Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo2Response
     {
-        return isset($this->DENIC_CreateAuthInfo2Result) ? $this->DENIC_CreateAuthInfo2Result : null;
+        return $this->DENIC_CreateAuthInfo2Result ?? null;
     }
     /**
      * Set DENIC_CreateAuthInfo2Result value

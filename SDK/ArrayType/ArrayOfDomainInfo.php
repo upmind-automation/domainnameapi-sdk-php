@@ -22,7 +22,7 @@ class ArrayOfDomainInfo extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo[]
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo[]|null
      */
     protected ?array $DomainInfo = null;
     /**
@@ -40,19 +40,20 @@ class ArrayOfDomainInfo extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo[]
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo[]|null
      */
     public function getDomainInfo(): ?array
     {
-        return isset($this->DomainInfo) ? $this->DomainInfo : null;
+        return $this->DomainInfo ?? null;
     }
     /**
-     * This method is responsible for validating the values passed to the setDomainInfo method
+     * This method is responsible for validating the value(s) passed to the setDomainInfo method
      * This method is willingly generated in order to preserve the one-line inline validation within the setDomainInfo method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateDomainInfoForArrayConstraintsFromSetDomainInfo(?array $values = []): string
+    public static function validateDomainInfoForArrayConstraintFromSetDomainInfo(?array $values = []): string
     {
         if (!is_array($values)) {
             return '';
@@ -83,7 +84,7 @@ class ArrayOfDomainInfo extends AbstractStructArrayBase
     public function setDomainInfo(?array $domainInfo = null): self
     {
         // validation for constraint: array
-        if ('' !== ($domainInfoArrayErrorMessage = self::validateDomainInfoForArrayConstraintsFromSetDomainInfo($domainInfo))) {
+        if ('' !== ($domainInfoArrayErrorMessage = self::validateDomainInfoForArrayConstraintFromSetDomainInfo($domainInfo))) {
             throw new InvalidArgumentException($domainInfoArrayErrorMessage, __LINE__);
         }
         if (is_null($domainInfo) || (is_array($domainInfo) && empty($domainInfo))) {

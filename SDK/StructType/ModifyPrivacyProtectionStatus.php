@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ModifyPrivacyProtectionStatus StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyPrivacyProtectionStatus extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class ModifyPrivacyProtectionStatus extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyPrivacyProtectionStatusRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

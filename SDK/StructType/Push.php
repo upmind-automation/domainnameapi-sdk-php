@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for Push StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class Push extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class Push extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\PushRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

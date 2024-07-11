@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ModifyNameServerResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyNameServerResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class ModifyNameServerResponse extends BaseMethodResponse
      */
     public function getModifyNameServerResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyNameServerResponse
     {
-        return isset($this->ModifyNameServerResult) ? $this->ModifyNameServerResult : null;
+        return $this->ModifyNameServerResult ?? null;
     }
     /**
      * Set ModifyNameServerResult value

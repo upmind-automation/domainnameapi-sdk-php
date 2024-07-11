@@ -14,8 +14,24 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:SaveContactsRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveContactsRequest extends BaseMethodRequest
 {
+    /**
+     * The Id
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var int|null
+     */
+    protected ?int $Id = null;
+    /**
+     * The AdditionalAttributes
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring|null
+     */
+    protected ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $AdditionalAttributes = null;
     /**
      * The AdministrativeContact
      * Meta information extracted from the WSDL
@@ -41,13 +57,6 @@ class SaveContactsRequest extends BaseMethodRequest
      */
     protected ?string $DomainName = null;
     /**
-     * The Id
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var int|null
-     */
-    protected ?int $Id = null;
-    /**
      * The RegistrantContact
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -65,28 +74,82 @@ class SaveContactsRequest extends BaseMethodRequest
     protected ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $TechnicalContact = null;
     /**
      * Constructor method for SaveContactsRequest
+     * @uses SaveContactsRequest::setId()
+     * @uses SaveContactsRequest::setAdditionalAttributes()
      * @uses SaveContactsRequest::setAdministrativeContact()
      * @uses SaveContactsRequest::setBillingContact()
      * @uses SaveContactsRequest::setDomainName()
-     * @uses SaveContactsRequest::setId()
      * @uses SaveContactsRequest::setRegistrantContact()
      * @uses SaveContactsRequest::setTechnicalContact()
+     * @param int $id
+     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $administrativeContact
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $billingContact
      * @param string $domainName
-     * @param int $id
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $registrantContact
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $technicalContact
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $administrativeContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $billingContact = null, ?string $domainName = null, ?int $id = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $registrantContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $technicalContact = null)
+    public function __construct(?int $id = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $administrativeContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $billingContact = null, ?string $domainName = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $registrantContact = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo $technicalContact = null)
     {
         $this
+            ->setId($id)
+            ->setAdditionalAttributes($additionalAttributes)
             ->setAdministrativeContact($administrativeContact)
             ->setBillingContact($billingContact)
             ->setDomainName($domainName)
-            ->setId($id)
             ->setRegistrantContact($registrantContact)
             ->setTechnicalContact($technicalContact);
+    }
+    /**
+     * Get Id value
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->Id;
+    }
+    /**
+     * Set Id value
+     * @param int $id
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\SaveContactsRequest
+     */
+    public function setId(?int $id = null): self
+    {
+        // validation for constraint: int
+        if (!is_null($id) && !(is_int($id) || ctype_digit($id))) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($id, true), gettype($id)), __LINE__);
+        }
+        $this->Id = $id;
+        
+        return $this;
+    }
+    /**
+     * Get AdditionalAttributes value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring|null
+     */
+    public function getAdditionalAttributes(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring
+    {
+        return $this->AdditionalAttributes ?? null;
+    }
+    /**
+     * Set AdditionalAttributes value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\SaveContactsRequest
+     */
+    public function setAdditionalAttributes(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null): self
+    {
+        if (is_null($additionalAttributes) || (is_array($additionalAttributes) && empty($additionalAttributes))) {
+            unset($this->AdditionalAttributes);
+        } else {
+            $this->AdditionalAttributes = $additionalAttributes;
+        }
+        
+        return $this;
     }
     /**
      * Get AdministrativeContact value
@@ -97,7 +160,7 @@ class SaveContactsRequest extends BaseMethodRequest
      */
     public function getAdministrativeContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
     {
-        return isset($this->AdministrativeContact) ? $this->AdministrativeContact : null;
+        return $this->AdministrativeContact ?? null;
     }
     /**
      * Set AdministrativeContact value
@@ -125,7 +188,7 @@ class SaveContactsRequest extends BaseMethodRequest
      */
     public function getBillingContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
     {
-        return isset($this->BillingContact) ? $this->BillingContact : null;
+        return $this->BillingContact ?? null;
     }
     /**
      * Set BillingContact value
@@ -153,7 +216,7 @@ class SaveContactsRequest extends BaseMethodRequest
      */
     public function getDomainName(): ?string
     {
-        return isset($this->DomainName) ? $this->DomainName : null;
+        return $this->DomainName ?? null;
     }
     /**
      * Set DomainName value
@@ -177,29 +240,6 @@ class SaveContactsRequest extends BaseMethodRequest
         return $this;
     }
     /**
-     * Get Id value
-     * @return int|null
-     */
-    public function getId(): ?int
-    {
-        return $this->Id;
-    }
-    /**
-     * Set Id value
-     * @param int $id
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\SaveContactsRequest
-     */
-    public function setId(?int $id = null): self
-    {
-        // validation for constraint: int
-        if (!is_null($id) && !(is_int($id) || ctype_digit($id))) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($id, true), gettype($id)), __LINE__);
-        }
-        $this->Id = $id;
-        
-        return $this;
-    }
-    /**
      * Get RegistrantContact value
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
@@ -208,7 +248,7 @@ class SaveContactsRequest extends BaseMethodRequest
      */
     public function getRegistrantContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
     {
-        return isset($this->RegistrantContact) ? $this->RegistrantContact : null;
+        return $this->RegistrantContact ?? null;
     }
     /**
      * Set RegistrantContact value
@@ -236,7 +276,7 @@ class SaveContactsRequest extends BaseMethodRequest
      */
     public function getTechnicalContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
     {
-        return isset($this->TechnicalContact) ? $this->TechnicalContact : null;
+        return $this->TechnicalContact ?? null;
     }
     /**
      * Set TechnicalContact value

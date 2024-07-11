@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for Sync StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class Sync extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class Sync extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\SyncRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

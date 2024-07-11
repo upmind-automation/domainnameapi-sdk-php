@@ -14,8 +14,16 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ModifyStatusRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyStatusRequest extends BaseMethodRequest
 {
+    /**
+     * The Id
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var int|null
+     */
+    protected ?int $Id = null;
     /**
      * The DomainName
      * Meta information extracted from the WSDL
@@ -24,13 +32,6 @@ class ModifyStatusRequest extends BaseMethodRequest
      * @var string|null
      */
     protected ?string $DomainName = null;
-    /**
-     * The Id
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var int|null
-     */
-    protected ?int $Id = null;
     /**
      * The StatusToAddList
      * Meta information extracted from the WSDL
@@ -49,54 +50,22 @@ class ModifyStatusRequest extends BaseMethodRequest
     protected ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $StatusToRemoveList = null;
     /**
      * Constructor method for ModifyStatusRequest
-     * @uses ModifyStatusRequest::setDomainName()
      * @uses ModifyStatusRequest::setId()
+     * @uses ModifyStatusRequest::setDomainName()
      * @uses ModifyStatusRequest::setStatusToAddList()
      * @uses ModifyStatusRequest::setStatusToRemoveList()
-     * @param string $domainName
      * @param int $id
+     * @param string $domainName
      * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $statusToAddList
      * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $statusToRemoveList
      */
-    public function __construct(?string $domainName = null, ?int $id = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $statusToAddList = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $statusToRemoveList = null)
+    public function __construct(?int $id = null, ?string $domainName = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $statusToAddList = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring $statusToRemoveList = null)
     {
         $this
-            ->setDomainName($domainName)
             ->setId($id)
+            ->setDomainName($domainName)
             ->setStatusToAddList($statusToAddList)
             ->setStatusToRemoveList($statusToRemoveList);
-    }
-    /**
-     * Get DomainName value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return string|null
-     */
-    public function getDomainName(): ?string
-    {
-        return isset($this->DomainName) ? $this->DomainName : null;
-    }
-    /**
-     * Set DomainName value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param string $domainName
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ModifyStatusRequest
-     */
-    public function setDomainName(?string $domainName = null): self
-    {
-        // validation for constraint: string
-        if (!is_null($domainName) && !is_string($domainName)) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainName, true), gettype($domainName)), __LINE__);
-        }
-        if (is_null($domainName) || (is_array($domainName) && empty($domainName))) {
-            unset($this->DomainName);
-        } else {
-            $this->DomainName = $domainName;
-        }
-        
-        return $this;
     }
     /**
      * Get Id value
@@ -122,6 +91,38 @@ class ModifyStatusRequest extends BaseMethodRequest
         return $this;
     }
     /**
+     * Get DomainName value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return string|null
+     */
+    public function getDomainName(): ?string
+    {
+        return $this->DomainName ?? null;
+    }
+    /**
+     * Set DomainName value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param string $domainName
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ModifyStatusRequest
+     */
+    public function setDomainName(?string $domainName = null): self
+    {
+        // validation for constraint: string
+        if (!is_null($domainName) && !is_string($domainName)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainName, true), gettype($domainName)), __LINE__);
+        }
+        if (is_null($domainName) || (is_array($domainName) && empty($domainName))) {
+            unset($this->DomainName);
+        } else {
+            $this->DomainName = $domainName;
+        }
+        
+        return $this;
+    }
+    /**
      * Get StatusToAddList value
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
@@ -130,7 +131,7 @@ class ModifyStatusRequest extends BaseMethodRequest
      */
     public function getStatusToAddList(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring
     {
-        return isset($this->StatusToAddList) ? $this->StatusToAddList : null;
+        return $this->StatusToAddList ?? null;
     }
     /**
      * Set StatusToAddList value
@@ -158,7 +159,7 @@ class ModifyStatusRequest extends BaseMethodRequest
      */
     public function getStatusToRemoveList(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring
     {
-        return isset($this->StatusToRemoveList) ? $this->StatusToRemoveList : null;
+        return $this->StatusToRemoveList ?? null;
     }
     /**
      * Set StatusToRemoveList value

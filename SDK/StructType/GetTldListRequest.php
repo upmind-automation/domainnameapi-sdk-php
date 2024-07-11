@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:GetTldListRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetTldListRequest extends BasePagedMethodRequest
 {
     /**
@@ -31,17 +32,28 @@ class GetTldListRequest extends BasePagedMethodRequest
      */
     protected ?string $OrderColumn = null;
     /**
+     * The CurrencyId
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var int|null
+     */
+    protected ?int $CurrencyId = null;
+    /**
      * Constructor method for GetTldListRequest
      * @uses GetTldListRequest::setIncludePriceDefinitions()
      * @uses GetTldListRequest::setOrderColumn()
+     * @uses GetTldListRequest::setCurrencyId()
      * @param bool $includePriceDefinitions
      * @param string $orderColumn
+     * @param int $currencyId
      */
-    public function __construct(?bool $includePriceDefinitions = null, ?string $orderColumn = null)
+    public function __construct(?bool $includePriceDefinitions = null, ?string $orderColumn = null, ?int $currencyId = null)
     {
         $this
             ->setIncludePriceDefinitions($includePriceDefinitions)
-            ->setOrderColumn($orderColumn);
+            ->setOrderColumn($orderColumn)
+            ->setCurrencyId($currencyId);
     }
     /**
      * Get IncludePriceDefinitions value
@@ -89,6 +101,38 @@ class GetTldListRequest extends BasePagedMethodRequest
             throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Upmind\DomainNameApiSdk\SDK\EnumType\GetTldListOrderColumn', is_array($orderColumn) ? implode(', ', $orderColumn) : var_export($orderColumn, true), implode(', ', \Upmind\DomainNameApiSdk\SDK\EnumType\GetTldListOrderColumn::getValidValues())), __LINE__);
         }
         $this->OrderColumn = $orderColumn;
+        
+        return $this;
+    }
+    /**
+     * Get CurrencyId value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return int|null
+     */
+    public function getCurrencyId(): ?int
+    {
+        return $this->CurrencyId ?? null;
+    }
+    /**
+     * Set CurrencyId value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param int $currencyId
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetTldListRequest
+     */
+    public function setCurrencyId(?int $currencyId = null): self
+    {
+        // validation for constraint: int
+        if (!is_null($currencyId) && !(is_int($currencyId) || ctype_digit($currencyId))) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($currencyId, true), gettype($currencyId)), __LINE__);
+        }
+        if (is_null($currencyId) || (is_array($currencyId) && empty($currencyId))) {
+            unset($this->CurrencyId);
+        } else {
+            $this->CurrencyId = $currencyId;
+        }
         
         return $this;
     }

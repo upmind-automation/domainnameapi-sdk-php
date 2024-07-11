@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteForwardResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteForwardResponse extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class DeleteForwardResponse extends AbstractStructBase
      */
     public function getDeleteForwardResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ForwardResponse
     {
-        return isset($this->DeleteForwardResult) ? $this->DeleteForwardResult : null;
+        return $this->DeleteForwardResult ?? null;
     }
     /**
      * Set DeleteForwardResult value

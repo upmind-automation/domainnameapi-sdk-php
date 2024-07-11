@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for Renew StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class Renew extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class Renew extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\RenewRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

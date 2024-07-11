@@ -14,8 +14,23 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ForwardRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ForwardRequest extends BaseMethodRequest
 {
+    /**
+     * The Id
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var int|null
+     */
+    protected ?int $Id = null;
+    /**
+     * The UrlForwardType
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var string|null
+     */
+    protected ?string $UrlForwardType = null;
     /**
      * The DomainName
      * Meta information extracted from the WSDL
@@ -25,13 +40,6 @@ class ForwardRequest extends BaseMethodRequest
      */
     protected ?string $DomainName = null;
     /**
-     * The Id
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var int|null
-     */
-    protected ?int $Id = null;
-    /**
      * The UrlAction
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -40,62 +48,23 @@ class ForwardRequest extends BaseMethodRequest
      */
     protected ?string $UrlAction = null;
     /**
-     * The UrlForwardType
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var string|null
-     */
-    protected ?string $UrlForwardType = null;
-    /**
      * Constructor method for ForwardRequest
-     * @uses ForwardRequest::setDomainName()
      * @uses ForwardRequest::setId()
-     * @uses ForwardRequest::setUrlAction()
      * @uses ForwardRequest::setUrlForwardType()
-     * @param string $domainName
+     * @uses ForwardRequest::setDomainName()
+     * @uses ForwardRequest::setUrlAction()
      * @param int $id
-     * @param string $urlAction
      * @param string $urlForwardType
+     * @param string $domainName
+     * @param string $urlAction
      */
-    public function __construct(?string $domainName = null, ?int $id = null, ?string $urlAction = null, ?string $urlForwardType = null)
+    public function __construct(?int $id = null, ?string $urlForwardType = null, ?string $domainName = null, ?string $urlAction = null)
     {
         $this
-            ->setDomainName($domainName)
             ->setId($id)
-            ->setUrlAction($urlAction)
-            ->setUrlForwardType($urlForwardType);
-    }
-    /**
-     * Get DomainName value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return string|null
-     */
-    public function getDomainName(): ?string
-    {
-        return isset($this->DomainName) ? $this->DomainName : null;
-    }
-    /**
-     * Set DomainName value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param string $domainName
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ForwardRequest
-     */
-    public function setDomainName(?string $domainName = null): self
-    {
-        // validation for constraint: string
-        if (!is_null($domainName) && !is_string($domainName)) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainName, true), gettype($domainName)), __LINE__);
-        }
-        if (is_null($domainName) || (is_array($domainName) && empty($domainName))) {
-            unset($this->DomainName);
-        } else {
-            $this->DomainName = $domainName;
-        }
-        
-        return $this;
+            ->setUrlForwardType($urlForwardType)
+            ->setDomainName($domainName)
+            ->setUrlAction($urlAction);
     }
     /**
      * Get Id value
@@ -117,38 +86,6 @@ class ForwardRequest extends BaseMethodRequest
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
-        
-        return $this;
-    }
-    /**
-     * Get UrlAction value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return string|null
-     */
-    public function getUrlAction(): ?string
-    {
-        return isset($this->UrlAction) ? $this->UrlAction : null;
-    }
-    /**
-     * Set UrlAction value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param string $urlAction
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ForwardRequest
-     */
-    public function setUrlAction(?string $urlAction = null): self
-    {
-        // validation for constraint: string
-        if (!is_null($urlAction) && !is_string($urlAction)) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($urlAction, true), gettype($urlAction)), __LINE__);
-        }
-        if (is_null($urlAction) || (is_array($urlAction) && empty($urlAction))) {
-            unset($this->UrlAction);
-        } else {
-            $this->UrlAction = $urlAction;
-        }
         
         return $this;
     }
@@ -175,6 +112,70 @@ class ForwardRequest extends BaseMethodRequest
             throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Upmind\DomainNameApiSdk\SDK\EnumType\UrlForwardType', is_array($urlForwardType) ? implode(', ', $urlForwardType) : var_export($urlForwardType, true), implode(', ', \Upmind\DomainNameApiSdk\SDK\EnumType\UrlForwardType::getValidValues())), __LINE__);
         }
         $this->UrlForwardType = $urlForwardType;
+        
+        return $this;
+    }
+    /**
+     * Get DomainName value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return string|null
+     */
+    public function getDomainName(): ?string
+    {
+        return $this->DomainName ?? null;
+    }
+    /**
+     * Set DomainName value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param string $domainName
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ForwardRequest
+     */
+    public function setDomainName(?string $domainName = null): self
+    {
+        // validation for constraint: string
+        if (!is_null($domainName) && !is_string($domainName)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainName, true), gettype($domainName)), __LINE__);
+        }
+        if (is_null($domainName) || (is_array($domainName) && empty($domainName))) {
+            unset($this->DomainName);
+        } else {
+            $this->DomainName = $domainName;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get UrlAction value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return string|null
+     */
+    public function getUrlAction(): ?string
+    {
+        return $this->UrlAction ?? null;
+    }
+    /**
+     * Set UrlAction value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param string $urlAction
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ForwardRequest
+     */
+    public function setUrlAction(?string $urlAction = null): self
+    {
+        // validation for constraint: string
+        if (!is_null($urlAction) && !is_string($urlAction)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($urlAction, true), gettype($urlAction)), __LINE__);
+        }
+        if (is_null($urlAction) || (is_array($urlAction) && empty($urlAction))) {
+            unset($this->UrlAction);
+        } else {
+            $this->UrlAction = $urlAction;
+        }
         
         return $this;
     }

@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:RejectTransferResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class RejectTransferResponse extends BaseMethodResponse
 {
     /**
@@ -109,7 +110,7 @@ class RejectTransferResponse extends BaseMethodResponse
      */
     public function getDomainName(): ?string
     {
-        return isset($this->DomainName) ? $this->DomainName : null;
+        return $this->DomainName ?? null;
     }
     /**
      * Set DomainName value
@@ -141,7 +142,7 @@ class RejectTransferResponse extends BaseMethodResponse
      */
     public function getTransferLog(): ?string
     {
-        return isset($this->TransferLog) ? $this->TransferLog : null;
+        return $this->TransferLog ?? null;
     }
     /**
      * Set TransferLog value
@@ -173,7 +174,7 @@ class RejectTransferResponse extends BaseMethodResponse
      */
     public function getTransferStatus(): ?string
     {
-        return isset($this->TransferStatus) ? $this->TransferStatus : null;
+        return $this->TransferStatus ?? null;
     }
     /**
      * Set TransferStatus value
@@ -205,7 +206,7 @@ class RejectTransferResponse extends BaseMethodResponse
      */
     public function getRejectTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\RejectTransferResponse
     {
-        return isset($this->RejectTransferResult) ? $this->RejectTransferResult : null;
+        return $this->RejectTransferResult ?? null;
     }
     /**
      * Set RejectTransferResult value

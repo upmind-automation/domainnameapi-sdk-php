@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ResendOutgoingTransferFOAMailResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ResendOutgoingTransferFOAMailResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class ResendOutgoingTransferFOAMailResponse extends BaseMethodResponse
      */
     public function getResendOutgoingTransferFOAMailResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ResendOutgoingTransferFOAMailResponse
     {
-        return isset($this->ResendOutgoingTransferFOAMailResult) ? $this->ResendOutgoingTransferFOAMailResult : null;
+        return $this->ResendOutgoingTransferFOAMailResult ?? null;
     }
     /**
      * Set ResendOutgoingTransferFOAMailResult value

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for CheckBulkAvailabilityResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CheckBulkAvailabilityResponse extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class CheckBulkAvailabilityResponse extends AbstractStructBase
      */
     public function getCheckBulkAvailabilityResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\CheckAvailabilityResponse
     {
-        return isset($this->CheckBulkAvailabilityResult) ? $this->CheckBulkAvailabilityResult : null;
+        return $this->CheckBulkAvailabilityResult ?? null;
     }
     /**
      * Set CheckBulkAvailabilityResult value

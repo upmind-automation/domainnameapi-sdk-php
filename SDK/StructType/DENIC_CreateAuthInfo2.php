@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DENIC_CreateAuthInfo2 StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DENIC_CreateAuthInfo2 extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class DENIC_CreateAuthInfo2 extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo2Request
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

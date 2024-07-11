@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:GetCurrentBalanceResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCurrentBalanceResponse extends BaseMethodResponse
 {
     /**
@@ -142,7 +143,7 @@ class GetCurrentBalanceResponse extends BaseMethodResponse
      */
     public function getCurrencyInfo(): ?\Upmind\DomainNameApiSdk\SDK\StructType\CurrencyWithExchangeInfo
     {
-        return isset($this->CurrencyInfo) ? $this->CurrencyInfo : null;
+        return $this->CurrencyInfo ?? null;
     }
     /**
      * Set CurrencyInfo value
@@ -170,7 +171,7 @@ class GetCurrentBalanceResponse extends BaseMethodResponse
      */
     public function getCurrencyName(): ?string
     {
-        return isset($this->CurrencyName) ? $this->CurrencyName : null;
+        return $this->CurrencyName ?? null;
     }
     /**
      * Set CurrencyName value
@@ -202,7 +203,7 @@ class GetCurrentBalanceResponse extends BaseMethodResponse
      */
     public function getCurrencySymbol(): ?string
     {
-        return isset($this->CurrencySymbol) ? $this->CurrencySymbol : null;
+        return $this->CurrencySymbol ?? null;
     }
     /**
      * Set CurrencySymbol value
@@ -234,7 +235,7 @@ class GetCurrentBalanceResponse extends BaseMethodResponse
      */
     public function getGetCurrentBalanceResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceResponse
     {
-        return isset($this->GetCurrentBalanceResult) ? $this->GetCurrentBalanceResult : null;
+        return $this->GetCurrentBalanceResult ?? null;
     }
     /**
      * Set GetCurrentBalanceResult value

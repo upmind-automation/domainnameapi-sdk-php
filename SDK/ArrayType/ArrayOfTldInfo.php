@@ -22,7 +22,7 @@ class ArrayOfTldInfo extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\TldInfo[]
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\TldInfo[]|null
      */
     protected ?array $TldInfo = null;
     /**
@@ -40,19 +40,20 @@ class ArrayOfTldInfo extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\TldInfo[]
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\TldInfo[]|null
      */
     public function getTldInfo(): ?array
     {
-        return isset($this->TldInfo) ? $this->TldInfo : null;
+        return $this->TldInfo ?? null;
     }
     /**
-     * This method is responsible for validating the values passed to the setTldInfo method
+     * This method is responsible for validating the value(s) passed to the setTldInfo method
      * This method is willingly generated in order to preserve the one-line inline validation within the setTldInfo method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateTldInfoForArrayConstraintsFromSetTldInfo(?array $values = []): string
+    public static function validateTldInfoForArrayConstraintFromSetTldInfo(?array $values = []): string
     {
         if (!is_array($values)) {
             return '';
@@ -83,7 +84,7 @@ class ArrayOfTldInfo extends AbstractStructArrayBase
     public function setTldInfo(?array $tldInfo = null): self
     {
         // validation for constraint: array
-        if ('' !== ($tldInfoArrayErrorMessage = self::validateTldInfoForArrayConstraintsFromSetTldInfo($tldInfo))) {
+        if ('' !== ($tldInfoArrayErrorMessage = self::validateTldInfoForArrayConstraintFromSetTldInfo($tldInfo))) {
             throw new InvalidArgumentException($tldInfoArrayErrorMessage, __LINE__);
         }
         if (is_null($tldInfo) || (is_array($tldInfo) && empty($tldInfo))) {

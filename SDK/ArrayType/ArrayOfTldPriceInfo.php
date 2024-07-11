@@ -22,7 +22,7 @@ class ArrayOfTldPriceInfo extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\TldPriceInfo[]
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\TldPriceInfo[]|null
      */
     protected ?array $TldPriceInfo = null;
     /**
@@ -40,19 +40,20 @@ class ArrayOfTldPriceInfo extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\TldPriceInfo[]
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\TldPriceInfo[]|null
      */
     public function getTldPriceInfo(): ?array
     {
-        return isset($this->TldPriceInfo) ? $this->TldPriceInfo : null;
+        return $this->TldPriceInfo ?? null;
     }
     /**
-     * This method is responsible for validating the values passed to the setTldPriceInfo method
+     * This method is responsible for validating the value(s) passed to the setTldPriceInfo method
      * This method is willingly generated in order to preserve the one-line inline validation within the setTldPriceInfo method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateTldPriceInfoForArrayConstraintsFromSetTldPriceInfo(?array $values = []): string
+    public static function validateTldPriceInfoForArrayConstraintFromSetTldPriceInfo(?array $values = []): string
     {
         if (!is_array($values)) {
             return '';
@@ -83,7 +84,7 @@ class ArrayOfTldPriceInfo extends AbstractStructArrayBase
     public function setTldPriceInfo(?array $tldPriceInfo = null): self
     {
         // validation for constraint: array
-        if ('' !== ($tldPriceInfoArrayErrorMessage = self::validateTldPriceInfoForArrayConstraintsFromSetTldPriceInfo($tldPriceInfo))) {
+        if ('' !== ($tldPriceInfoArrayErrorMessage = self::validateTldPriceInfoForArrayConstraintFromSetTldPriceInfo($tldPriceInfo))) {
             throw new InvalidArgumentException($tldPriceInfoArrayErrorMessage, __LINE__);
         }
         if (is_null($tldPriceInfo) || (is_array($tldPriceInfo) && empty($tldPriceInfo))) {

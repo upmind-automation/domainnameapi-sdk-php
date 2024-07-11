@@ -14,8 +14,16 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ModifyRenewalModeResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyRenewalModeResponse extends BaseMethodResponse
 {
+    /**
+     * The Id
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var int|null
+     */
+    protected ?int $Id = null;
     /**
      * The DomainName
      * Meta information extracted from the WSDL
@@ -24,13 +32,6 @@ class ModifyRenewalModeResponse extends BaseMethodResponse
      * @var string|null
      */
     protected ?string $DomainName = null;
-    /**
-     * The Id
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var int|null
-     */
-    protected ?int $Id = null;
     /**
      * The RenewalMode
      * Meta information extracted from the WSDL
@@ -49,54 +50,22 @@ class ModifyRenewalModeResponse extends BaseMethodResponse
     protected ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse $ModifyRenewalModeResult = null;
     /**
      * Constructor method for ModifyRenewalModeResponse
-     * @uses ModifyRenewalModeResponse::setDomainName()
      * @uses ModifyRenewalModeResponse::setId()
+     * @uses ModifyRenewalModeResponse::setDomainName()
      * @uses ModifyRenewalModeResponse::setRenewalMode()
      * @uses ModifyRenewalModeResponse::setModifyRenewalModeResult()
-     * @param string $domainName
      * @param int $id
+     * @param string $domainName
      * @param string $renewalMode
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse $modifyRenewalModeResult
      */
-    public function __construct(?string $domainName = null, ?int $id = null, ?string $renewalMode = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse $modifyRenewalModeResult = null)
+    public function __construct(?int $id = null, ?string $domainName = null, ?string $renewalMode = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse $modifyRenewalModeResult = null)
     {
         $this
-            ->setDomainName($domainName)
             ->setId($id)
+            ->setDomainName($domainName)
             ->setRenewalMode($renewalMode)
             ->setModifyRenewalModeResult($modifyRenewalModeResult);
-    }
-    /**
-     * Get DomainName value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return string|null
-     */
-    public function getDomainName(): ?string
-    {
-        return isset($this->DomainName) ? $this->DomainName : null;
-    }
-    /**
-     * Set DomainName value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param string $domainName
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse
-     */
-    public function setDomainName(?string $domainName = null): self
-    {
-        // validation for constraint: string
-        if (!is_null($domainName) && !is_string($domainName)) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainName, true), gettype($domainName)), __LINE__);
-        }
-        if (is_null($domainName) || (is_array($domainName) && empty($domainName))) {
-            unset($this->DomainName);
-        } else {
-            $this->DomainName = $domainName;
-        }
-        
-        return $this;
     }
     /**
      * Get Id value
@@ -122,6 +91,38 @@ class ModifyRenewalModeResponse extends BaseMethodResponse
         return $this;
     }
     /**
+     * Get DomainName value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return string|null
+     */
+    public function getDomainName(): ?string
+    {
+        return $this->DomainName ?? null;
+    }
+    /**
+     * Set DomainName value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param string $domainName
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse
+     */
+    public function setDomainName(?string $domainName = null): self
+    {
+        // validation for constraint: string
+        if (!is_null($domainName) && !is_string($domainName)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainName, true), gettype($domainName)), __LINE__);
+        }
+        if (is_null($domainName) || (is_array($domainName) && empty($domainName))) {
+            unset($this->DomainName);
+        } else {
+            $this->DomainName = $domainName;
+        }
+        
+        return $this;
+    }
+    /**
      * Get RenewalMode value
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
@@ -130,7 +131,7 @@ class ModifyRenewalModeResponse extends BaseMethodResponse
      */
     public function getRenewalMode(): ?string
     {
-        return isset($this->RenewalMode) ? $this->RenewalMode : null;
+        return $this->RenewalMode ?? null;
     }
     /**
      * Set RenewalMode value
@@ -162,7 +163,7 @@ class ModifyRenewalModeResponse extends BaseMethodResponse
      */
     public function getModifyRenewalModeResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyRenewalModeResponse
     {
-        return isset($this->ModifyRenewalModeResult) ? $this->ModifyRenewalModeResult : null;
+        return $this->ModifyRenewalModeResult ?? null;
     }
     /**
      * Set ModifyRenewalModeResult value

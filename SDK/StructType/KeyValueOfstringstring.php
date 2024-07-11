@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for KeyValueOfstringstring StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class KeyValueOfstringstring extends AbstractStructBase
 {
     /**

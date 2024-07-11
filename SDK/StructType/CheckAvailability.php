@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for CheckAvailability StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CheckAvailability extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class CheckAvailability extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\CheckAvailabilityRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

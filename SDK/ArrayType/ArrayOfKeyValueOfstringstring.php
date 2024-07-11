@@ -43,12 +43,13 @@ class ArrayOfKeyValueOfstringstring extends AbstractStructArrayBase
         return $this->KeyValueOfstringstring;
     }
     /**
-     * This method is responsible for validating the values passed to the setKeyValueOfstringstring method
+     * This method is responsible for validating the value(s) passed to the setKeyValueOfstringstring method
      * This method is willingly generated in order to preserve the one-line inline validation within the setKeyValueOfstringstring method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateKeyValueOfstringstringForArrayConstraintsFromSetKeyValueOfstringstring(?array $values = []): string
+    public static function validateKeyValueOfstringstringForArrayConstraintFromSetKeyValueOfstringstring(?array $values = []): string
     {
         if (!is_array($values)) {
             return '';
@@ -77,7 +78,7 @@ class ArrayOfKeyValueOfstringstring extends AbstractStructArrayBase
     public function setKeyValueOfstringstring(?array $keyValueOfstringstring = null): self
     {
         // validation for constraint: array
-        if ('' !== ($keyValueOfstringstringArrayErrorMessage = self::validateKeyValueOfstringstringForArrayConstraintsFromSetKeyValueOfstringstring($keyValueOfstringstring))) {
+        if ('' !== ($keyValueOfstringstringArrayErrorMessage = self::validateKeyValueOfstringstringForArrayConstraintFromSetKeyValueOfstringstring($keyValueOfstringstring))) {
             throw new InvalidArgumentException($keyValueOfstringstringArrayErrorMessage, __LINE__);
         }
         $this->KeyValueOfstringstring = $keyValueOfstringstring;

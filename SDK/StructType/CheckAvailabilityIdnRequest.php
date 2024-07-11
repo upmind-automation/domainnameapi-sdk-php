@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:CheckAvailabilityIdnRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CheckAvailabilityIdnRequest extends BaseMethodRequest
 {
     /**
@@ -65,7 +66,7 @@ class CheckAvailabilityIdnRequest extends BaseMethodRequest
      */
     public function getDomainNameList(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfstring
     {
-        return isset($this->DomainNameList) ? $this->DomainNameList : null;
+        return $this->DomainNameList ?? null;
     }
     /**
      * Set DomainNameList value
@@ -93,7 +94,7 @@ class CheckAvailabilityIdnRequest extends BaseMethodRequest
      */
     public function getIdnLanguageCode(): ?string
     {
-        return isset($this->IdnLanguageCode) ? $this->IdnLanguageCode : null;
+        return $this->IdnLanguageCode ?? null;
     }
     /**
      * Set IdnLanguageCode value
@@ -125,7 +126,7 @@ class CheckAvailabilityIdnRequest extends BaseMethodRequest
      */
     public function getTld(): ?string
     {
-        return isset($this->Tld) ? $this->Tld : null;
+        return $this->Tld ?? null;
     }
     /**
      * Set Tld value

@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:CheckAvailabilityIdnResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CheckAvailabilityIdnResponse extends BaseMethodResponse
 {
     /**
@@ -54,7 +55,7 @@ class CheckAvailabilityIdnResponse extends BaseMethodResponse
      */
     public function getDomainAvailabilityInfoList(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfDomainAvailabilityInfo
     {
-        return isset($this->DomainAvailabilityInfoList) ? $this->DomainAvailabilityInfoList : null;
+        return $this->DomainAvailabilityInfoList ?? null;
     }
     /**
      * Set DomainAvailabilityInfoList value
@@ -82,7 +83,7 @@ class CheckAvailabilityIdnResponse extends BaseMethodResponse
      */
     public function getCheckAvailabilityIdnResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\CheckAvailabilityIdnResponse
     {
-        return isset($this->CheckAvailabilityIdnResult) ? $this->CheckAvailabilityIdnResult : null;
+        return $this->CheckAvailabilityIdnResult ?? null;
     }
     /**
      * Set CheckAvailabilityIdnResult value

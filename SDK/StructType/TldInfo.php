@@ -14,16 +14,16 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:TldInfo
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class TldInfo extends BaseData
 {
     /**
-     * The Country
+     * The EppAllowed
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * - nillable: true
-     * @var string|null
+     * @var bool|null
      */
-    protected ?string $Country = null;
+    protected ?bool $EppAllowed = null;
     /**
      * The IsDocumentRequired
      * Meta information extracted from the WSDL
@@ -67,6 +67,21 @@ class TldInfo extends BaseData
      */
     protected ?int $MinRegistrationPeriod = null;
     /**
+     * The RedemptionPeriod
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var int|null
+     */
+    protected ?int $RedemptionPeriod = null;
+    /**
+     * The Country
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var string|null
+     */
+    protected ?string $Country = null;
+    /**
      * The Name
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -92,70 +107,67 @@ class TldInfo extends BaseData
     protected ?string $RequiredDocumentInfo = null;
     /**
      * Constructor method for TldInfo
-     * @uses TldInfo::setCountry()
+     * @uses TldInfo::setEppAllowed()
      * @uses TldInfo::setIsDocumentRequired()
      * @uses TldInfo::setIsTransferable()
      * @uses TldInfo::setMaxCharacterCount()
      * @uses TldInfo::setMaxRegistrationPeriod()
      * @uses TldInfo::setMinCharacterCount()
      * @uses TldInfo::setMinRegistrationPeriod()
+     * @uses TldInfo::setRedemptionPeriod()
+     * @uses TldInfo::setCountry()
      * @uses TldInfo::setName()
      * @uses TldInfo::setPriceInfoList()
      * @uses TldInfo::setRequiredDocumentInfo()
-     * @param string $country
+     * @param bool $eppAllowed
      * @param bool $isDocumentRequired
      * @param bool $isTransferable
      * @param int $maxCharacterCount
      * @param int $maxRegistrationPeriod
      * @param int $minCharacterCount
      * @param int $minRegistrationPeriod
+     * @param int $redemptionPeriod
+     * @param string $country
      * @param string $name
      * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldPriceInfo $priceInfoList
      * @param string $requiredDocumentInfo
      */
-    public function __construct(?string $country = null, ?bool $isDocumentRequired = null, ?bool $isTransferable = null, ?int $maxCharacterCount = null, ?int $maxRegistrationPeriod = null, ?int $minCharacterCount = null, ?int $minRegistrationPeriod = null, ?string $name = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldPriceInfo $priceInfoList = null, ?string $requiredDocumentInfo = null)
+    public function __construct(?bool $eppAllowed = null, ?bool $isDocumentRequired = null, ?bool $isTransferable = null, ?int $maxCharacterCount = null, ?int $maxRegistrationPeriod = null, ?int $minCharacterCount = null, ?int $minRegistrationPeriod = null, ?int $redemptionPeriod = null, ?string $country = null, ?string $name = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldPriceInfo $priceInfoList = null, ?string $requiredDocumentInfo = null)
     {
         $this
-            ->setCountry($country)
+            ->setEppAllowed($eppAllowed)
             ->setIsDocumentRequired($isDocumentRequired)
             ->setIsTransferable($isTransferable)
             ->setMaxCharacterCount($maxCharacterCount)
             ->setMaxRegistrationPeriod($maxRegistrationPeriod)
             ->setMinCharacterCount($minCharacterCount)
             ->setMinRegistrationPeriod($minRegistrationPeriod)
+            ->setRedemptionPeriod($redemptionPeriod)
+            ->setCountry($country)
             ->setName($name)
             ->setPriceInfoList($priceInfoList)
             ->setRequiredDocumentInfo($requiredDocumentInfo);
     }
     /**
-     * Get Country value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return string|null
+     * Get EppAllowed value
+     * @return bool|null
      */
-    public function getCountry(): ?string
+    public function getEppAllowed(): ?bool
     {
-        return isset($this->Country) ? $this->Country : null;
+        return $this->EppAllowed;
     }
     /**
-     * Set Country value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param string $country
+     * Set EppAllowed value
+     * @param bool $eppAllowed
      * @return \Upmind\DomainNameApiSdk\SDK\StructType\TldInfo
      */
-    public function setCountry(?string $country = null): self
+    public function setEppAllowed(?bool $eppAllowed = null): self
     {
-        // validation for constraint: string
-        if (!is_null($country) && !is_string($country)) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($country, true), gettype($country)), __LINE__);
+        // validation for constraint: boolean
+        if (!is_null($eppAllowed) && !is_bool($eppAllowed)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($eppAllowed, true), gettype($eppAllowed)), __LINE__);
         }
-        if (is_null($country) || (is_array($country) && empty($country))) {
-            unset($this->Country);
-        } else {
-            $this->Country = $country;
-        }
+        $this->EppAllowed = $eppAllowed;
         
         return $this;
     }
@@ -298,6 +310,61 @@ class TldInfo extends BaseData
         return $this;
     }
     /**
+     * Get RedemptionPeriod value
+     * @return int|null
+     */
+    public function getRedemptionPeriod(): ?int
+    {
+        return $this->RedemptionPeriod;
+    }
+    /**
+     * Set RedemptionPeriod value
+     * @param int $redemptionPeriod
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\TldInfo
+     */
+    public function setRedemptionPeriod(?int $redemptionPeriod = null): self
+    {
+        // validation for constraint: int
+        if (!is_null($redemptionPeriod) && !(is_int($redemptionPeriod) || ctype_digit($redemptionPeriod))) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($redemptionPeriod, true), gettype($redemptionPeriod)), __LINE__);
+        }
+        $this->RedemptionPeriod = $redemptionPeriod;
+        
+        return $this;
+    }
+    /**
+     * Get Country value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return string|null
+     */
+    public function getCountry(): ?string
+    {
+        return $this->Country ?? null;
+    }
+    /**
+     * Set Country value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param string $country
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\TldInfo
+     */
+    public function setCountry(?string $country = null): self
+    {
+        // validation for constraint: string
+        if (!is_null($country) && !is_string($country)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($country, true), gettype($country)), __LINE__);
+        }
+        if (is_null($country) || (is_array($country) && empty($country))) {
+            unset($this->Country);
+        } else {
+            $this->Country = $country;
+        }
+        
+        return $this;
+    }
+    /**
      * Get Name value
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
@@ -306,7 +373,7 @@ class TldInfo extends BaseData
      */
     public function getName(): ?string
     {
-        return isset($this->Name) ? $this->Name : null;
+        return $this->Name ?? null;
     }
     /**
      * Set Name value
@@ -338,7 +405,7 @@ class TldInfo extends BaseData
      */
     public function getPriceInfoList(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfTldPriceInfo
     {
-        return isset($this->PriceInfoList) ? $this->PriceInfoList : null;
+        return $this->PriceInfoList ?? null;
     }
     /**
      * Set PriceInfoList value
@@ -366,7 +433,7 @@ class TldInfo extends BaseData
      */
     public function getRequiredDocumentInfo(): ?string
     {
-        return isset($this->RequiredDocumentInfo) ? $this->RequiredDocumentInfo : null;
+        return $this->RequiredDocumentInfo ?? null;
     }
     /**
      * Set RequiredDocumentInfo value

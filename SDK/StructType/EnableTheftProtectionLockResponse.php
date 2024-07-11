@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:EnableTheftProtectionLockResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class EnableTheftProtectionLockResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class EnableTheftProtectionLockResponse extends BaseMethodResponse
      */
     public function getEnableTheftProtectionLockResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\EnableTheftProtectionLockResponse
     {
-        return isset($this->EnableTheftProtectionLockResult) ? $this->EnableTheftProtectionLockResult : null;
+        return $this->EnableTheftProtectionLockResult ?? null;
     }
     /**
      * Set EnableTheftProtectionLockResult value

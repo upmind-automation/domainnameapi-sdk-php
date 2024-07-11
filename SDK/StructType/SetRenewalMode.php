@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SetRenewalMode StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SetRenewalMode extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class SetRenewalMode extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\SetRenewalModeRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

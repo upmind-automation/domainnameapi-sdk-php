@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteChildNameServer StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteChildNameServer extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class DeleteChildNameServer extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\DeleteChildNameServerRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

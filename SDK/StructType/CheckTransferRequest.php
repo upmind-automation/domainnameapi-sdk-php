@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:CheckTransferRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CheckTransferRequest extends BaseMethodRequest
 {
     /**
@@ -54,7 +55,7 @@ class CheckTransferRequest extends BaseMethodRequest
      */
     public function getAuthCode(): ?string
     {
-        return isset($this->AuthCode) ? $this->AuthCode : null;
+        return $this->AuthCode ?? null;
     }
     /**
      * Set AuthCode value
@@ -86,7 +87,7 @@ class CheckTransferRequest extends BaseMethodRequest
      */
     public function getDomainName(): ?string
     {
-        return isset($this->DomainName) ? $this->DomainName : null;
+        return $this->DomainName ?? null;
     }
     /**
      * Set DomainName value

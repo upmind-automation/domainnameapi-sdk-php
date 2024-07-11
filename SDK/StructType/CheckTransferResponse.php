@@ -14,16 +14,9 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:CheckTransferResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CheckTransferResponse extends BaseMethodResponse
 {
-    /**
-     * The AdditionalAttributes
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring|null
-     */
-    protected ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $AdditionalAttributes = null;
     /**
      * The AuthCodeIsRequired
      * Meta information extracted from the WSDL
@@ -31,14 +24,6 @@ class CheckTransferResponse extends BaseMethodResponse
      * @var bool|null
      */
     protected ?bool $AuthCodeIsRequired = null;
-    /**
-     * The AuthCodeIsValid
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * - nillable: true
-     * @var string|null
-     */
-    protected ?string $AuthCodeIsValid = null;
     /**
      * The TransferAvailabilityStatus
      * Meta information extracted from the WSDL
@@ -61,6 +46,22 @@ class CheckTransferResponse extends BaseMethodResponse
      */
     protected ?bool $UserTransferRequired = null;
     /**
+     * The AdditionalAttributes
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring|null
+     */
+    protected ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $AdditionalAttributes = null;
+    /**
+     * The AuthCodeIsValid
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var string|null
+     */
+    protected ?string $AuthCodeIsValid = null;
+    /**
      * The CheckTransferResult
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -70,59 +71,31 @@ class CheckTransferResponse extends BaseMethodResponse
     protected ?\Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse $CheckTransferResult = null;
     /**
      * Constructor method for CheckTransferResponse
-     * @uses CheckTransferResponse::setAdditionalAttributes()
      * @uses CheckTransferResponse::setAuthCodeIsRequired()
-     * @uses CheckTransferResponse::setAuthCodeIsValid()
      * @uses CheckTransferResponse::setTransferAvailabilityStatus()
      * @uses CheckTransferResponse::setTransferLock()
      * @uses CheckTransferResponse::setUserTransferRequired()
+     * @uses CheckTransferResponse::setAdditionalAttributes()
+     * @uses CheckTransferResponse::setAuthCodeIsValid()
      * @uses CheckTransferResponse::setCheckTransferResult()
-     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
      * @param bool $authCodeIsRequired
-     * @param string $authCodeIsValid
      * @param bool $transferAvailabilityStatus
      * @param bool $transferLock
      * @param bool $userTransferRequired
+     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
+     * @param string $authCodeIsValid
      * @param \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse $checkTransferResult
      */
-    public function __construct(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null, ?bool $authCodeIsRequired = null, ?string $authCodeIsValid = null, ?bool $transferAvailabilityStatus = null, ?bool $transferLock = null, ?bool $userTransferRequired = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse $checkTransferResult = null)
+    public function __construct(?bool $authCodeIsRequired = null, ?bool $transferAvailabilityStatus = null, ?bool $transferLock = null, ?bool $userTransferRequired = null, ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null, ?string $authCodeIsValid = null, ?\Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse $checkTransferResult = null)
     {
         $this
-            ->setAdditionalAttributes($additionalAttributes)
             ->setAuthCodeIsRequired($authCodeIsRequired)
-            ->setAuthCodeIsValid($authCodeIsValid)
             ->setTransferAvailabilityStatus($transferAvailabilityStatus)
             ->setTransferLock($transferLock)
             ->setUserTransferRequired($userTransferRequired)
+            ->setAdditionalAttributes($additionalAttributes)
+            ->setAuthCodeIsValid($authCodeIsValid)
             ->setCheckTransferResult($checkTransferResult);
-    }
-    /**
-     * Get AdditionalAttributes value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring|null
-     */
-    public function getAdditionalAttributes(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring
-    {
-        return isset($this->AdditionalAttributes) ? $this->AdditionalAttributes : null;
-    }
-    /**
-     * Set AdditionalAttributes value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse
-     */
-    public function setAdditionalAttributes(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null): self
-    {
-        if (is_null($additionalAttributes) || (is_array($additionalAttributes) && empty($additionalAttributes))) {
-            unset($this->AdditionalAttributes);
-        } else {
-            $this->AdditionalAttributes = $additionalAttributes;
-        }
-        
-        return $this;
     }
     /**
      * Get AuthCodeIsRequired value
@@ -144,38 +117,6 @@ class CheckTransferResponse extends BaseMethodResponse
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($authCodeIsRequired, true), gettype($authCodeIsRequired)), __LINE__);
         }
         $this->AuthCodeIsRequired = $authCodeIsRequired;
-        
-        return $this;
-    }
-    /**
-     * Get AuthCodeIsValid value
-     * An additional test has been added (isset) before returning the property value as
-     * this property may have been unset before, due to the fact that this property is
-     * removable from the request (nillable=true+minOccurs=0)
-     * @return string|null
-     */
-    public function getAuthCodeIsValid(): ?string
-    {
-        return isset($this->AuthCodeIsValid) ? $this->AuthCodeIsValid : null;
-    }
-    /**
-     * Set AuthCodeIsValid value
-     * This property is removable from request (nillable=true+minOccurs=0), therefore
-     * if the value assigned to this property is null, it is removed from this object
-     * @param string $authCodeIsValid
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse
-     */
-    public function setAuthCodeIsValid(?string $authCodeIsValid = null): self
-    {
-        // validation for constraint: string
-        if (!is_null($authCodeIsValid) && !is_string($authCodeIsValid)) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($authCodeIsValid, true), gettype($authCodeIsValid)), __LINE__);
-        }
-        if (is_null($authCodeIsValid) || (is_array($authCodeIsValid) && empty($authCodeIsValid))) {
-            unset($this->AuthCodeIsValid);
-        } else {
-            $this->AuthCodeIsValid = $authCodeIsValid;
-        }
         
         return $this;
     }
@@ -249,6 +190,66 @@ class CheckTransferResponse extends BaseMethodResponse
         return $this;
     }
     /**
+     * Get AdditionalAttributes value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring|null
+     */
+    public function getAdditionalAttributes(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring
+    {
+        return $this->AdditionalAttributes ?? null;
+    }
+    /**
+     * Set AdditionalAttributes value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param \Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse
+     */
+    public function setAdditionalAttributes(?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfKeyValueOfstringstring $additionalAttributes = null): self
+    {
+        if (is_null($additionalAttributes) || (is_array($additionalAttributes) && empty($additionalAttributes))) {
+            unset($this->AdditionalAttributes);
+        } else {
+            $this->AdditionalAttributes = $additionalAttributes;
+        }
+        
+        return $this;
+    }
+    /**
+     * Get AuthCodeIsValid value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return string|null
+     */
+    public function getAuthCodeIsValid(): ?string
+    {
+        return $this->AuthCodeIsValid ?? null;
+    }
+    /**
+     * Set AuthCodeIsValid value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param string $authCodeIsValid
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse
+     */
+    public function setAuthCodeIsValid(?string $authCodeIsValid = null): self
+    {
+        // validation for constraint: string
+        if (!is_null($authCodeIsValid) && !is_string($authCodeIsValid)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($authCodeIsValid, true), gettype($authCodeIsValid)), __LINE__);
+        }
+        if (is_null($authCodeIsValid) || (is_array($authCodeIsValid) && empty($authCodeIsValid))) {
+            unset($this->AuthCodeIsValid);
+        } else {
+            $this->AuthCodeIsValid = $authCodeIsValid;
+        }
+        
+        return $this;
+    }
+    /**
      * Get CheckTransferResult value
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
@@ -257,7 +258,7 @@ class CheckTransferResponse extends BaseMethodResponse
      */
     public function getCheckTransferResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\CheckTransferResponse
     {
-        return isset($this->CheckTransferResult) ? $this->CheckTransferResult : null;
+        return $this->CheckTransferResult ?? null;
     }
     /**
      * Set CheckTransferResult value

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for Delete StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class Delete extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class Delete extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\DeleteRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

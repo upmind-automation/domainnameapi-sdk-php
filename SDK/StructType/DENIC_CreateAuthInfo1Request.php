@@ -14,8 +14,16 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:DENIC_CreateAuthInfo1Request
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DENIC_CreateAuthInfo1Request extends BaseMethodRequest
 {
+    /**
+     * The Id
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var int|null
+     */
+    protected ?int $Id = null;
     /**
      * The AuthCode
      * Meta information extracted from the WSDL
@@ -33,27 +41,43 @@ class DENIC_CreateAuthInfo1Request extends BaseMethodRequest
      */
     protected ?string $AuthInfo1ExpirationDate = null;
     /**
-     * The Id
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var int|null
-     */
-    protected ?int $Id = null;
-    /**
      * Constructor method for DENIC_CreateAuthInfo1Request
+     * @uses DENIC_CreateAuthInfo1Request::setId()
      * @uses DENIC_CreateAuthInfo1Request::setAuthCode()
      * @uses DENIC_CreateAuthInfo1Request::setAuthInfo1ExpirationDate()
-     * @uses DENIC_CreateAuthInfo1Request::setId()
+     * @param int $id
      * @param string $authCode
      * @param string $authInfo1ExpirationDate
-     * @param int $id
      */
-    public function __construct(?string $authCode = null, ?string $authInfo1ExpirationDate = null, ?int $id = null)
+    public function __construct(?int $id = null, ?string $authCode = null, ?string $authInfo1ExpirationDate = null)
     {
         $this
+            ->setId($id)
             ->setAuthCode($authCode)
-            ->setAuthInfo1ExpirationDate($authInfo1ExpirationDate)
-            ->setId($id);
+            ->setAuthInfo1ExpirationDate($authInfo1ExpirationDate);
+    }
+    /**
+     * Get Id value
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->Id;
+    }
+    /**
+     * Set Id value
+     * @param int $id
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Request
+     */
+    public function setId(?int $id = null): self
+    {
+        // validation for constraint: int
+        if (!is_null($id) && !(is_int($id) || ctype_digit($id))) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($id, true), gettype($id)), __LINE__);
+        }
+        $this->Id = $id;
+        
+        return $this;
     }
     /**
      * Get AuthCode value
@@ -64,7 +88,7 @@ class DENIC_CreateAuthInfo1Request extends BaseMethodRequest
      */
     public function getAuthCode(): ?string
     {
-        return isset($this->AuthCode) ? $this->AuthCode : null;
+        return $this->AuthCode ?? null;
     }
     /**
      * Set AuthCode value
@@ -96,7 +120,7 @@ class DENIC_CreateAuthInfo1Request extends BaseMethodRequest
      */
     public function getAuthInfo1ExpirationDate(): ?string
     {
-        return isset($this->AuthInfo1ExpirationDate) ? $this->AuthInfo1ExpirationDate : null;
+        return $this->AuthInfo1ExpirationDate ?? null;
     }
     /**
      * Set AuthInfo1ExpirationDate value
@@ -116,29 +140,6 @@ class DENIC_CreateAuthInfo1Request extends BaseMethodRequest
         } else {
             $this->AuthInfo1ExpirationDate = $authInfo1ExpirationDate;
         }
-        
-        return $this;
-    }
-    /**
-     * Get Id value
-     * @return int|null
-     */
-    public function getId(): ?int
-    {
-        return $this->Id;
-    }
-    /**
-     * Set Id value
-     * @param int $id
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\DENIC_CreateAuthInfo1Request
-     */
-    public function setId(?int $id = null): self
-    {
-        // validation for constraint: int
-        if (!is_null($id) && !(is_int($id) || ctype_digit($id))) {
-            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($id, true), gettype($id)), __LINE__);
-        }
-        $this->Id = $id;
         
         return $this;
     }

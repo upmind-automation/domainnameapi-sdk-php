@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCurrentBalance StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCurrentBalance extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class GetCurrentBalance extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\GetCurrentBalanceRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

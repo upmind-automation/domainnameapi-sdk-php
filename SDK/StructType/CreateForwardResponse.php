@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for CreateForwardResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CreateForwardResponse extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class CreateForwardResponse extends AbstractStructBase
      */
     public function getCreateForwardResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ForwardResponse
     {
-        return isset($this->CreateForwardResult) ? $this->CreateForwardResult : null;
+        return $this->CreateForwardResult ?? null;
     }
     /**
      * Set CreateForwardResult value

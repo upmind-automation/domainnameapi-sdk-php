@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:SaveContactsResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveContactsResponse extends BaseMethodResponse
 {
     /**
@@ -175,7 +176,7 @@ class SaveContactsResponse extends BaseMethodResponse
      */
     public function getSaveContactsResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\SaveContactsResponse
     {
-        return isset($this->SaveContactsResult) ? $this->SaveContactsResult : null;
+        return $this->SaveContactsResult ?? null;
     }
     /**
      * Set SaveContactsResult value

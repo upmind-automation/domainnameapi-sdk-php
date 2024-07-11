@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ModifyStatusResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyStatusResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class ModifyStatusResponse extends BaseMethodResponse
      */
     public function getModifyStatusResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyStatusResponse
     {
-        return isset($this->ModifyStatusResult) ? $this->ModifyStatusResult : null;
+        return $this->ModifyStatusResult ?? null;
     }
     /**
      * Set ModifyStatusResult value

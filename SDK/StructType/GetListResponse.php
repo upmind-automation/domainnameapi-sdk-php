@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:GetListResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetListResponse extends BasePagedMethodResponse
 {
     /**
@@ -54,7 +55,7 @@ class GetListResponse extends BasePagedMethodResponse
      */
     public function getDomainInfoList(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfDomainInfo
     {
-        return isset($this->DomainInfoList) ? $this->DomainInfoList : null;
+        return $this->DomainInfoList ?? null;
     }
     /**
      * Set DomainInfoList value
@@ -82,7 +83,7 @@ class GetListResponse extends BasePagedMethodResponse
      */
     public function getGetListResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\GetListResponse
     {
-        return isset($this->GetListResult) ? $this->GetListResult : null;
+        return $this->GetListResult ?? null;
     }
     /**
      * Set GetListResult value

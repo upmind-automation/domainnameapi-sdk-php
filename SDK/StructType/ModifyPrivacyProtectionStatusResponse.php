@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:ModifyPrivacyProtectionStatusResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyPrivacyProtectionStatusResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class ModifyPrivacyProtectionStatusResponse extends BaseMethodResponse
      */
     public function getModifyPrivacyProtectionStatusResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyPrivacyProtectionStatusResponse
     {
-        return isset($this->ModifyPrivacyProtectionStatusResult) ? $this->ModifyPrivacyProtectionStatusResult : null;
+        return $this->ModifyPrivacyProtectionStatusResult ?? null;
     }
     /**
      * Set ModifyPrivacyProtectionStatusResult value

@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:BaseData
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class BaseData extends AbstractStructBase
 {
     /**
@@ -76,7 +77,7 @@ class BaseData extends AbstractStructBase
      */
     public function getStatus(): ?string
     {
-        return isset($this->Status) ? $this->Status : null;
+        return $this->Status ?? null;
     }
     /**
      * Set Status value

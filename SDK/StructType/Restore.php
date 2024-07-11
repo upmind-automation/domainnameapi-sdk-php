@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for Restore StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class Restore extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class Restore extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\RestoreRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

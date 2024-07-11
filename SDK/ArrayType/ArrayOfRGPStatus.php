@@ -22,7 +22,7 @@ class ArrayOfRGPStatus extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\RGPStatus[]
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\RGPStatus[]|null
      */
     protected ?array $RGPStatus = null;
     /**
@@ -40,19 +40,20 @@ class ArrayOfRGPStatus extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RGPStatus[]
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\RGPStatus[]|null
      */
     public function getRGPStatus(): ?array
     {
-        return isset($this->RGPStatus) ? $this->RGPStatus : null;
+        return $this->RGPStatus ?? null;
     }
     /**
-     * This method is responsible for validating the values passed to the setRGPStatus method
+     * This method is responsible for validating the value(s) passed to the setRGPStatus method
      * This method is willingly generated in order to preserve the one-line inline validation within the setRGPStatus method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateRGPStatusForArrayConstraintsFromSetRGPStatus(?array $values = []): string
+    public static function validateRGPStatusForArrayConstraintFromSetRGPStatus(?array $values = []): string
     {
         if (!is_array($values)) {
             return '';
@@ -83,7 +84,7 @@ class ArrayOfRGPStatus extends AbstractStructArrayBase
     public function setRGPStatus(?array $rGPStatus = null): self
     {
         // validation for constraint: array
-        if ('' !== ($rGPStatusArrayErrorMessage = self::validateRGPStatusForArrayConstraintsFromSetRGPStatus($rGPStatus))) {
+        if ('' !== ($rGPStatusArrayErrorMessage = self::validateRGPStatusForArrayConstraintFromSetRGPStatus($rGPStatus))) {
             throw new InvalidArgumentException($rGPStatusArrayErrorMessage, __LINE__);
         }
         if (is_null($rGPStatus) || (is_array($rGPStatus) && empty($rGPStatus))) {

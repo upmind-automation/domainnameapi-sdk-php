@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ModifyForward StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyForward extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class ModifyForward extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ForwardRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

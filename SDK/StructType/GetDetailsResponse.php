@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:GetDetailsResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetDetailsResponse extends BaseMethodResponse
 {
     /**
@@ -54,7 +55,7 @@ class GetDetailsResponse extends BaseMethodResponse
      */
     public function getDomainInfo(): ?\Upmind\DomainNameApiSdk\SDK\StructType\DomainInfo
     {
-        return isset($this->DomainInfo) ? $this->DomainInfo : null;
+        return $this->DomainInfo ?? null;
     }
     /**
      * Set DomainInfo value
@@ -82,7 +83,7 @@ class GetDetailsResponse extends BaseMethodResponse
      */
     public function getGetDetailsResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\GetDetailsResponse
     {
-        return isset($this->GetDetailsResult) ? $this->GetDetailsResult : null;
+        return $this->GetDetailsResult ?? null;
     }
     /**
      * Set GetDetailsResult value

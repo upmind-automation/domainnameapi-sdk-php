@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:PreRegistirationResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class PreRegistirationResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class PreRegistirationResponse extends BaseMethodResponse
      */
     public function getPreRegistirationResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\PreRegistirationResponse
     {
-        return isset($this->PreRegistirationResult) ? $this->PreRegistirationResult : null;
+        return $this->PreRegistirationResult ?? null;
     }
     /**
      * Set PreRegistirationResult value

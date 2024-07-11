@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ModifyStatus StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyStatus extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class ModifyStatus extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ModifyStatusRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

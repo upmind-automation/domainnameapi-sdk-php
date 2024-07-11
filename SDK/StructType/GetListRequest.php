@@ -14,8 +14,16 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:GetListRequest
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetListRequest extends BasePagedMethodRequest
 {
+    /**
+     * The OrderColumn
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var string|null
+     */
+    protected ?string $OrderColumn = null;
     /**
      * The DomainName
      * Meta information extracted from the WSDL
@@ -49,13 +57,6 @@ class GetListRequest extends BasePagedMethodRequest
      */
     protected ?string $ExpirationDateStart = null;
     /**
-     * The OrderColumn
-     * Meta information extracted from the WSDL
-     * - minOccurs: 0
-     * @var string|null
-     */
-    protected ?string $OrderColumn = null;
-    /**
      * The StartDateEnd
      * Meta information extracted from the WSDL
      * - minOccurs: 0
@@ -73,31 +74,57 @@ class GetListRequest extends BasePagedMethodRequest
     protected ?string $StartDateStart = null;
     /**
      * Constructor method for GetListRequest
+     * @uses GetListRequest::setOrderColumn()
      * @uses GetListRequest::setDomainName()
      * @uses GetListRequest::setDomainStatus()
      * @uses GetListRequest::setExpirationDateEnd()
      * @uses GetListRequest::setExpirationDateStart()
-     * @uses GetListRequest::setOrderColumn()
      * @uses GetListRequest::setStartDateEnd()
      * @uses GetListRequest::setStartDateStart()
+     * @param string $orderColumn
      * @param string $domainName
      * @param string $domainStatus
      * @param string $expirationDateEnd
      * @param string $expirationDateStart
-     * @param string $orderColumn
      * @param string $startDateEnd
      * @param string $startDateStart
      */
-    public function __construct(?string $domainName = null, ?string $domainStatus = null, ?string $expirationDateEnd = null, ?string $expirationDateStart = null, ?string $orderColumn = null, ?string $startDateEnd = null, ?string $startDateStart = null)
+    public function __construct(?string $orderColumn = null, ?string $domainName = null, ?string $domainStatus = null, ?string $expirationDateEnd = null, ?string $expirationDateStart = null, ?string $startDateEnd = null, ?string $startDateStart = null)
     {
         $this
+            ->setOrderColumn($orderColumn)
             ->setDomainName($domainName)
             ->setDomainStatus($domainStatus)
             ->setExpirationDateEnd($expirationDateEnd)
             ->setExpirationDateStart($expirationDateStart)
-            ->setOrderColumn($orderColumn)
             ->setStartDateEnd($startDateEnd)
             ->setStartDateStart($startDateStart);
+    }
+    /**
+     * Get OrderColumn value
+     * @return string|null
+     */
+    public function getOrderColumn(): ?string
+    {
+        return $this->OrderColumn;
+    }
+    /**
+     * Set OrderColumn value
+     * @uses \Upmind\DomainNameApiSdk\SDK\EnumType\GetDomainListOrderColumn::valueIsValid()
+     * @uses \Upmind\DomainNameApiSdk\SDK\EnumType\GetDomainListOrderColumn::getValidValues()
+     * @throws InvalidArgumentException
+     * @param string $orderColumn
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetListRequest
+     */
+    public function setOrderColumn(?string $orderColumn = null): self
+    {
+        // validation for constraint: enumeration
+        if (!\Upmind\DomainNameApiSdk\SDK\EnumType\GetDomainListOrderColumn::valueIsValid($orderColumn)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Upmind\DomainNameApiSdk\SDK\EnumType\GetDomainListOrderColumn', is_array($orderColumn) ? implode(', ', $orderColumn) : var_export($orderColumn, true), implode(', ', \Upmind\DomainNameApiSdk\SDK\EnumType\GetDomainListOrderColumn::getValidValues())), __LINE__);
+        }
+        $this->OrderColumn = $orderColumn;
+        
+        return $this;
     }
     /**
      * Get DomainName value
@@ -108,7 +135,7 @@ class GetListRequest extends BasePagedMethodRequest
      */
     public function getDomainName(): ?string
     {
-        return isset($this->DomainName) ? $this->DomainName : null;
+        return $this->DomainName ?? null;
     }
     /**
      * Set DomainName value
@@ -140,7 +167,7 @@ class GetListRequest extends BasePagedMethodRequest
      */
     public function getDomainStatus(): ?string
     {
-        return isset($this->DomainStatus) ? $this->DomainStatus : null;
+        return $this->DomainStatus ?? null;
     }
     /**
      * Set DomainStatus value
@@ -172,7 +199,7 @@ class GetListRequest extends BasePagedMethodRequest
      */
     public function getExpirationDateEnd(): ?string
     {
-        return isset($this->ExpirationDateEnd) ? $this->ExpirationDateEnd : null;
+        return $this->ExpirationDateEnd ?? null;
     }
     /**
      * Set ExpirationDateEnd value
@@ -204,7 +231,7 @@ class GetListRequest extends BasePagedMethodRequest
      */
     public function getExpirationDateStart(): ?string
     {
-        return isset($this->ExpirationDateStart) ? $this->ExpirationDateStart : null;
+        return $this->ExpirationDateStart ?? null;
     }
     /**
      * Set ExpirationDateStart value
@@ -228,32 +255,6 @@ class GetListRequest extends BasePagedMethodRequest
         return $this;
     }
     /**
-     * Get OrderColumn value
-     * @return string|null
-     */
-    public function getOrderColumn(): ?string
-    {
-        return $this->OrderColumn;
-    }
-    /**
-     * Set OrderColumn value
-     * @uses \Upmind\DomainNameApiSdk\SDK\EnumType\GetDomainListOrderColumn::valueIsValid()
-     * @uses \Upmind\DomainNameApiSdk\SDK\EnumType\GetDomainListOrderColumn::getValidValues()
-     * @throws InvalidArgumentException
-     * @param string $orderColumn
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\GetListRequest
-     */
-    public function setOrderColumn(?string $orderColumn = null): self
-    {
-        // validation for constraint: enumeration
-        if (!\Upmind\DomainNameApiSdk\SDK\EnumType\GetDomainListOrderColumn::valueIsValid($orderColumn)) {
-            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Upmind\DomainNameApiSdk\SDK\EnumType\GetDomainListOrderColumn', is_array($orderColumn) ? implode(', ', $orderColumn) : var_export($orderColumn, true), implode(', ', \Upmind\DomainNameApiSdk\SDK\EnumType\GetDomainListOrderColumn::getValidValues())), __LINE__);
-        }
-        $this->OrderColumn = $orderColumn;
-        
-        return $this;
-    }
-    /**
      * Get StartDateEnd value
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
@@ -262,7 +263,7 @@ class GetListRequest extends BasePagedMethodRequest
      */
     public function getStartDateEnd(): ?string
     {
-        return isset($this->StartDateEnd) ? $this->StartDateEnd : null;
+        return $this->StartDateEnd ?? null;
     }
     /**
      * Set StartDateEnd value
@@ -294,7 +295,7 @@ class GetListRequest extends BasePagedMethodRequest
      */
     public function getStartDateStart(): ?string
     {
-        return isset($this->StartDateStart) ? $this->StartDateStart : null;
+        return $this->StartDateStart ?? null;
     }
     /**
      * Set StartDateStart value

@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:GetChildNameServersResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetChildNameServersResponse extends BaseMethodResponse
 {
     /**
@@ -54,7 +55,7 @@ class GetChildNameServersResponse extends BaseMethodResponse
      */
     public function getChildNameServerInfoList(): ?\Upmind\DomainNameApiSdk\SDK\ArrayType\ArrayOfChildNameServerInfo
     {
-        return isset($this->ChildNameServerInfoList) ? $this->ChildNameServerInfoList : null;
+        return $this->ChildNameServerInfoList ?? null;
     }
     /**
      * Set ChildNameServerInfoList value
@@ -82,7 +83,7 @@ class GetChildNameServersResponse extends BaseMethodResponse
      */
     public function getGetChildNameServersResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\GetChildNameServersResponse
     {
-        return isset($this->GetChildNameServersResult) ? $this->GetChildNameServersResult : null;
+        return $this->GetChildNameServersResult ?? null;
     }
     /**
      * Set GetChildNameServersResult value

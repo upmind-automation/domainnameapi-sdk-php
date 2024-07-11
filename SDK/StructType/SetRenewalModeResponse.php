@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:SetRenewalModeResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SetRenewalModeResponse extends BaseMethodResponse
 {
     /**
@@ -43,7 +44,7 @@ class SetRenewalModeResponse extends BaseMethodResponse
      */
     public function getSetRenewalModeResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\SetRenewalModeResponse
     {
-        return isset($this->SetRenewalModeResult) ? $this->SetRenewalModeResult : null;
+        return $this->SetRenewalModeResult ?? null;
     }
     /**
      * Set SetRenewalModeResult value

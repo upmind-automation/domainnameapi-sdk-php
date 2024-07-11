@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - type: tns:GetContactsResponse
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetContactsResponse extends BaseMethodResponse
 {
     /**
@@ -87,7 +88,7 @@ class GetContactsResponse extends BaseMethodResponse
      */
     public function getAdministrativeContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
     {
-        return isset($this->AdministrativeContact) ? $this->AdministrativeContact : null;
+        return $this->AdministrativeContact ?? null;
     }
     /**
      * Set AdministrativeContact value
@@ -115,7 +116,7 @@ class GetContactsResponse extends BaseMethodResponse
      */
     public function getBillingContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
     {
-        return isset($this->BillingContact) ? $this->BillingContact : null;
+        return $this->BillingContact ?? null;
     }
     /**
      * Set BillingContact value
@@ -143,7 +144,7 @@ class GetContactsResponse extends BaseMethodResponse
      */
     public function getRegistrantContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
     {
-        return isset($this->RegistrantContact) ? $this->RegistrantContact : null;
+        return $this->RegistrantContact ?? null;
     }
     /**
      * Set RegistrantContact value
@@ -171,7 +172,7 @@ class GetContactsResponse extends BaseMethodResponse
      */
     public function getTechnicalContact(): ?\Upmind\DomainNameApiSdk\SDK\StructType\ContactInfo
     {
-        return isset($this->TechnicalContact) ? $this->TechnicalContact : null;
+        return $this->TechnicalContact ?? null;
     }
     /**
      * Set TechnicalContact value
@@ -199,7 +200,7 @@ class GetContactsResponse extends BaseMethodResponse
      */
     public function getGetContactsResult(): ?\Upmind\DomainNameApiSdk\SDK\StructType\GetContactsResponse
     {
-        return isset($this->GetContactsResult) ? $this->GetContactsResult : null;
+        return $this->GetContactsResult ?? null;
     }
     /**
      * Set GetContactsResult value

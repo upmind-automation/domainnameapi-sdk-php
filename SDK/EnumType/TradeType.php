@@ -56,6 +56,16 @@ class TradeType extends AbstractStructEnumBase
      */
     const VALUE_PAY_RENEWAL = 'PayRenewal';
     /**
+     * Constant for value 'BackOrder'
+     * @return string 'BackOrder'
+     */
+    const VALUE_BACK_ORDER = 'BackOrder';
+    /**
+     * Constant for value 'Refund'
+     * @return string 'Refund'
+     */
+    const VALUE_REFUND = 'Refund';
+    /**
      * Constant for value 'PreRegistration'
      * @return string 'PreRegistration'
      */
@@ -70,6 +80,8 @@ class TradeType extends AbstractStructEnumBase
      * @uses self::VALUE_TRADE
      * @uses self::VALUE_ADDITIONAL_LICENCE
      * @uses self::VALUE_PAY_RENEWAL
+     * @uses self::VALUE_BACK_ORDER
+     * @uses self::VALUE_REFUND
      * @uses self::VALUE_PRE_REGISTRATION
      * @return string[]
      */
@@ -84,6 +96,8 @@ class TradeType extends AbstractStructEnumBase
             self::VALUE_TRADE,
             self::VALUE_ADDITIONAL_LICENCE,
             self::VALUE_PAY_RENEWAL,
+            self::VALUE_BACK_ORDER,
+            self::VALUE_REFUND,
             self::VALUE_PRE_REGISTRATION,
         ];
     }

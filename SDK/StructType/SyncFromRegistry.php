@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SyncFromRegistry StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SyncFromRegistry extends AbstractStructBase
 {
     /**
@@ -40,7 +41,7 @@ class SyncFromRegistry extends AbstractStructBase
      */
     public function getRequest(): ?\Upmind\DomainNameApiSdk\SDK\StructType\SyncFromRegistryRequest
     {
-        return isset($this->request) ? $this->request : null;
+        return $this->request ?? null;
     }
     /**
      * Set request value

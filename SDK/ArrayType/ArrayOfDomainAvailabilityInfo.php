@@ -22,7 +22,7 @@ class ArrayOfDomainAvailabilityInfo extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
-     * @var \Upmind\DomainNameApiSdk\SDK\StructType\DomainAvailabilityInfo[]
+     * @var \Upmind\DomainNameApiSdk\SDK\StructType\DomainAvailabilityInfo[]|null
      */
     protected ?array $DomainAvailabilityInfo = null;
     /**
@@ -40,19 +40,20 @@ class ArrayOfDomainAvailabilityInfo extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Upmind\DomainNameApiSdk\SDK\StructType\DomainAvailabilityInfo[]
+     * @return \Upmind\DomainNameApiSdk\SDK\StructType\DomainAvailabilityInfo[]|null
      */
     public function getDomainAvailabilityInfo(): ?array
     {
-        return isset($this->DomainAvailabilityInfo) ? $this->DomainAvailabilityInfo : null;
+        return $this->DomainAvailabilityInfo ?? null;
     }
     /**
-     * This method is responsible for validating the values passed to the setDomainAvailabilityInfo method
+     * This method is responsible for validating the value(s) passed to the setDomainAvailabilityInfo method
      * This method is willingly generated in order to preserve the one-line inline validation within the setDomainAvailabilityInfo method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateDomainAvailabilityInfoForArrayConstraintsFromSetDomainAvailabilityInfo(?array $values = []): string
+    public static function validateDomainAvailabilityInfoForArrayConstraintFromSetDomainAvailabilityInfo(?array $values = []): string
     {
         if (!is_array($values)) {
             return '';
@@ -83,7 +84,7 @@ class ArrayOfDomainAvailabilityInfo extends AbstractStructArrayBase
     public function setDomainAvailabilityInfo(?array $domainAvailabilityInfo = null): self
     {
         // validation for constraint: array
-        if ('' !== ($domainAvailabilityInfoArrayErrorMessage = self::validateDomainAvailabilityInfoForArrayConstraintsFromSetDomainAvailabilityInfo($domainAvailabilityInfo))) {
+        if ('' !== ($domainAvailabilityInfoArrayErrorMessage = self::validateDomainAvailabilityInfoForArrayConstraintFromSetDomainAvailabilityInfo($domainAvailabilityInfo))) {
             throw new InvalidArgumentException($domainAvailabilityInfoArrayErrorMessage, __LINE__);
         }
         if (is_null($domainAvailabilityInfo) || (is_array($domainAvailabilityInfo) && empty($domainAvailabilityInfo))) {
